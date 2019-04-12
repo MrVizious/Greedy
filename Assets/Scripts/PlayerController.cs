@@ -18,7 +18,7 @@ public class PlayerController : Movimiento
         int sentidoVertical = (int) Input.GetAxis("Vertical");
         if (sentidoHorizontal !=0)
         {
-            if (sentidoHorizontal > 0)
+            if (sentidoHorizontal < 0)
             {
                 direccion = Vector2.left;
             }
