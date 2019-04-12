@@ -4,66 +4,43 @@ using UnityEngine;
 
 public class PlayerController : Movimiento
 {
-    int dañoAcumulado;
-    int caloriasAcumuladas;
-    int caloriasParaReducir = 100;
-    int reducirPorCalorias = 10;
-    
-    void Start () {
-        daño = 0;
-        calorias = 0;
-    }
-    
+    // Update is called once per frame
     void Update()
     {
         GetInput();
 
         base.Update();
     }
-    
-    private void recibirDaño(int daño) {
-       dañoAcumulado =+ daño;
-       if (dañoAcumulado >= 100) morir();
-    }
-    
-    private void aumentarCalorias(int calorias) {
-        caloriasAcumuladas =+ calorias;
-    }
-    
-    private void reducirDaño() {
-        if(caloriasAcumuladas >= caloriasParaReducir) {
-            dañoAcumulado =- reducirPorCalorias;
-            if(dañoAcumulado < 0) dañoAcumulado = 0;
-            caloriasAcumuladas =- caloriasParaReducir;
-            }
-            
-    }
-       
-        
 
     private void GetInput() {
         direccion = Vector2.zero;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        int sentidoHorizontal = (int) Input.GetAxis("Horizontal");
+        int sentidoVertical = (int) Input.GetAxis("Vertical");
+        if (sentidoHorizontal !=0)
         {
-            if (Input.GetKey(KeyCode.A))
+            if (sentidoHorizontal > 0)
             {
-                direccion += Vector2.left;
+                direccion = Vector2.left;
             }
-            if (Input.GetKey(KeyCode.D))
+            else
             {
-                direccion += Vector2.right;
+                direccion = Vector2.right;
             }
         }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W))
+        else if (sentidoVertical != 0)
         {
-            if (Input.GetKey(KeyCode.S))
+            if (sentidoVertical < 0)
             {
-                direccion += Vector2.down;
+                direccion = Vector2.down;
             }
-            if (Input.GetKey(KeyCode.W))
+            else
             {
-                direccion += Vector2.up;
+                direccion = Vector2.up;
             }
         }
+
+
     }
+
+    
 }

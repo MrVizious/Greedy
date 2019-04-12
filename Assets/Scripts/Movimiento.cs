@@ -21,6 +21,19 @@ public abstract class Movimiento : MonoBehaviour
     }
 
     public void Move() {
-        transform.Translate(direccion * runSpeed * Time.deltaTime);
+        if (puedeAvanzar(direccion)) {
+            transform.Translate(direccion * runSpeed * Time.deltaTime);
+        }
+        
+    }
+
+    bool puedeAvanzar(Vector2 direccion)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 1.2f);
+        if (hit.collider.tag.Equals("Obstaculo")) {
+            return false;
+        }
+        return true;
+
     }
 }
