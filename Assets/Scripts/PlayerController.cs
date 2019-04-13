@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Movimiento
 {
@@ -31,7 +32,7 @@ public class PlayerController : Movimiento
 
     private void recibirDaño(int daño) {
        dañoAcumulado =+ daño;
-       if (dañoAcumulado >= 100) morir();
+       if (dañoAcumulado >= 100) PlayerStats.restarVida();
     }
 
     private void aumentarCalorias(int calorias) {
@@ -55,6 +56,10 @@ public class PlayerController : Movimiento
         if(colisionador.tag == "fruta" && Input.GetKey(KeyCode.Space)) {
             colisionador.GameObject.desaparecer();
         }
+    }
+
+    public void morir() {
+        SceneManager.LoadScene("SampleScene");
     }
 
     private void GetInput() {
