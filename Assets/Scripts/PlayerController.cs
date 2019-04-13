@@ -4,12 +4,46 @@ using UnityEngine;
 
 public class PlayerController : Movimiento
 {
+
+    int dañoAcumulado;
+    int caloriasAcumuladas;
+    int caloriasParaReducir = 100;
+    int reducccionPorCalorias = 10;
+
+    void Start () {
+        daño = 0;
+        calorias = 0;
+    }
+
+
     // Update is called once per frame
     void Update()
     {
         GetInput();
 
         base.Update();
+    }
+
+    private void recibirDaño(int daño) {
+       dañoAcumulado =+ daño;
+       if (dañoAcumulado >= 100) morir();
+    }
+
+    private void aumentarCalorias(int calorias) {
+        caloriasAcumuladas =+ calorias;
+    }
+
+    private void reducirDaño() {
+        if(caloriasAcumuladas >= caloriasParaReducir) {
+            dañoAcumulado =- reduccionPorCalorias;
+            if(dañoAcumulado < 0) dañoAcumulado = 0;
+            caloriasAcumuladas =- caloriasParaReducir;
+            }
+
+    }
+
+    public void restablecerACero() {
+        dañoAcumulado = 0;
     }
 
     private void GetInput() {
