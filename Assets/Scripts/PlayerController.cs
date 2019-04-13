@@ -8,13 +8,18 @@ public class PlayerController : Movimiento
     int dañoAcumulado;
     int caloriasAcumuladas;
     int caloriasParaReducir = 100;
-    int reducccionPorCalorias = 10;
+    int reduccionPorCalorias = 10;
+    CircleCollider2D colisionadorPlayer;
 
     void Start () {
-        daño = 0;
-        calorias = 0;
+        dañoAcumulado = 0;
+        caloriasAcumuladas = 0;
+        colisionadorPlayer = GetComponent<CircleCollider2D>();
     }
 
+    void FixedUpdate() {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,6 +49,12 @@ public class PlayerController : Movimiento
 
     public void restablecerACero() {
         dañoAcumulado = 0;
+    }
+
+    private void OnTriggerStay2D(Collider2D colisionador) {
+        if(colisionador.tag == "fruta" && Input.GetKey(KeyCode.Space)) {
+            colisionador.GameObject.desaparecer();
+        }
     }
 
     private void GetInput() {
