@@ -16,9 +16,6 @@ public class PlayerController : Movimiento
         caloriasAcumuladas = 0;
     }
 
-    void FixedUpdate() {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -31,7 +28,7 @@ public class PlayerController : Movimiento
     private void recibirDaño(int daño) {
        dañoAcumulado += daño;
        if (dañoAcumulado >= 100) PlayerStats.restarVida();
-    }
+    }*/
 
     private void aumentarCalorias(int calorias) {
         caloriasAcumuladas += calorias;
