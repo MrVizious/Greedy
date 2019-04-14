@@ -10328,7 +10328,7 @@ GameObject:
   - component: {fileID: 424896379}
   m_Layer: 0
   m_Name: Fruta3
-  m_TagString: Untagged
+  m_TagString: fruta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10405,7 +10405,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -10434,7 +10434,7 @@ GameObject:
   - component: {fileID: 763069303}
   m_Layer: 0
   m_Name: Fruta1
-  m_TagString: Untagged
+  m_TagString: fruta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10511,7 +10511,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -12309,7 +12309,7 @@ GameObject:
   - component: {fileID: 838641901}
   m_Layer: 0
   m_Name: Fruta2
-  m_TagString: Untagged
+  m_TagString: fruta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12386,7 +12386,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -12434,7 +12434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5414ea7fc76ab9a458368b6f879e99cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 0
+  runSpeed: 5
 --- !u!212 &914859505
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12547,7 +12547,7 @@ GameObject:
   - component: {fileID: 1012260644}
   m_Layer: 0
   m_Name: Fruta4
-  m_TagString: Untagged
+  m_TagString: fruta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12624,7 +12624,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -12653,7 +12653,7 @@ GameObject:
   - component: {fileID: 1280196343}
   m_Layer: 0
   m_Name: Fruta5
-  m_TagString: Untagged
+  m_TagString: fruta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12730,7 +12730,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
