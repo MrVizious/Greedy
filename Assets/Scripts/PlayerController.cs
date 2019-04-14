@@ -10,12 +10,10 @@ public class PlayerController : Movimiento
     int caloriasAcumuladas;
     int caloriasParaReducir = 100;
     int reduccionPorCalorias = 10;
-    CircleCollider2D colisionadorPlayer;
 
     void Start () {
         dañoAcumulado = 0;
         caloriasAcumuladas = 0;
-        colisionadorPlayer = GetComponent<CircleCollider2D>();
     }
 
     void FixedUpdate() {
@@ -31,19 +29,19 @@ public class PlayerController : Movimiento
     }
 
     private void recibirDaño(int daño) {
-       dañoAcumulado =+ daño;
+       dañoAcumulado += daño;
        if (dañoAcumulado >= 100) PlayerStats.restarVida();
     }
 
     private void aumentarCalorias(int calorias) {
-        caloriasAcumuladas =+ calorias;
+        caloriasAcumuladas += calorias;
     }
 
     private void reducirDaño() {
         if(caloriasAcumuladas >= caloriasParaReducir) {
-            dañoAcumulado =- reduccionPorCalorias;
+            dañoAcumulado -= reduccionPorCalorias;
             if(dañoAcumulado < 0) dañoAcumulado = 0;
-            caloriasAcumuladas =- caloriasParaReducir;
+            caloriasAcumuladas -= caloriasParaReducir;
             }
 
     }
@@ -54,7 +52,7 @@ public class PlayerController : Movimiento
 
     private void OnTriggerStay2D(Collider2D colisionador) {
         if(colisionador.tag == "fruta" && Input.GetKey(KeyCode.Space)) {
-            colisionador.GameObject.desaparecer();
+            colisionador.GetComponent<GameObject>().GetComponent<Fruta>().desaparecer();
         }
     }
 
