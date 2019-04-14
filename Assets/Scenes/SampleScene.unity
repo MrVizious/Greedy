@@ -10326,6 +10326,7 @@ GameObject:
   - component: {fileID: 424896377}
   - component: {fileID: 424896378}
   - component: {fileID: 424896379}
+  - component: {fileID: 424896380}
   m_Layer: 0
   m_Name: Fruta3
   m_TagString: fruta
@@ -10421,6 +10422,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.625}
   m_EdgeRadius: 0
+--- !u!114 &424896380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424896376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317b903d8c036e2439aacdf5cbbb46fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &763069300
 GameObject:
   m_ObjectHideFlags: 0
@@ -10432,6 +10445,7 @@ GameObject:
   - component: {fileID: 763069301}
   - component: {fileID: 763069302}
   - component: {fileID: 763069303}
+  - component: {fileID: 763069304}
   m_Layer: 0
   m_Name: Fruta1
   m_TagString: fruta
@@ -10527,6 +10541,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0625, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &763069304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763069300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317b903d8c036e2439aacdf5cbbb46fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &834550486
 GameObject:
   m_ObjectHideFlags: 0
@@ -12307,6 +12333,7 @@ GameObject:
   - component: {fileID: 838641899}
   - component: {fileID: 838641900}
   - component: {fileID: 838641901}
+  - component: {fileID: 838641902}
   m_Layer: 0
   m_Name: Fruta2
   m_TagString: fruta
@@ -12402,6 +12429,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.8125}
   m_EdgeRadius: 0
+--- !u!114 &838641902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838641898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317b903d8c036e2439aacdf5cbbb46fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &914859503
 GameObject:
   m_ObjectHideFlags: 0
@@ -12545,6 +12584,7 @@ GameObject:
   - component: {fileID: 1012260642}
   - component: {fileID: 1012260643}
   - component: {fileID: 1012260644}
+  - component: {fileID: 1012260645}
   m_Layer: 0
   m_Name: Fruta4
   m_TagString: fruta
@@ -12640,6 +12680,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &1012260645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012260641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317b903d8c036e2439aacdf5cbbb46fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1280196340
 GameObject:
   m_ObjectHideFlags: 0
@@ -12651,6 +12703,7 @@ GameObject:
   - component: {fileID: 1280196341}
   - component: {fileID: 1280196342}
   - component: {fileID: 1280196343}
+  - component: {fileID: 1280196344}
   m_Layer: 0
   m_Name: Fruta5
   m_TagString: fruta
@@ -12746,6 +12799,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0625, y: 1.3125}
   m_EdgeRadius: 0
+--- !u!114 &1280196344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280196340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317b903d8c036e2439aacdf5cbbb46fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1635472922
 GameObject:
   m_ObjectHideFlags: 0

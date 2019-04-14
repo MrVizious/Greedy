@@ -12,7 +12,6 @@ public class Fruta : MonoBehaviour
     void Start()
     {
         caloriasFruta = 10; //Por ejemplo
-        colisionadorFruta = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -21,9 +20,9 @@ public class Fruta : MonoBehaviour
         
     }
 
-      public void Desaparecer() {
+      public void Desaparecer(GameObject frutaQueDesaparece) {
         jugador.aumentarCalorias(caloriasFruta);
-        Destroy(this.gameObject);
+        Destroy(frutaQueDesaparece);
         
     }
 
