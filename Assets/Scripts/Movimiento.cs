@@ -5,7 +5,8 @@ using UnityEngine;
 public abstract class Movimiento : MonoBehaviour
 {
     [SerializeField] private float runSpeed;
-    protected Vector2 direccion;
+    protected Vector3 direccion;
+    protected RaycastHit2D hit;
 
     private void Start()
     {
@@ -15,22 +16,22 @@ public abstract class Movimiento : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
-        Move();
-    }
-
-    public void Move() {
-        if (puedeAvanzar(direccion)) {
-            transform.Translate(direccion * runSpeed * Time.deltaTime);
+        if (PuedeAvanzar(direccion))
+        {
+            Move();
         }
-        
     }
 
-    bool puedeAvanzar(Vector2 direccion)
+    public void Move() {       
+         transform.position = Vector3.MoveTowards(transform.position, direccion, Time.deltaTime * runSpeed);       
+    }
+
+    bool PuedeAvanzar(Vector3 direccion)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 1.2f);
-        if (hit.collider.tag.Equals("Obstaculo")) {
+        hit = Physics2D.Raycast(transform.position, direccion, 0.8f);
+        if (hit.collider.tag.Equals("obstaculo")) {
             return false;
         }
         return true;

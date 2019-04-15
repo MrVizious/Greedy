@@ -13,17 +13,18 @@ public class PlayerController : Movimiento
     Fruta frutaQueCome;
 
     void Start () {
+        direccion = transform.position;
         dañoAcumulado = 0;
         caloriasAcumuladas = 0;
     }
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         GetInput();
 
-        base.Update();
+        base.FixedUpdate();
     }
 
     /*private void recibirDaño(int daño) {
@@ -61,7 +62,7 @@ public class PlayerController : Movimiento
     }
 
     private void GetInput() {
-        direccion = Vector2.zero;
+        /*direccion = Vector2.zero;
         int sentidoHorizontal = (int) Input.GetAxis("Horizontal");
         int sentidoVertical = (int) Input.GetAxis("Vertical");
         if (sentidoHorizontal !=0)
@@ -85,6 +86,22 @@ public class PlayerController : Movimiento
             {
                 direccion = Vector2.up;
             }
+        }*/
+        if (Input.GetKeyDown(KeyCode.A) && transform.position == direccion)
+        {        // Left
+            direccion += Vector3.left;
+        }
+        if (Input.GetKeyDown(KeyCode.D) && transform.position == direccion)
+        {        // Right
+            direccion += Vector3.right;
+        }
+        if (Input.GetKeyDown(KeyCode.W) && transform.position == direccion)
+        {        // Up
+            direccion += Vector3.up;
+        }
+        if (Input.GetKeyDown(KeyCode.S) && transform.position == direccion)
+        {        // Down
+            direccion += Vector3.down;
         }
 
 
