@@ -11,6 +11,7 @@ public class PlayerController : Movimiento
     int caloriasParaReducir = 100;
     int reduccionPorCalorias = 10;
     Fruta frutaQueCome;
+    bool comer;
 
     void Start () {
         direccion = transform.position;
@@ -29,23 +30,24 @@ public class PlayerController : Movimiento
         else if (abajo && transform.position == direccion)
         {
             direccion = (Vector2) transform.position + Vector2.down;
-
         }
         else if (derecha && transform.position == direccion)
         {
             direccion = (Vector2) transform.position + Vector2.right;
-
         }
         else if (izquierda && transform.position == direccion)
         {
             direccion = (Vector2) transform.position + Vector2.left;
-
         }
+
         base.FixedUpdate();
+
         arriba = false;
         abajo = false;
         derecha = false;
         izquierda = false;
+
+        comer = false;
 
     }
 
@@ -66,7 +68,17 @@ public class PlayerController : Movimiento
         abajo = true;
     }
 
+    public void SetComerTrue() {
+        comer = true;
+    }
 
+    private void OnTriggerStay2D(Collider2D colisionador)
+    {
+        if (colisionador.tag == "fruta")
+        {
+            frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
+        }
+    }
     /*private void recibirDaño(int daño) {
        dañoAcumulado += daño;
        if (dañoAcumulado >= 100) PlayerStats.restarVida();
@@ -89,12 +101,7 @@ public class PlayerController : Movimiento
         dañoAcumulado = 0;
     }
 
-    private void OnTriggerStay2D(Collider2D colisionador) {
-        if(colisionador.tag == "fruta" && Input.GetKey(KeyCode.Space)) {
-            frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
-            frutaQueCome.Desaparecer();
-        }
-    }
+    
 
     public void morir() {
         SceneManager.LoadScene("SampleScene");
