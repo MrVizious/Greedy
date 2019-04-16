@@ -6,6 +6,8 @@ public abstract class Movimiento : MonoBehaviour
 {
     [SerializeField] private float runSpeed;
     protected Vector3 direccion;
+    protected bool arriba, abajo, derecha, izquierda;
+
     //protected RaycastHit2D hit;
 
     private void Start()
@@ -33,7 +35,7 @@ public abstract class Movimiento : MonoBehaviour
 
     bool PuedeAvanzar(Vector3 direccion)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, (Vector2) direccion, 0.8f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 0.8f);
         Debug.DrawRay(transform.position, direccion, Color.blue, 0.8f);
         if (hit.collider.tag == "obstaculo") return false;
         return true;

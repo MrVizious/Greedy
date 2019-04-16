@@ -22,17 +22,57 @@ public class PlayerController : Movimiento
     // Update is called once per frame
     void FixedUpdate()
     {
-        GetInput();
+        if (arriba && transform.position == direccion)
+        {
+            direccion = (Vector2) transform.position + Vector2.up;
+        }
+        else if (abajo && transform.position == direccion)
+        {
+            direccion = (Vector2) transform.position + Vector2.down;
 
+        }
+        else if (derecha && transform.position == direccion)
+        {
+            direccion = (Vector2) transform.position + Vector2.right;
+
+        }
+        else if (izquierda && transform.position == direccion)
+        {
+            direccion = (Vector2) transform.position + Vector2.left;
+
+        }
         base.FixedUpdate();
+        arriba = false;
+        abajo = false;
+        derecha = false;
+        izquierda = false;
+
     }
+
+
+    public void SetIzquierdaTrue() {
+        izquierda = true;
+    }
+    public void SetDerechaTrue()
+    {
+        derecha = true;
+    }
+    public void SetArribaTrue()
+    {
+        arriba = true;
+    }
+    public void SetAbajoTrue()
+    {
+        abajo = true;
+    }
+
 
     /*private void recibirDaño(int daño) {
        dañoAcumulado += daño;
        if (dañoAcumulado >= 100) PlayerStats.restarVida();
     }*/
 
-    public void aumentarCalorias(int calorias) {
+    /*public void aumentarCalorias(int calorias) {
         caloriasAcumuladas += calorias;
     }
 
@@ -58,28 +98,7 @@ public class PlayerController : Movimiento
 
     public void morir() {
         SceneManager.LoadScene("SampleScene");
-    }
-
-    private void GetInput() {
-        if (Input.GetKeyDown(KeyCode.A) && transform.position == direccion)
-        {        // Left
-            direccion = (Vector2) transform.position + Vector2.left;
-        }
-        if (Input.GetKeyDown(KeyCode.D) && transform.position == direccion)
-        {        // Right
-            direccion = (Vector2)transform.position + Vector2.right;
-        }
-        if (Input.GetKeyDown(KeyCode.W) && transform.position == direccion)
-        {        // Up
-            direccion = (Vector2)transform.position + Vector2.up;
-        }
-        if (Input.GetKeyDown(KeyCode.S) && transform.position == direccion)
-        {        // Down
-            direccion = (Vector2)transform.position + Vector2.down;
-        }
+    }*/
 
 
-    }
-
-    
 }
