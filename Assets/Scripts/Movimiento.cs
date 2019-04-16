@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Movimiento : MonoBehaviour
+public class Movimiento : MonoBehaviour
 {
     [SerializeField] private float runSpeed;
     protected Vector3 posicionObjetivo;
     protected Vector3 direccion;
     protected bool arriba, abajo, derecha, izquierda;
+    protected Vector3 direccionGuardian;
 
     //protected RaycastHit2D hit;
 
@@ -35,11 +36,20 @@ public abstract class Movimiento : MonoBehaviour
               
     }
 
+    public void Move(Vector3 direccionG) {
+        transform.position = Vector3.MoveTowards(transform.position, direccionG, Time.deltaTime * runSpeed);
+    }
+
     bool PuedeAvanzar(Vector3 direccion)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 0.1f);
-        Debug.DrawRay(transform.position, direccion, Color.blue, 0.1f);
-        if (hit.collider.tag == "obstaculo") return false;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 0.6f);
+        Debug.DrawRay(transform.position, direccion, Color.blue, 0.6f);
+        if (hit.collider != null) {
+            if (hit.collider.tag == "obstaculo") {
+                Debug.Log(hit.collider.tag);
+                return false;
+            }
+        } 
         return true;
 
     }
