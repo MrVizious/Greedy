@@ -20,9 +20,10 @@ public class Fruta : MonoBehaviour
         
     }
 
-      public void Desaparecer(GameObject frutaQueDesaparece) {
+      public void Desaparecer() {
+        //TODO: llamar a metodo RestarFruta de LevelController para saber cuando acaba un nivel
         jugador.aumentarCalorias(caloriasFruta);
-        Destroy(frutaQueDesaparece);
+        Destroy(this.gameObject);
         
     }
 

@@ -45,15 +45,14 @@ public class PlayerController : Movimiento
 
     }
 
-    public void restablecerACero() {
+    public void RestablecerACero() {
         dañoAcumulado = 0;
     }
 
     private void OnTriggerStay2D(Collider2D colisionador) {
         if(colisionador.tag == "fruta" && Input.GetKey(KeyCode.Space)) {
-            //frutaQueCome = colisionador.GetComponent<GameObject>().GetComponent<Fruta>();
-            //frutaQueCome.Desaparecer(colisionador.gameObject);
-            Destroy(colisionador.gameObject);
+            frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
+            frutaQueCome.Desaparecer();
         }
     }
 
@@ -64,19 +63,19 @@ public class PlayerController : Movimiento
     private void GetInput() {
         if (Input.GetKeyDown(KeyCode.A) && transform.position == direccion)
         {        // Left
-            direccion += Vector3.left;
+            direccion = (Vector2) transform.position + Vector2.left;
         }
         if (Input.GetKeyDown(KeyCode.D) && transform.position == direccion)
         {        // Right
-            direccion += Vector3.right;
+            direccion = (Vector2)transform.position + Vector2.right;
         }
         if (Input.GetKeyDown(KeyCode.W) && transform.position == direccion)
         {        // Up
-            direccion += Vector3.up;
+            direccion = (Vector2)transform.position + Vector2.up;
         }
         if (Input.GetKeyDown(KeyCode.S) && transform.position == direccion)
         {        // Down
-            direccion += Vector3.down;
+            direccion = (Vector2)transform.position + Vector2.down;
         }
 
 

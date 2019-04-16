@@ -10,6 +10,8 @@ public abstract class Movimiento : MonoBehaviour
 
     private void Start()
     {
+        Debug.DrawRay(transform.position, direccion, Color.blue, 0.8f);
+
         if (runSpeed == 0f) {
             runSpeed = 5f;
         }
@@ -18,10 +20,10 @@ public abstract class Movimiento : MonoBehaviour
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
-        //if (PuedeAvanzar(direccion))
-       // {
+        if (PuedeAvanzar(direccion))
+        {
             Move();
-        //}
+        }
     }
 
     public void Move() {
@@ -31,8 +33,9 @@ public abstract class Movimiento : MonoBehaviour
 
     bool PuedeAvanzar(Vector3 direccion)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 1.2f);
-        if (hit.collider.tag.Equals("obstaculo")) return false;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, (Vector2) direccion, 0.8f);
+        Debug.DrawRay(transform.position, direccion, Color.blue, 0.8f);
+        if (hit.collider.tag == "obstaculo") return false;
         return true;
 
     }
