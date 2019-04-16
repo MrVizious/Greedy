@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Acciones : MonoBehaviour
 {
-    Fruta frutaQueCome;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +16,32 @@ public class Acciones : MonoBehaviour
         
     }
 
-    void ComerFruta(GameObject frutaQueCome) {
+    /*private void recibirDaño(int daño) {
+       dañoAcumulado += daño;
+       if (dañoAcumulado >= 100) PlayerStats.restarVida();
+    }
+
+    public void aumentarCalorias(int calorias) {
+        caloriasAcumuladas += calorias;
+    }
+
+    private void reducirDaño() {
+        if(caloriasAcumuladas >= caloriasParaReducir) {
+            dañoAcumulado -= reduccionPorCalorias;
+            if(dañoAcumulado < 0) dañoAcumulado = 0;
+            caloriasAcumuladas -= caloriasParaReducir;
+            }
 
     }
+
+    public void RestablecerACero() {
+        dañoAcumulado = 0;
+    }
+
+    
+
+    public void morir() {
+        SceneManager.LoadScene("SampleScene");
+    }*/
+
 }

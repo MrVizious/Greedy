@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Movimiento : MonoBehaviour
 {
     [SerializeField] private float runSpeed;
+    protected Vector3 posicionObjetivo;
     protected Vector3 direccion;
     protected bool arriba, abajo, derecha, izquierda;
 
@@ -12,7 +13,7 @@ public abstract class Movimiento : MonoBehaviour
 
     private void Start()
     {
-        Debug.DrawRay(transform.position, direccion, Color.blue, 0.8f);
+       
 
         if (runSpeed == 0f) {
             runSpeed = 5f;
@@ -21,6 +22,7 @@ public abstract class Movimiento : MonoBehaviour
 
     // Update is called once per frame
     protected virtual void FixedUpdate()
+
     {
         if (PuedeAvanzar(direccion))
         {
@@ -29,14 +31,14 @@ public abstract class Movimiento : MonoBehaviour
     }
 
     public void Move() {
-         transform.position = Vector3.MoveTowards(transform.position, direccion, Time.deltaTime * runSpeed);
+         transform.position = Vector3.MoveTowards(transform.position, posicionObjetivo, Time.deltaTime * runSpeed);
               
     }
 
     bool PuedeAvanzar(Vector3 direccion)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 0.8f);
-        Debug.DrawRay(transform.position, direccion, Color.blue, 0.8f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 0.1f);
+        Debug.DrawRay(transform.position, direccion, Color.blue, 0.1f);
         if (hit.collider.tag == "obstaculo") return false;
         return true;
 

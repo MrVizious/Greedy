@@ -14,7 +14,7 @@ public class PlayerController : Movimiento
     bool comer;
 
     void Start () {
-        direccion = transform.position;
+        posicionObjetivo = transform.position;
         dañoAcumulado = 0;
         caloriasAcumuladas = 0;
     }
@@ -23,21 +23,29 @@ public class PlayerController : Movimiento
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (arriba && transform.position == direccion)
+        if (arriba)
         {
-            direccion = (Vector2) transform.position + Vector2.up;
+            posicionObjetivo = (Vector2) transform.position + Vector2.up;
+            direccion = Vector2.up;
         }
-        else if (abajo && transform.position == direccion)
+        else if (abajo)
         {
-            direccion = (Vector2) transform.position + Vector2.down;
+            posicionObjetivo = (Vector2) transform.position + Vector2.down;
+            direccion = Vector2.down;
         }
-        else if (derecha && transform.position == direccion)
+        else if (derecha)
         {
-            direccion = (Vector2) transform.position + Vector2.right;
+            posicionObjetivo = (Vector2) transform.position + Vector2.right;
+            direccion = Vector2.right;
         }
-        else if (izquierda && transform.position == direccion)
+        else if (izquierda)
         {
-            direccion = (Vector2) transform.position + Vector2.left;
+            posicionObjetivo = (Vector2) transform.position + Vector2.left;
+            direccion = Vector2.left;
+        }
+
+        if (comer) {
+            frutaQueCome.Desaparecer();
         }
 
         base.FixedUpdate();
@@ -79,33 +87,4 @@ public class PlayerController : Movimiento
             frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
         }
     }
-    /*private void recibirDaño(int daño) {
-       dañoAcumulado += daño;
-       if (dañoAcumulado >= 100) PlayerStats.restarVida();
-    }*/
-
-    /*public void aumentarCalorias(int calorias) {
-        caloriasAcumuladas += calorias;
-    }
-
-    private void reducirDaño() {
-        if(caloriasAcumuladas >= caloriasParaReducir) {
-            dañoAcumulado -= reduccionPorCalorias;
-            if(dañoAcumulado < 0) dañoAcumulado = 0;
-            caloriasAcumuladas -= caloriasParaReducir;
-            }
-
-    }
-
-    public void RestablecerACero() {
-        dañoAcumulado = 0;
-    }
-
-    
-
-    public void morir() {
-        SceneManager.LoadScene("SampleScene");
-    }*/
-
-
 }
