@@ -7,14 +7,16 @@ public class Movimiento : MonoBehaviour
     [SerializeField] private float runSpeed;
     protected Vector3 posicionObjetivo;
     protected Vector3 direccion;
-    protected bool arriba, abajo, derecha, izquierda;
     protected Vector3 direccionGuardian;
+
+    private int capasQueColisionan;
 
     //protected RaycastHit2D hit;
 
     private void Start()
     {
-       
+        capasQueColisionan = 1 << LayerMask.NameToLayer("obstaculo");
+        posicionObjetivo = transform.position;
 
         if (runSpeed == 0f) {
             runSpeed = 5f;
@@ -22,13 +24,9 @@ public class Movimiento : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected virtual void FixedUpdate()
-
+    void FixedUpdate()
     {
-        if (PuedeAvanzar(direccion))
-        {
-            Move();
-        }
+         Move();
     }
 
     public void Move() {
@@ -42,15 +40,24 @@ public class Movimiento : MonoBehaviour
 
     bool PuedeAvanzar(Vector3 direccion)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 0.6f);
+        Debug.Log("Comprobando si puede avanzar");
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, 0.6f, capasQueColisionan);
         Debug.DrawRay(transform.position, direccion, Color.blue, 0.6f);
         if (hit.collider != null) {
+            Debug.Log("No puede avanzar, ha chocado con: " + hit.collider.tag);
             if (hit.collider.tag == "obstaculo") {
-                Debug.Log(hit.collider.tag);
                 return false;
             }
-        } 
+        }
+        Debug.Log("Puede avanzar");
         return true;
 
+    }
+
+    public void SetRumbo(Vector2 direccion) {
+        if (PuedeAvanzar(direccion)) {
+            posicionObjetivo = new Vector2(Mathf.Round(transform.position.x + direccion.x),
+                Mathf.Round(transform.position.y + direccion.y));
+        }
     }
 }

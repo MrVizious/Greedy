@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : Movimiento
+[RequireComponent(typeof(Movimiento))]
+public class PlayerController : MonoBehaviour
 {
 
     int dañoAcumulado;
@@ -12,43 +13,44 @@ public class PlayerController : Movimiento
     int reduccionPorCalorias = 10;
     Fruta frutaQueCome;
     bool comer;
+    protected bool arriba, abajo, derecha, izquierda;
+    private Movimiento movimiento;
+
 
     void Start () {
-        posicionObjetivo = transform.position;
+        //posicionObjetivo = transform.position;
+        movimiento = GetComponent<Movimiento>();
         dañoAcumulado = 0;
         caloriasAcumuladas = 0;
+        arriba = abajo = derecha = izquierda = false;
     }
 
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (arriba)
         {
-            posicionObjetivo = (Vector2) transform.position + Vector2.up;
-            direccion = Vector2.up;
+            movimiento.SetRumbo(Vector2.up);
         }
         else if (abajo)
         {
-            posicionObjetivo = (Vector2) transform.position + Vector2.down;
-            direccion = Vector2.down;
+            movimiento.SetRumbo(Vector2.down);
         }
         else if (derecha)
         {
-            posicionObjetivo = (Vector2) transform.position + Vector2.right;
-            direccion = Vector2.right;
+            movimiento.SetRumbo(Vector2.right);
         }
         else if (izquierda)
         {
-            posicionObjetivo = (Vector2) transform.position + Vector2.left;
-            direccion = Vector2.left;
+            movimiento.SetRumbo(Vector2.left);
         }
-
-        if (comer) {
-            frutaQueCome.Desaparecer();
+        if (frutaQueCome != null) {
+            if (comer)
+            {
+                frutaQueCome.Desaparecer();
+            }
         }
-
-        base.FixedUpdate();
 
         arriba = false;
         abajo = false;
