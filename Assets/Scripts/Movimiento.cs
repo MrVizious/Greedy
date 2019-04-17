@@ -8,10 +8,8 @@ public class Movimiento : MonoBehaviour {
 	[SerializeField]
 	[RangeAttribute(0f, 1f)]
 	private float anguloRaycast;
-	protected Vector3 posicionObjetivo;
-	protected Vector3 direccion;
-	protected Vector3 direccionGuardian;
-
+	private Vector3 posicionObjetivo;
+	private Vector3 direccion;
 	private int capasDeColision;
 
 	//protected RaycastHit2D hit;

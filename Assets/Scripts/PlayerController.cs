@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 	int reduccionPorCalorias = 10;
 	Fruta frutaQueCome;
 	bool comer;
-	protected bool arriba, abajo, derecha, izquierda;
+	private bool arriba, abajo, derecha, izquierda;
 	private Movimiento movimiento;
 
 
