@@ -5,15 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(Movimiento))]
 public class PlayerController : MonoBehaviour {
 
-	int dañoAcumulado;
-	int caloriasAcumuladas;
-	int caloriasParaReducir = 100;
-	int reduccionPorCalorias = 10;
+	public int dañoAcumulado;
+    public int caloriasAcumuladas;
+    public int caloriasParaReducir = 100;
+    public int reduccionPorCalorias = 10;
 	Fruta frutaQueCome;
 	bool comer;
 	private bool arriba, abajo, derecha, izquierda;
 	private Movimiento movimiento;
-
+    Acciones estado;
+    Acciones defensa;
+    int duracionDefensa;
 
 	void Start() {
 		//posicionObjetivo = transform.position;
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 		dañoAcumulado = 0;
 		caloriasAcumuladas = 0;
 		arriba = abajo = derecha = izquierda = false;
+        estado = new GameObject().AddComponent<AccionesNormal>();
 	}
 
 
@@ -68,9 +71,49 @@ public class PlayerController : MonoBehaviour {
 		comer = true;
 	}
 
+    private void VolverAEstadoNormal()
+    {
+        estado = new GameObject().AddComponent<AccionesNormal>();
+    }
 	private void OnTriggerStay2D(Collider2D colisionador) {
 		if (colisionador.tag == "fruta") {
 			frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
 		}
+        if(colisionador.tag == "defensa")
+        {
+            defensa = colisionador.gameObject.GetComponent<Acciones>();
+        }
 	}
+
+    private void UsarDefensa()
+    {
+        CancelInvoke("VolverAEstadoNormal");
+        estado = defensa;
+        Invoke("VolverAEstadoNormal", duracionDefensa);
+    }
+
+    public void RecibirDaño(int daño)
+    {
+        estado.RecibirDaño(daño, this);
+    }
+
+    public void aumentarCalorias(int calorias)
+    {
+        estado.AumentarCalorias(calorias, this);
+    }
+
+    private void ReducirDaño()
+    {
+        estado.ReducirDaño(this);
+    }
+
+    public void RestablecerACero()
+    {
+        estado.RestablecerACero(this);
+    }
+
+    public void Morir()
+    {
+        estado.Morir(this);
+    }
 }
