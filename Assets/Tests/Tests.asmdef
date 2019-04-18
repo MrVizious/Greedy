@@ -1,14 +1,14 @@
-{
+﻿{
     "name": "Tests",
-    "references": [],
+	"references": [
+		"MyScriptAssembly"
+	],
     "optionalUnityReferences": [
         "TestAssemblies"
     ],
-    "includePlatforms": [],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": []
+    "includePlatforms": [
+        "Editor"
+    ],
+	"excludePlatforms": [],
+	"allowsUnsafeCode": false
 }
