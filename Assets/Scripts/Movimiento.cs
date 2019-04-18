@@ -12,7 +12,6 @@ public class Movimiento : MonoBehaviour {
 	private Vector3 direccion;
 	private int capasDeColision;
 
-	//protected RaycastHit2D hit;
 
 	private void Start() {
 		capasDeColision = 1 << LayerMask.NameToLayer("obstaculo");
@@ -41,7 +40,7 @@ public class Movimiento : MonoBehaviour {
 	/// </summary>
 	/// <param name="direccion">Vector2.up, down, left o right</param>
 	/// <returns>True si no hay colisión con obstáculo, false si la hay y por tanto no se puede avanzar</returns>
-	bool PuedeAvanzar(Vector3 direccion) {
+	public bool PuedeAvanzar(Vector3 direccion) {
 		Debug.Log("Comprobando si puede avanzar");
 		RaycastHit2D hit1 = Physics2D.Raycast(transform.position, direccion, 1.2f, capasDeColision);
 		Debug.DrawRay(transform.position, direccion, Color.blue, 1.2f);
@@ -64,6 +63,7 @@ public class Movimiento : MonoBehaviour {
 	/// <param name="direccion">Vector2.up, down, right o left</param>
 	public void SetRumbo(Vector2 direccion) {
 		if (PuedeAvanzar(direccion)) {
+			//TODO: Comprobar que está a poca distancia de su goal para poder meter otro input
 			posicionObjetivo = new Vector2(Mathf.Round(transform.position.x + direccion.x),
 				Mathf.Round(transform.position.y + direccion.y));
 		}
