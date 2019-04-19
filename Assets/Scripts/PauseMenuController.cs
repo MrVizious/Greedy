@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenuController : MonoBehaviour {
-	public bool isPaused = false;
+	[SerializeField]
+	private bool isPaused = false;
+	private GameObject PauseMenu;
 
-	public bool IsGamePaused() {
-		return this.isPaused;
+	private void Start() {
+		PauseMenu = GetComponentInChildren<Canvas>().gameObject;
 	}
 
-	[SerializeField]
-	public GameObject PauseMenu;
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			if (isPaused) {
@@ -20,11 +20,15 @@ public class PauseMenuController : MonoBehaviour {
 			}
 		}
 	}
+	public bool IsGamePaused() {
+		return this.isPaused;
+	}
+
 
 	public void PauseGame() {
 		Time.timeScale = 0f;
-        isPaused = true;
-        PauseMenu.SetActive(true);
+		isPaused = true;
+		PauseMenu.SetActive(true);
 	}
 	public void ResumeGame() {
 		Time.timeScale = 1f;
