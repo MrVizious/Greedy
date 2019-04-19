@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenuController : MonoBehaviour {
-	private bool isPaused = false;
+	public bool isPaused = false;
 
 	public bool IsGamePaused() {
 		return this.isPaused;
 	}
 
 	[SerializeField]
-	private GameObject PauseMenu;
+	public GameObject PauseMenu;
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			if (isPaused) {

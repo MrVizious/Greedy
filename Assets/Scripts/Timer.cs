@@ -6,16 +6,19 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public int tiempoInicial;
-    public float aumentarTiempo = 1;
+    public float aumentarTiempo = 1f;
 
-    private Text myText;
-    private float tiempoFrame = 0f;
-    private float tiempoEnSegundos = 0f;
+    public Text myText;
+    public float tiempoFrame = 0f;
+    public float tiempoEnSegundos = 0f;
 
-    private float escaladaDeTiempoAlPausar, escaladaDeTiempoAlIniciar;
-    private bool estaPausado = false;
+    public float escaladaDeTiempoAlPausar, escaladaDeTiempoAlIniciar;
+    public bool estaPausado = false;
+
+    public int minutos, segundos;
+    public string textoDelReloj;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         //Establecemos la escala de tiemo original
         escaladaDeTiempoAlIniciar = aumentarTiempo;
@@ -30,7 +33,7 @@ public class Timer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (!estaPausado)
         {
@@ -46,9 +49,8 @@ public class Timer : MonoBehaviour
 
     public void ActualizarReloj(float tiempoEnSegundos)
     {
-        int minutos = 0;
-        int segundos = 0;
-        string textoDelReloj;
+        minutos = 0;
+        segundos = 0;
 
         //El tiempo no puede ser negativo
         if (tiempoEnSegundos < 0) tiempoEnSegundos = 0;
@@ -66,7 +68,7 @@ public class Timer : MonoBehaviour
     {
         if (!estaPausado)
         {
-            estaPausado = false;
+            estaPausado = true;
             escaladaDeTiempoAlPausar = aumentarTiempo;
             aumentarTiempo = 0;
         }

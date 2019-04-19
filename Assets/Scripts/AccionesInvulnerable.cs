@@ -10,15 +10,9 @@ public class AccionesInvulnerable : Acciones
         player.caloriasAcumuladas += calorias;
     }
 
-    public override void Morir(PlayerController player)
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
+    public override void Morir(PlayerController player) { }
 
-    public override void RecibirDaño(int daño, PlayerController player)
-    {
-        return;
-    }
+    public override void RecibirDaño(int daño, PlayerController player) { }
 
     public override void ReducirDaño(PlayerController player)
     {
