@@ -15,7 +15,8 @@ namespace Tests
             prefabPauseMenu = (GameObject)Resources.Load("Test/MenuPausa");
             GameObject objetoInicializado = Object.Instantiate(prefabPauseMenu, new Vector2(0, 0), Quaternion.identity);
             PauseMenuController objetoTest = objetoInicializado.GetComponent<PauseMenuController>();
-            Assert.IsFalse(objetoTest.IsGamePaused());
+            objetoTest.PauseGame();
+            Assert.IsTrue(objetoTest.IsGamePaused());
         }
 
         [Test]
