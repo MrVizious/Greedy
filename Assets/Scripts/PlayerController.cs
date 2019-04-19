@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour {
         estado.RecibirDaño(daño, this);
     }
 
-    public void aumentarCalorias(int calorias)
+    public void AumentarCalorias(int calorias)
     {
         estado.AumentarCalorias(calorias, this);
     }
