@@ -19,8 +19,8 @@ namespace Tests
             objetoTest.Start();
             Assert.AreEqual(1, objetoTest.GetComponent<Timer>().escaladaDeTiempoAlIniciar);
             //Assert.IsInstanceOf(Text, objetoTest.myText);
-            Assert.IsNotNull(objetoTest.GetComponent<Timer>().myText);
-            Assert.AreEqual(0, objetoTest.GetComponent<Timer>().tiempoEnSegundos);
+            Assert.IsNotNull(objetoTest.myText);
+            Assert.AreEqual(0, objetoTest.tiempoEnSegundos);
         }
 
         [Test]
