@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PauseMenuController : MonoBehaviour {
 	[SerializeField]
-	private bool isPaused = false;
-	private GameObject PauseMenu;
+	public bool isPaused = false;
+	public GameObject PauseMenu;
 
 	private void Start() {
 		PauseMenu = GetComponentInChildren<Canvas>().gameObject;
