@@ -10488,9 +10488,10 @@ GameObject:
   m_Component:
   - component: {fileID: 332337257}
   - component: {fileID: 332337259}
-  - component: {fileID: 332337258}
   - component: {fileID: 332337261}
   - component: {fileID: 332337260}
+  - component: {fileID: 332337262}
+  - component: {fileID: 332337258}
   m_Layer: 0
   m_Name: Guardian
   m_TagString: Untagged
@@ -10521,10 +10522,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 332337256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e560e09dc445401459114ee577ee443f, type: 3}
+  m_Script: {fileID: 11500000, guid: 148f033bb5ed69542a1c3fafc2cd6cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 5
+  anguloRaycast: 0.35
 --- !u!212 &332337259
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10610,6 +10612,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &332337262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332337256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e560e09dc445401459114ee577ee443f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &424896376
 GameObject:
   m_ObjectHideFlags: 0
@@ -10729,6 +10743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317b903d8c036e2439aacdf5cbbb46fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
 --- !u!1 &763069300
 GameObject:
   m_ObjectHideFlags: 0
@@ -10848,6 +10863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317b903d8c036e2439aacdf5cbbb46fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
 --- !u!1 &838641898
 GameObject:
   m_ObjectHideFlags: 0
@@ -10967,6 +10983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317b903d8c036e2439aacdf5cbbb46fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
 --- !u!4 &914859506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6193650306131679356, guid: 63f6643cb560aa647a8d182e3896b33d,
@@ -11092,6 +11109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317b903d8c036e2439aacdf5cbbb46fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
 --- !u!1 &1280196340
 GameObject:
   m_ObjectHideFlags: 0
@@ -11211,6 +11229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317b903d8c036e2439aacdf5cbbb46fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
 --- !u!1 &1635472922
 GameObject:
   m_ObjectHideFlags: 0
