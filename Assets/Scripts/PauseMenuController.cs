@@ -23,9 +23,8 @@ public class PauseMenuController : MonoBehaviour {
 
 	public void PauseGame() {
 		Time.timeScale = 0f;
-		PauseMenu.SetActive(true);
-		isPaused = true;
-
+        isPaused = true;
+        PauseMenu.SetActive(true);
 	}
 	public void ResumeGame() {
 		Time.timeScale = 1f;
