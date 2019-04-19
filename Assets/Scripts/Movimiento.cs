@@ -62,7 +62,7 @@ public class Movimiento : MonoBehaviour {
 	/// </summary>
 	/// <param name="direccion">Vector2.up, down, right o left</param>
 	public void SetRumbo(Vector2 direccion) {
-		if (PuedeAvanzar(direccion)) {
+		if (Vector2.Distance(transform.position, posicionObjetivo) <= 0.1 && PuedeAvanzar(direccion)) {
 			//TODO: Comprobar que está a poca distancia de su goal para poder meter otro input
 			posicionObjetivo = new Vector2(Mathf.Round(transform.position.x + direccion.x),
 				Mathf.Round(transform.position.y + direccion.y));
