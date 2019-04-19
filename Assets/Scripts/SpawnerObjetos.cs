@@ -42,10 +42,13 @@ public class SpawnerObjetos : MonoBehaviour {
 	public Vector2 EncontrarSitioVacio() {
 		for (int i = 0; i < numeroIntentos; i++) {
 			Vector2 returnVector = new Vector2((int) Random.Range(minX, maxX), (int) Random.Range(minY, maxY));
-			if (Physics2D.OverlapCircle(returnVector, radioBusqueda) == null) return returnVector;
+			if (Physics2D.OverlapCircle(returnVector, radioBusqueda) == null) {
+				Debug.Log("Posicion encontrada: " + returnVector);
+				return returnVector;
+			}
 		}
+		Debug.Log("Posición NO encontrada");
 		return Vector2.negativeInfinity;
-
 	}
 
 	/// <summary>
@@ -55,7 +58,8 @@ public class SpawnerObjetos : MonoBehaviour {
 	public bool SpawnearCorazon() {
 		Vector2 posicion = EncontrarSitioVacio();
 		if (posicion != Vector2.negativeInfinity) {
-			Instantiate(prefabCorazon, posicion, Quaternion.identity);
+
+			Instantiate(prefabCorazon, (Vector3) posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
 			return true;
 		}
 		return false;
