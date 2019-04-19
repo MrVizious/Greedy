@@ -13,11 +13,11 @@ public class PlayerController : MonoBehaviour {
 	bool comer;
 	private bool arriba, abajo, derecha, izquierda;
 	private Movimiento movimiento;
-    Acciones estado;
+    public Acciones estado;
     Acciones defensa;
     int duracionDefensa;
 
-	void Start() {
+	public void Start() {
 		//posicionObjetivo = transform.position;
 		movimiento = GetComponent<Movimiento>();
 		dañoAcumulado = 0;
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour {
         estado.AumentarCalorias(calorias, this);
     }
 
-    private void ReducirDaño()
+    public void ReducirDaño()
     {
         estado.ReducirDaño(this);
     }
