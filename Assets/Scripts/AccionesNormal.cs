@@ -12,6 +12,7 @@ public class AccionesNormal : Acciones
 
     public override void Morir(PlayerController player)
     {
+        //TODO: de momento se reinicia la escena
          SceneManager.LoadScene("SampleScene");
     }
 
