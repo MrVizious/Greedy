@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerObjetos : MonoBehaviour {
+public class SpawnerElementos : MonoBehaviour {
 
 	public float radioBusqueda;
 	public int numeroIntentos;
-
-    public bool posicionEncontrada;
-    Vector2 vectorCapsula;
 
 	[SerializeField]
 	private int minX;
@@ -22,17 +19,18 @@ public class SpawnerObjetos : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject prefabCorazon;
-    public GameObject prefabCapsula;
+	[SerializeField]
+	private GameObject prefabCapsula;
+	[SerializeField]
+	private GameObject prefabGuardian;
 
 	private void Start() {
 		if (radioBusqueda == 0f) {
 			radioBusqueda = 0.8f;
 		}
-        if (prefabCapsula == null)
-        {
-            prefabCapsula = (GameObject)Resources.Load("capsula");
-        }
-        Invoke("SpawnearCapsula", Random.Range(5, 10));
+		if (prefabCapsula == null) {
+			prefabCapsula = (GameObject) Resources.Load("capsula");
+		}
 	}
 
 	private void Update() {
@@ -41,7 +39,13 @@ public class SpawnerObjetos : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.H)) {
 			SpawnearCorazon();
 		}
-        
+		if (Input.GetKeyDown(KeyCode.G)) {
+			SpawnearGuardian();
+		}
+		if (Input.GetKeyDown(KeyCode.C)) {
+			SpawnearCapsula();
+		}
+
 
 	}
 
@@ -62,7 +66,7 @@ public class SpawnerObjetos : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Hace aparecer un corazón en alguna posicion libre del mapa
+	/// Hace aparecer un corazón en alguna posición libre del mapa
 	/// </summary>
 	/// <returns>True o false según si lo consigue instanciar o no.</returns>
 	public bool SpawnearCorazon() {
@@ -75,24 +79,36 @@ public class SpawnerObjetos : MonoBehaviour {
 		return false;
 	}
 
-    public void SpawnearCapsula()
-    {
-        while (!posicionEncontrada)
-        {
-            Vector2 vectorCapsula = new Vector2((int)Random.Range(minX, maxX), (int)Random.Range(minY, maxY));
-            if (Physics2D.OverlapCircle(vectorCapsula, radioBusqueda) == null)
-            {
-                Debug.Log("Posicion encontrada: " + vectorCapsula);
-                posicionEncontrada = true;
-            }
-        }
-        Instantiate(prefabCapsula, (Vector3)vectorCapsula, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
-        //prefabCapsula.transform.position = vectorCapsula;
-        //Instantiate(prefabCapsula, GetComponentInParent<Grid>().gameObject.transform, false);
-    }
+	/// <summary>
+	/// Hace aparecer un guardián en alguna posición libre del mapa
+	/// </summary>
+	/// <returns>True o false según si lo consigue instanciar o no.</returns>
+	public bool SpawnearGuardian() {
+		Vector2 posicion = EncontrarSitioVacio();
+		if (posicion != Vector2.negativeInfinity) {
+
+			Instantiate(prefabGuardian, (Vector3) posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+			return true;
+		}
+		return false;
+	}
+
+	/// <summary>
+	/// Hace aparecer una cápsula en alguna posición libre del mapa
+	/// </summary>
+	/// <returns>True o false según si la consigue instanciar o no.</returns>
+	public bool SpawnearCapsula() {
+		Vector2 posicion = EncontrarSitioVacio();
+		if (posicion != Vector2.negativeInfinity) {
+
+			Instantiate(prefabCapsula, (Vector3) posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+			return true;
+		}
+		return false;
+	}
 
 
-    public int getMinX() {
+	public int getMinX() {
 		return this.minX;
 	}
 
