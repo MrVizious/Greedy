@@ -78,12 +78,18 @@ public class PlayerController : MonoBehaviour {
 	private void OnTriggerStay2D(Collider2D colisionador) {
 		if (colisionador.tag == "fruta") {
 			frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
-		}
+		} else
         if(colisionador.tag == "defensa")
         {
             defensa = colisionador.gameObject.GetComponent<Acciones>();
+            Destroy(colisionador.gameObject);
+        } else
+        if (colisionador.tag == "capsula")
+        {
+            RestablecerACero();
+            Destroy(colisionador.gameObject);
         }
-	}
+    }
 
     private void UsarDefensa()
     {

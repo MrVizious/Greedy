@@ -7,6 +7,9 @@ public class SpawnerObjetos : MonoBehaviour {
 	public float radioBusqueda;
 	public int numeroIntentos;
 
+    public bool posicionEncontrada;
+    Vector2 vectorCapsula;
+
 	[SerializeField]
 	private int minX;
 	[SerializeField]
@@ -19,11 +22,17 @@ public class SpawnerObjetos : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject prefabCorazon;
+    public GameObject prefabCapsula;
 
 	private void Start() {
 		if (radioBusqueda == 0f) {
 			radioBusqueda = 0.8f;
 		}
+        if (prefabCapsula == null)
+        {
+            prefabCapsula = (GameObject)Resources.Load("capsula");
+        }
+        Invoke("SpawnearCapsula", Random.Range(5, 10));
 	}
 
 	private void Update() {
@@ -32,6 +41,7 @@ public class SpawnerObjetos : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.H)) {
 			SpawnearCorazon();
 		}
+        
 
 	}
 
@@ -65,7 +75,24 @@ public class SpawnerObjetos : MonoBehaviour {
 		return false;
 	}
 
-	public int getMinX() {
+    public void SpawnearCapsula()
+    {
+        while (!posicionEncontrada)
+        {
+            Vector2 vectorCapsula = new Vector2((int)Random.Range(minX, maxX), (int)Random.Range(minY, maxY));
+            if (Physics2D.OverlapCircle(vectorCapsula, radioBusqueda) == null)
+            {
+                Debug.Log("Posicion encontrada: " + vectorCapsula);
+                posicionEncontrada = true;
+            }
+        }
+        Instantiate(prefabCapsula, (Vector3)vectorCapsula, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+        //prefabCapsula.transform.position = vectorCapsula;
+        //Instantiate(prefabCapsula, GetComponentInParent<Grid>().gameObject.transform, false);
+    }
+
+
+    public int getMinX() {
 		return this.minX;
 	}
 

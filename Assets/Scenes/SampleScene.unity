@@ -11546,11 +11546,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radioBusqueda: 0
   numeroIntentos: 0
+  posicionEncontrada: 0
   minX: -22
   minY: -7
   maxX: 21
   maxY: 7
   prefabCorazon: {fileID: 0}
+  prefabCapsula: {fileID: 4841924695688783900, guid: 21b7e7e7d74b49e44b1b118d983ca1e0,
+    type: 3}
 --- !u!1 &1280196340
 GameObject:
   m_ObjectHideFlags: 0

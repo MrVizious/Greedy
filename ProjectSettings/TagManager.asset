@@ -6,6 +6,7 @@ TagManager:
   tags:
   - fruta
   - obstaculo
+  - capsula
   layers:
   - Default
   - TransparentFX
