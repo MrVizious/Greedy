@@ -150,6 +150,7 @@ MonoBehaviour:
   caloriasAcumuladas: 0
   caloriasParaReducir: 100
   reduccionPorCalorias: 10
+  estado: {fileID: 0}
 --- !u!114 &6193650306131679352
 MonoBehaviour:
   m_ObjectHideFlags: 0

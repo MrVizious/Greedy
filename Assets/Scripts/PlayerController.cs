@@ -88,6 +88,11 @@ public class PlayerController : MonoBehaviour {
         {
             RestablecerACero();
             Destroy(colisionador.gameObject);
+        } else
+        if (colisionador.tag == "corazon")
+        {
+            //PlayerStats.SumarVida();
+            Destroy(colisionador.gameObject);
         }
     }
 
