@@ -52,5 +52,23 @@ namespace Tests
             objetoTest.ReducirDaño();
             Assert.AreEqual(0, objetoTest.dañoAcumulado);
         }
+
+        [Test]
+        public void AumentarCaloriasTest()
+        {
+            prefabPlayer = (GameObject)Resources.Load("Tests/Player");
+            GameObject objetoInicializado = Object.Instantiate(prefabPlayer, new Vector2(0, 0), Quaternion.identity);
+            PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
+
+            objetoTest.Start();
+
+            objetoTest.caloriasAcumuladas = 100;
+            Assert.AreEqual(100, objetoTest.caloriasAcumuladas);
+
+            objetoTest.AumentarCalorias(50);
+
+            Assert.AreEqual(150, objetoTest.caloriasAcumuladas);
+
+        }
     }
 }
