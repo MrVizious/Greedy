@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 		dañoAcumulado = 0;
 		caloriasAcumuladas = 0;
 		arriba = abajo = derecha = izquierda = false;
-		estado = gameObject.AddComponent<AccionesInvulnerable>();
+		estado = gameObject.AddComponent<AccionesNormal>();
 	}
 
 
