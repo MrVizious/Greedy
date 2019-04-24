@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,7 +30,8 @@ public class LevelController : MonoBehaviour
         if(numeroFrutas == 0)
         {   //TODO: cambiar de nivel, de momento se reinicia la escena
             //GameController.CambiarEscena();
-            SceneManager.LoadScene("SampleScene");
+            //EditorSceneManager.OpenScene("Assets/Scenes/SampleScene.unity"); //Necesario para el test para no entrar en playmode
+            SceneManager.LoadScene("SampleScene"); //La original
         }
     }
 }
