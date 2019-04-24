@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour {
 	[SerializeField]
-	private float runSpeed;
+	public float runSpeed;
 	[SerializeField]
 	[RangeAttribute(0f, 1f)]
 	private float anguloRaycast;
 	private Vector3 posicionObjetivo;
-	private Vector3 direccion;
+	public Vector3 direccion;
 	private int capasDeColision;
 
 
@@ -31,16 +31,16 @@ public class Movimiento : MonoBehaviour {
 
 	}
 
-	public void Move(Vector3 direccionG) {
-		transform.position = Vector3.MoveTowards(transform.position, direccionG, Time.deltaTime * runSpeed);
-	}
+    
 
-	/// <summary>
-	/// Este método se encarga de comprobar con 3 raycasts que se pueda avanzar en una determinada dirección
-	/// </summary>
-	/// <param name="direccion">Vector2.up, down, left o right</param>
-	/// <returns>True si no hay colisión con obstáculo, false si la hay y por tanto no se puede avanzar</returns>
-	public bool PuedeAvanzar(Vector3 direccion) {
+
+
+    /// <summary>
+    /// Este método se encarga de comprobar con 3 raycasts que se pueda avanzar en una determinada dirección
+    /// </summary>
+    /// <param name="direccion">Vector2.up, down, left o right</param>
+    /// <returns>True si no hay colisión con obstáculo, false si la hay y por tanto no se puede avanzar</returns>
+    public bool PuedeAvanzar(Vector3 direccion) {
 		Debug.Log("Comprobando si puede avanzar");
 		RaycastHit2D hit1 = Physics2D.Raycast(transform.position, direccion, 1.2f, capasDeColision);
 		Debug.DrawRay(transform.position, direccion, Color.blue, 1.2f);

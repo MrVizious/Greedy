@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     public int reduccionPorCalorias = 10;
 	Fruta frutaQueCome;
 	bool comer;
-	private bool arriba, abajo, derecha, izquierda;
+	public bool arriba, abajo, derecha, izquierda;
 	private Movimiento movimiento;
     public Acciones estado;
     Acciones defensa;
@@ -30,13 +30,17 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if (arriba) {
-			movimiento.SetRumbo(Vector2.up);
+            movimiento.direccion = Vector2.up;
+			movimiento.SetRumbo(movimiento.direccion);
 		} else if (abajo) {
-			movimiento.SetRumbo(Vector2.down);
+            movimiento.direccion = Vector2.down;
+            movimiento.SetRumbo(movimiento.direccion);
 		} else if (derecha) {
-			movimiento.SetRumbo(Vector2.right);
+            movimiento.direccion = Vector2.right;
+            movimiento.SetRumbo(movimiento.direccion);
 		} else if (izquierda) {
-			movimiento.SetRumbo(Vector2.left);
+            movimiento.direccion = Vector2.left;
+            movimiento.SetRumbo(movimiento.direccion);
 		}
 		if (frutaQueCome != null) {
 			if (comer) {
