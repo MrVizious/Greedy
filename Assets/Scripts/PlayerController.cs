@@ -43,9 +43,7 @@ public class PlayerController : MonoBehaviour {
 			movimiento.SetRumbo(movimiento.direccion);
 		}
 		if (frutaQueCome != null) {
-			if (comer) {
-				frutaQueCome.Desaparecer();
-			}
+            ComerFruta();
 		}
 		//TODO: Quitar, esto es solo para debug
 		if (Input.GetKeyDown(KeyCode.E)) {
@@ -62,7 +60,13 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-
+    private void ComerFruta()
+    {
+        if (comer)
+        {
+            frutaQueCome.Desaparecer();
+        }
+    }
 
 	private void CambiarAEstadoNormal() {
 		estado.PrepararParaCambiarEstado();
