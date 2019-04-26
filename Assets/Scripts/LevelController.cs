@@ -32,6 +32,7 @@ public class LevelController : MonoBehaviour
             //GameController.CambiarEscena();
             //EditorSceneManager.OpenScene("Assets/Scenes/SampleScene.unity"); //Necesario para el test para no entrar en playmode
             SceneManager.LoadScene("SampleScene"); //La original
+            SceneManager.LoadScene("NivelPrueba");
         }
     }
 }
