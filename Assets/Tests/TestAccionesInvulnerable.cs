@@ -9,6 +9,8 @@ namespace Tests
     public class TestAccionesInvulnerable
     {
         private GameObject prefabPlayer;
+        private GameObject prefabSoundEffectInvincible;
+
         [Test]
         public void RecibirDañoTest()
         {
@@ -89,5 +91,19 @@ namespace Tests
             Assert.AreEqual(100, objetoTest.caloriasAcumuladas);
             Assert.AreEqual(60, objetoTest.dañoAcumulado);
         }
+
+        [Test]
+        public void RestablecerACeroTest()
+        {
+            prefabPlayer = (GameObject)Resources.Load("Tests/Player");
+            GameObject objetoInicializado = Object.Instantiate(prefabPlayer, new Vector2(0, 0), Quaternion.identity);
+            PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
+
+            objetoTest.Start();
+            objetoTest.dañoAcumulado = 40;
+            objetoTest.RestablecerACero();
+            Assert.AreEqual(0, objetoTest.dañoAcumulado);
+        }
+
     }
 }

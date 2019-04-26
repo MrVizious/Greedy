@@ -7,7 +7,7 @@ public class AccionesInvulnerable : Acciones {
 
 	[Range(0f, 1000f)]
 	public float velocidadDeParpadeo = 400f;
-	private GameObject soundEffect;
+	public GameObject soundEffect;
 
 	public override void AumentarCalorias(int calorias, PlayerController player) {
 		player.caloriasAcumuladas += calorias;

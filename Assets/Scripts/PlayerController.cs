@@ -74,10 +74,11 @@ public class PlayerController : MonoBehaviour {
 		estado = gameObject.AddComponent<AccionesNormal>();
 	}
 
-	private void CambiarAEstadoInvulnerable() {
+	public void CambiarAEstadoInvulnerable() {
 		estado.PrepararParaCambiarEstado();
-		Destroy(estado);
-		estado = gameObject.AddComponent<AccionesInvulnerable>();
+		//Destroy(estado);
+        DestroyImmediate(estado); //Necesario para el test, Destroy() no deja.
+        estado = gameObject.AddComponent<AccionesInvulnerable>();
 	}
 
 	private void OnTriggerStay2D(Collider2D colisionador) {

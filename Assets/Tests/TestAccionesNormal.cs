@@ -90,5 +90,30 @@ namespace Tests
             //Assert.AreEqual(0, objetoTest.caloriasAcumuladas);
             
         }
+
+        [Test]
+        public void RestablecerACeroTest() {
+            prefabPlayer = (GameObject)Resources.Load("Tests/Player");
+            GameObject objetoInicializado = Object.Instantiate(prefabPlayer, new Vector2(0, 0), Quaternion.identity);
+            PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
+
+            objetoTest.Start();
+            objetoTest.dañoAcumulado = 40;
+            objetoTest.RestablecerACero();
+            Assert.AreEqual(0, objetoTest.dañoAcumulado);
+        }
+
+        [Test]
+        public void CambiarAEstadoInvulnerable() {
+            prefabPlayer = (GameObject)Resources.Load("Tests/Player");
+            GameObject objetoInicializado = Object.Instantiate(prefabPlayer, new Vector2(0, 0), Quaternion.identity);
+            PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
+
+            objetoTest.Start();
+            objetoTest.CambiarAEstadoInvulnerable();
+            Assert.IsTrue(objetoTest.estado = objetoTest.GetComponent<AccionesInvulnerable>());
+        }
+
+        
     }
 }
