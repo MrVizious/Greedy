@@ -8,6 +8,7 @@ TagManager:
   - obstaculo
   - capsula
   - corazon
+  - limite
   layers:
   - Default
   - TransparentFX
