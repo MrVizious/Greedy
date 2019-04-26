@@ -11506,7 +11506,7 @@ MonoBehaviour:
     type: 3}
   prefabCapsula: {fileID: 4841924695688783900, guid: 21b7e7e7d74b49e44b1b118d983ca1e0,
     type: 3}
-  prefabGuardian: {fileID: 8465901524728205803, guid: 478cf542688318e4e9a6c93bd13a22b0,
+  prefabGuardian: {fileID: 4812231922255313443, guid: 2ebf78acb1199e248b7d1a44d4bd64aa,
     type: 3}
 --- !u!4 &1247581992 stripped
 Transform:

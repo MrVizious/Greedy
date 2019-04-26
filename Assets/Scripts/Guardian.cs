@@ -13,7 +13,11 @@ public class Guardian : MonoBehaviour {
     Movimiento movimiento;
     public Transform objetivo;
     PlayerController player;
-    //Animator animator;
+
+    public RuntimeAnimatorController guardianUp;
+    public RuntimeAnimatorController guardianDown;
+    public RuntimeAnimatorController guardianLeft;
+    public RuntimeAnimatorController guardianRight;
 
     void Start() {
         movimiento = GetComponent<Movimiento>();
@@ -23,6 +27,8 @@ public class Guardian : MonoBehaviour {
 
         CalculaDirRandom();
         movimiento.SetRumbo(direccionElegida);
+
+        UpdateAnimatorController();
     }
 
     //Si player esta dentro de su rango lo persigue,
@@ -35,8 +41,23 @@ public class Guardian : MonoBehaviour {
         }
         else {
             CalculaDirRandom();
+            UpdateAnimatorController();
         }
         
+    }
+
+    void UpdateAnimatorController() {
+        if (direccionElegida == Vector2.up) {
+            transform.GetComponent<Animator>().runtimeAnimatorController = guardianUp;
+        } else if (direccionElegida == Vector2.down) {
+            transform.GetComponent<Animator>().runtimeAnimatorController = guardianDown;
+        } else if (direccionElegida == Vector2.right) {
+            transform.GetComponent<Animator>().runtimeAnimatorController = guardianRight;
+        } else if (direccionElegida == Vector2.left) {
+            transform.GetComponent<Animator>().runtimeAnimatorController = guardianLeft;
+        } else {
+            transform.GetComponent<Animator>().runtimeAnimatorController = guardianDown;
+        }
     }
 
     void CalculaDirRandom() {

@@ -135,6 +135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetivo: {fileID: 0}
+  guardianUp: {fileID: 9100000, guid: cffc2a92e8ce82b4d8b623733e624162, type: 2}
+  guardianDown: {fileID: 9100000, guid: 32a28a6a329bd954f98f6edac074dfaa, type: 2}
+  guardianLeft: {fileID: 9100000, guid: 69ee43b63a346e345ab78d62d1f60566, type: 2}
+  guardianRight: {fileID: 9100000, guid: 08c0284293cf8df4692bed9ab37c5b1e, type: 2}
 --- !u!114 &4812231922255313441
 MonoBehaviour:
   m_ObjectHideFlags: 0
