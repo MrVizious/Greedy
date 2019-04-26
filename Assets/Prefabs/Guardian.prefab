@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4812231922255313447}
   - component: {fileID: 4812231922255313445}
   - component: {fileID: 4812231922255313441}
+  - component: {fileID: 8585242190797481812}
   m_Layer: 0
   m_Name: Guardian
   m_TagString: Untagged
@@ -149,6 +150,25 @@ MonoBehaviour:
   runSpeed: 5
   anguloRaycast: 0.35
   direccion: {x: 0, y: 0, z: 0}
+--- !u!95 &8585242190797481812
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812231922255313443}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e1a1254e2c350824db5449260db17c5b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8054434736812891797
 GameObject:
   m_ObjectHideFlags: 0
