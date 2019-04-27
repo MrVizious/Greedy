@@ -62,7 +62,6 @@ public class Guardian : MonoBehaviour {
 
     void CalculaDirRandom() {
         int elegido = Random.Range(0, 4);
-        Debug.Log(elegido);
         switch (elegido) {
             case 0:
                 direccionElegida = Vector2.up;

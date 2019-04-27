@@ -41,7 +41,6 @@ public class Movimiento : MonoBehaviour {
     /// <param name="direccion">Vector2.up, down, left o right</param>
     /// <returns>True si no hay colisión con obstáculo, false si la hay y por tanto no se puede avanzar</returns>
     public bool PuedeAvanzar(Vector3 direccion) {
-		Debug.Log("Comprobando si puede avanzar");
 		RaycastHit2D hit1 = Physics2D.Raycast(transform.position, direccion, 1.2f, capasDeColision);
 		Debug.DrawRay(transform.position, direccion, Color.blue, 1.2f);
 		RaycastHit2D hit2 = Physics2D.Raycast(transform.position, new Vector2(direccion.x == 0 ? -anguloRaycast : direccion.x, direccion.y == 0 ? -anguloRaycast : direccion.y), 1.2f, capasDeColision);
@@ -52,7 +51,6 @@ public class Movimiento : MonoBehaviour {
 		if (hit1.collider != null && hit1.collider.tag.Equals("obstaculo")) return false;
 		if (hit2.collider != null && hit2.collider.tag.Equals("obstaculo")) return false;
 		if (hit3.collider != null && hit3.collider.tag.Equals("obstaculo")) return false;
-		Debug.Log("Puede avanzar");
 		return true;
 
 	}

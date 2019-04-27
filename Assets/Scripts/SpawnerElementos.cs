@@ -55,7 +55,7 @@ public class SpawnerElementos : MonoBehaviour {
 	/// <returns>Vector2 con la posición, Vector2.negativeInfinity si no encuentra ninguno.</returns>
 	public Vector2 EncontrarSitioVacio() {
 		for (int i = 0; i < numeroIntentos; i++) {
-			Vector2 returnVector = new Vector2((int) Random.Range(minX, maxX), (int) Random.Range(minY, maxY));
+			Vector2 returnVector = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
 			if (Physics2D.OverlapCircle(returnVector, radioBusqueda) == null) {
 				Debug.Log("Posicion encontrada: " + returnVector);
 				return returnVector;
@@ -65,11 +65,11 @@ public class SpawnerElementos : MonoBehaviour {
 		return Vector2.negativeInfinity;
 	}
 
-	/// <summary>
-	/// Hace aparecer un corazón en alguna posición libre del mapa
-	/// </summary>
-	/// <returns>True o false según si lo consigue instanciar o no.</returns>
-	public bool SpawnearCorazon() {
+    /// <summary>
+    /// Hace aparecer un corazón en alguna posición libre del mapa
+    /// </summary>
+    /// <returns>True o false según si lo consigue instanciar o no.</returns>
+    /*public bool SpawnearCorazon() {
 		Vector2 posicion = EncontrarSitioVacio();
 		if (posicion != Vector2.negativeInfinity) {
 
@@ -77,13 +77,31 @@ public class SpawnerElementos : MonoBehaviour {
 			return true;
 		}
 		return false;
-	}
+	}*/
 
-	/// <summary>
-	/// Hace aparecer un guardián en alguna posición libre del mapa
-	/// </summary>
-	/// <returns>True o false según si lo consigue instanciar o no.</returns>
-	public bool SpawnearGuardian() {
+    public void SpawnearCorazon() {
+        bool posicionEncontrada = false;
+        Vector2 posicion;
+        do
+        {
+            posicion = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+            if (Physics2D.OverlapCircle(posicion, radioBusqueda) == null)
+            {
+                Debug.Log("Posicion encontrada: " + posicion);
+                posicionEncontrada = true;
+            }
+        }
+        while (!posicionEncontrada);
+        Instantiate(prefabCorazon, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+    }
+
+
+
+    /// <summary>
+    /// Hace aparecer un guardián en alguna posición libre del mapa
+    /// </summary>
+    /// <returns>True o false según si lo consigue instanciar o no.</returns>
+    public bool SpawnearGuardian() {
 		Vector2 posicion = EncontrarSitioVacio();
 		if (posicion != Vector2.negativeInfinity) {
 

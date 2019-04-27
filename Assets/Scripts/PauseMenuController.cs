@@ -8,7 +8,7 @@ public class PauseMenuController : MonoBehaviour {
 	public GameObject PauseMenu;
 
 	private void Start() {
-		PauseMenu = GetComponentInChildren<Canvas>().gameObject;
+		//PauseMenu = GetComponentInChildren<Canvas>().gameObject;
 	}
 
 	void Update() {
