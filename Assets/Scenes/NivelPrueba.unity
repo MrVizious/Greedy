@@ -5229,7 +5229,7 @@ GameObject:
   - component: {fileID: 794989043}
   - component: {fileID: 794989042}
   m_Layer: 5
-  m_Name: "Da\xF1o"
+  m_Name: Danyo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7128,6 +7128,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 816b851d7d5d1b34e9b47738797a5735, type: 3}
+--- !u!1 &2095822305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2163799954286660217, guid: ff8f20295515e2441b741a288e8738f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1734746695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2095822306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095822305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b11ee780d259c44bfa53200561f5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  statsPlayer: {fileID: 0}
+  gameController: {fileID: 0}
+  calorias: 
+  danyo: 
+  vidas: 
+  defensa: 
+  textoCalorias: {fileID: 0}
+  textoDanyo: {fileID: 0}
+  textoVidas: {fileID: 0}
+  textoDefensa: {fileID: 0}
 --- !u!1001 &2145216913
 PrefabInstance:
   m_ObjectHideFlags: 0
