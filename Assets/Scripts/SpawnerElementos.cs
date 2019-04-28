@@ -23,8 +23,10 @@ public class SpawnerElementos : MonoBehaviour {
 	private GameObject prefabCapsula;
 	[SerializeField]
 	private GameObject prefabGuardian;
+    [SerializeField]
+    private GameObject prefabDefensa;
 
-	private void Start() {
+    private void Start() {
 		if (radioBusqueda == 0f) {
 			radioBusqueda = 0.8f;
 		}
@@ -42,7 +44,7 @@ public class SpawnerElementos : MonoBehaviour {
 			SpawnearCorazon();
 		}
 		if (Input.GetKeyDown(KeyCode.G)) {
-			//SpawnearGuardian();
+            SpawnearDefensa();
 		}
 		if (Input.GetKeyDown(KeyCode.C)) {
 			SpawnearCapsula();
@@ -96,7 +98,21 @@ public class SpawnerElementos : MonoBehaviour {
         Instantiate(prefabCorazon, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
     }
 
-
+    public void SpawnearDefensa()
+    {
+        bool posicionEncontrada = false;
+        Vector2 posicion;
+        do
+        {
+            posicion = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+            if (Physics2D.OverlapCircle(posicion, radioBusqueda, finalMask) == null)
+            {
+                posicionEncontrada = true;
+            }
+        }
+        while (!posicionEncontrada);
+        Instantiate(prefabDefensa, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+    }
 
     /// <summary>
     /// Hace aparecer un guardián en alguna posición libre del mapa

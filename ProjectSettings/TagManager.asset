@@ -9,6 +9,7 @@ TagManager:
   - capsula
   - corazon
   - limite
+  - defensa
   layers:
   - Default
   - TransparentFX

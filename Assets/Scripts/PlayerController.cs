@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public int caloriasParaReducir = 100;
 	public int reduccionPorCalorias = 10;
 	Fruta frutaQueCome;
-	bool comer;
+	//bool comer;
 	public bool arriba, abajo, derecha, izquierda;
 	private Movimiento movimiento;
 	public Acciones estado;
@@ -42,9 +42,9 @@ public class PlayerController : MonoBehaviour {
 			movimiento.direccion = Vector2.left;
 			movimiento.SetRumbo(movimiento.direccion);
 		}
-		if (frutaQueCome != null) {
-            ComerFruta();
-		}
+		/*if (frutaQueCome != null) {
+            //ComerFruta();
+		}*/
 		//TODO: Quitar, esto es solo para debug
 		if (Input.GetKeyDown(KeyCode.E)) {
 			if (estado.GetType() == typeof(AccionesInvulnerable)) CambiarAEstadoNormal();
@@ -56,17 +56,17 @@ public class PlayerController : MonoBehaviour {
 		derecha = false;
 		izquierda = false;
 
-		comer = false;
+		//comer = false;
 
 	}
 
-    private void ComerFruta()
+    /*private void ComerFruta()
     {
         if (comer)
         {
             frutaQueCome.Desaparecer();
         }
-    }
+    }*/
 
 	private void CambiarAEstadoNormal() {
 		estado.PrepararParaCambiarEstado();
@@ -75,20 +75,22 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void CambiarAEstadoInvulnerable() {
-		estado.PrepararParaCambiarEstado();
+        CancelInvoke("CambiarAEstadoNormal");
+        estado.PrepararParaCambiarEstado();
 		//Destroy(estado);
-        DestroyImmediate(estado); //Necesario para el test, Destroy() no deja.
+        Destroy(estado); //Necesario para el test, Destroy() no deja.
         estado = gameObject.AddComponent<AccionesInvulnerable>();
+        Invoke("CambiarAEstadoNormal", 7);
 	}
 
 	private void OnTriggerStay2D(Collider2D colisionador) {
-		if (colisionador.tag == "fruta") {
-			frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
-		} else
+		if (colisionador.tag == "fruta" && Input.GetKeyDown(KeyCode.Space)) {
+            colisionador.gameObject.GetComponent<Fruta>().Desaparecer();
+            //frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
+        } else
 		if (colisionador.tag == "defensa") {
-			defensa = colisionador.gameObject.GetComponent<Acciones>();
-			Destroy(colisionador.gameObject);
-		} else
+            Destroy(colisionador.gameObject);
+        } else
 		if (colisionador.tag == "capsula") {
 			RestablecerACero();
 			Destroy(colisionador.gameObject);
@@ -135,7 +137,7 @@ public class PlayerController : MonoBehaviour {
 		abajo = true;
 	}
 
-	public void SetComerTrue() {
+	/*public void SetComerTrue() {
 		comer = true;
-	}
+	}*/
 }

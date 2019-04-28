@@ -5079,8 +5079,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 414, y: 168.5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 398.8, y: 168.5}
+  m_SizeDelta: {x: 246.4, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &554243206
 MonoBehaviour:
@@ -5251,7 +5251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 254, y: 168.5}
+  m_AnchoredPosition: {x: 195.59998, y: 168.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &794989042
@@ -5710,6 +5710,12 @@ PrefabInstance:
       propertyPath: minY
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 5618266671276740630, guid: 1f82ceee458e4144f9b4251944a5c7de,
+        type: 3}
+      propertyPath: prefabDefensa
+      value: 
+      objectReference: {fileID: 1842204732566135649, guid: 3bb63349a69b8434aade60db4974d6c9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f82ceee458e4144f9b4251944a5c7de, type: 3}
 --- !u!1 &1039341142

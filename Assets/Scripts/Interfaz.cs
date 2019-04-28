@@ -30,7 +30,7 @@ public class Interfaz : MonoBehaviour
         textoDanyo.text = "Daño: " + statsPlayer.dañoAcumulado;
         if(player.GetComponent<AccionesNormal>() == null)
         {
-            textoDefensa.text = "Defensa: Invulnerable";
+            textoDefensa.text = "Defensa: invulnerable";
         } else { textoDefensa.text = "Defensa: ninguna"; }
         //textoVidas = "Vidas" + gameController.GetComponent<GameController>().vidas;
     }
