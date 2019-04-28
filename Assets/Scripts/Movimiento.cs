@@ -7,22 +7,22 @@ public class Movimiento : MonoBehaviour {
 	public float runSpeed;
 	[SerializeField]
 	[RangeAttribute(0f, 1f)]
-	private float anguloRaycast;
-	private Vector3 posicionObjetivo;
+	public float anguloRaycast;
+	public Vector3 posicionObjetivo;
 	public Vector3 direccion;
-	private int capasDeColision;
+	public int capasDeColision;
 
 
-	private void Start() {
+	public void Start() {
 		capasDeColision = 1 << LayerMask.NameToLayer("obstaculo");
 		posicionObjetivo = transform.position;
 
-		if (runSpeed == null || runSpeed == 0f) runSpeed = 5f;
-		if (anguloRaycast == null || anguloRaycast == 0) anguloRaycast = 0.35f;
+		if (runSpeed == 0f) runSpeed = 5f;
+		if (anguloRaycast == 0) anguloRaycast = 0.35f;
 	}
 
 	// Update is called once per frame
-	void FixedUpdate() {
+	public void FixedUpdate() {
 		Move();
 	}
 
