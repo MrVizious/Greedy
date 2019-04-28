@@ -1,0 +1,57 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
+
+public class GameManager : MonoBehaviour {
+
+	public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
+	private int level = 1;
+	private int numeroVidas = 3;
+
+
+
+
+	void Awake() {
+
+		//Check if instance already exists
+		if (instance == null)
+
+			//if not, set instance to this
+			instance = this;
+
+		//If instance already exists and it's not this:
+		else if (instance != this)
+
+			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+			Destroy(gameObject);
+
+		//Sets this to not be destroyed when reloading scene
+		DontDestroyOnLoad(gameObject);
+
+	}
+
+	/// <summary>
+	/// Recibe el nombre de la escena que se quiere cargar y la carga si puede
+	/// </summary>
+	/// <param name="name"></param>
+	public void ChangeToScene(string name) {
+		SceneManager.LoadScene(name, LoadSceneMode.Single);
+	}
+
+	/// <summary>
+	/// Recibe el número de la escena que se quiere cargar y la carga si puede
+	/// </summary>
+	/// <param name="name"></param>
+	public void ChangeToScene(int number) {
+		SceneManager.LoadScene(name, LoadSceneMode.Single);
+	}
+
+	public int getNumeroVidas() {
+		return this.numeroVidas;
+	}
+
+	public void setNumeroVidas(int numeroVidas) {
+		this.numeroVidas = numeroVidas;
+	}
+
+}
