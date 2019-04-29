@@ -117,21 +117,31 @@ public class PlayerController : MonoBehaviour {
             colisionador.gameObject.GetComponent<Fruta>().Desaparecer();
             ActivarSonidoComer();
             //frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
-        } else
-		if (colisionador.tag == "defensa") {
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D colisionador)
+    {
+        if (colisionador.tag == "defensa")
+        {
             ActivarSonidoGanarVida();
             Destroy(colisionador.gameObject);
-        } else
-		if (colisionador.tag == "capsula") {
+        }
+        else
+        if (colisionador.tag == "capsula")
+        {
             ActivarSonidoGanarVida();
-			RestablecerACero();
-			Destroy(colisionador.gameObject);
-		} else
-		if (colisionador.tag == "corazon") {
+            RestablecerACero();
+            Destroy(colisionador.gameObject);
+        }
+        else
+        if (colisionador.tag == "corazon")
+        {
             //PlayerStats.SumarVida();
             ActivarSonidoGanarVida();
-			Destroy(colisionador.gameObject);
-		} else if(colisionador.tag == "guardian")
+            Destroy(colisionador.gameObject);
+        }
+        else if (colisionador.tag == "guardian")
         {
             ActivarSonidoPerderVida();
             //PlayerStats.restarVida();
