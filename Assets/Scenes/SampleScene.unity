@@ -11667,7 +11667,7 @@ GameObject:
   - component: {fileID: 1449296250}
   - component: {fileID: 1449296249}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Puntuacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12357,6 +12357,11 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6193650306131679358, guid: 63f6643cb560aa647a8d182e3896b33d,
+        type: 3}
+      propertyPath: marcador
+      value: 
+      objectReference: {fileID: 1449296249}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f6643cb560aa647a8d182e3896b33d, type: 3}
 --- !u!1001 &7121545736344293970
