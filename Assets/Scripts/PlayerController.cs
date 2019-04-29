@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour {
 	public Acciones estado;
 	Acciones defensa;
 	int duracionDefensa;
+    AudioSource audioPlayer;
+    public AudioClip mover, comer, perderVida, ganarVida;
 
 	public void Start() {
 		//posicionObjetivo = transform.position;
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 		caloriasAcumuladas = 0;
 		arriba = abajo = derecha = izquierda = false;
 		estado = gameObject.AddComponent<AccionesNormal>();
+        audioPlayer = GetComponent<AudioSource>();
 	}
 
 
@@ -32,16 +35,20 @@ public class PlayerController : MonoBehaviour {
 		if (arriba) {
 			movimiento.direccion = Vector2.up;
 			movimiento.SetRumbo(movimiento.direccion);
-		} else if (abajo) {
+            ActivarSonidoMover();
+        } else if (abajo) {
 			movimiento.direccion = Vector2.down;
 			movimiento.SetRumbo(movimiento.direccion);
-		} else if (derecha) {
+            ActivarSonidoMover();
+        } else if (derecha) {
 			movimiento.direccion = Vector2.right;
 			movimiento.SetRumbo(movimiento.direccion);
-		} else if (izquierda) {
+            ActivarSonidoMover();
+        } else if (izquierda) {
 			movimiento.direccion = Vector2.left;
 			movimiento.SetRumbo(movimiento.direccion);
-		}
+            ActivarSonidoMover();
+        }
 		/*if (frutaQueCome != null) {
             //ComerFruta();
 		}*/
@@ -60,6 +67,28 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
+    void ActivarSonidoMover()
+    {
+        audioPlayer.clip = mover;
+        audioPlayer.Play();
+    }
+
+    void ActivarSonidoComer()
+    {
+        audioPlayer.clip = comer;
+        audioPlayer.Play();
+    }
+
+    void ActivarSonidoPerderVida()
+    {
+        audioPlayer.clip = perderVida;
+        audioPlayer.Play();
+    }
+    void ActivarSonidoGanarVida()
+    {
+        audioPlayer.clip = ganarVida;
+        audioPlayer.Play();
+    }
     /*private void ComerFruta()
     {
         if (comer)
@@ -68,7 +97,7 @@ public class PlayerController : MonoBehaviour {
         }
     }*/
 
-	private void CambiarAEstadoNormal() {
+    private void CambiarAEstadoNormal() {
 		estado.PrepararParaCambiarEstado();
 		Destroy(estado);
 		estado = gameObject.AddComponent<AccionesNormal>();
@@ -86,20 +115,28 @@ public class PlayerController : MonoBehaviour {
 	private void OnTriggerStay2D(Collider2D colisionador) {
 		if (colisionador.tag == "fruta" && Input.GetKeyDown(KeyCode.Space)) {
             colisionador.gameObject.GetComponent<Fruta>().Desaparecer();
+            ActivarSonidoComer();
             //frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
         } else
 		if (colisionador.tag == "defensa") {
+            ActivarSonidoGanarVida();
             Destroy(colisionador.gameObject);
         } else
 		if (colisionador.tag == "capsula") {
+            ActivarSonidoGanarVida();
 			RestablecerACero();
 			Destroy(colisionador.gameObject);
 		} else
 		if (colisionador.tag == "corazon") {
-			//PlayerStats.SumarVida();
+            //PlayerStats.SumarVida();
+            ActivarSonidoGanarVida();
 			Destroy(colisionador.gameObject);
-		}
-	}
+		} else if(colisionador.tag == "guardian")
+        {
+            ActivarSonidoPerderVida();
+            //PlayerStats.restarVida();
+        }
+    }
 
 
 

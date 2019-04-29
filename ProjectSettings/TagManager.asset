@@ -10,6 +10,7 @@ TagManager:
   - corazon
   - limite
   - defensa
+  - guardian
   layers:
   - Default
   - TransparentFX

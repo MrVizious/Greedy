@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8585242190797481812}
   m_Layer: 0
   m_Name: Guardian
-  m_TagString: Untagged
+  m_TagString: guardian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 5
   anguloRaycast: 0.35
+  posicionObjetivo: {x: 0, y: 0, z: 0}
   direccion: {x: 0, y: 0, z: 0}
+  capasDeColision: 0
 --- !u!95 &8585242190797481812
 Animator:
   serializedVersion: 3
@@ -164,7 +166,7 @@ Animator:
   m_GameObject: {fileID: 4812231922255313443}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e1a1254e2c350824db5449260db17c5b, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
