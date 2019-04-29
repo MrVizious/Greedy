@@ -42,6 +42,6 @@ public class Marcador : MonoBehaviour {
 		text.text = this.toString();
 	}
 	public string toString() {
-		return "" + puntuacion;
+		return "Puntuación: " + puntuacion;
 	}
 }
