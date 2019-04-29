@@ -16,13 +16,13 @@ public class InputController : MonoBehaviour {
 	}
 
 	void GetInput() {
-		if (Input.GetKey(KeyCode.A)) {
+		if (Input.GetKeyDown(KeyCode.A)) {
 			playerController.SetIzquierdaTrue();
-		} else if (Input.GetKey(KeyCode.D)) {
+		} else if (Input.GetKeyDown(KeyCode.D)) {
 			playerController.SetDerechaTrue();
-		} else if (Input.GetKey(KeyCode.W)) {
+		} else if (Input.GetKeyDown(KeyCode.W)) {
 			playerController.SetArribaTrue();
-		} else if (Input.GetKey(KeyCode.S)) {
+		} else if (Input.GetKeyDown(KeyCode.S)) {
 			playerController.SetAbajoTrue();
 		}
 
