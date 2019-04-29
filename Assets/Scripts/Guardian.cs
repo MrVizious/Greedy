@@ -94,6 +94,14 @@ public class Guardian : MonoBehaviour {
         }
     }
 
+    void OnTriggeredEnter(Collider2D colisionador)
+    {
+        if(colisionador.tag == "Player")
+        {
+            colisionador.GetComponent<PlayerController>().RecibirDaño(100);
+        }
+    }
+
     /*public void SeguirObjetivo()
     {
         transform.position = Vector2.MoveTowards(transform.position, objetivo.position, Time.deltaTime * movimiento.runSpeed);

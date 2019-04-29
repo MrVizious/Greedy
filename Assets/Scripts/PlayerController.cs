@@ -141,16 +141,10 @@ public class PlayerController : MonoBehaviour {
             ActivarSonidoGanarVida();
             Destroy(colisionador.gameObject);
         }
-        else if (colisionador.tag == "guardian")
-        {
-            ActivarSonidoPerderVida();
-            //PlayerStats.restarVida();
-        }
     }
 
 
-
-	public void RecibirDaño(int daño) {
+    public void RecibirDaño(int daño) {
 		estado.RecibirDaño(daño, this);
 	}
 

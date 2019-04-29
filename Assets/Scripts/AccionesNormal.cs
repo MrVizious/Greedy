@@ -16,7 +16,7 @@ public class AccionesNormal : Acciones {
 	public override void RecibirDaño(int daño, PlayerController player) {
 		player.dañoAcumulado = +daño;
 		if (player.dañoAcumulado >= 100) {
-			//PlayerStats.restarVida();
+			//PlayerStats.RestarVida();
 			player.dañoAcumulado = 0;
 		}
 	}
