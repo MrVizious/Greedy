@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruta7
       objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4988,6 +4993,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruta9
       objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5422,6 +5432,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruta2
       objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5491,6 +5506,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruta4
       objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5559,6 +5579,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fruta5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
@@ -5795,6 +5820,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruta6
       objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5869,6 +5899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fruta11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
@@ -6211,6 +6246,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruta10
       objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6377,6 +6417,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fruta8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
@@ -6944,6 +6989,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruta12
       objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7082,6 +7132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruta3
       objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7179,6 +7234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fruta1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1831813662134635899, guid: 816b851d7d5d1b34e9b47738797a5735,
         type: 3}

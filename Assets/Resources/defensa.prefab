@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7411101416173362217}
   - component: {fileID: 9158592788492769303}
   - component: {fileID: 8088969193051893450}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: defensa
   m_TagString: defensa
   m_Icon: {fileID: 0}
