@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Movimiento))]
 [RequireComponent(typeof(PlayerController))]
 //[RequireComponent(typeof(Animator))]
-
+[RequireComponent(typeof(GameManager))]
 
 
 public class Guardian : MonoBehaviour {
@@ -13,6 +13,7 @@ public class Guardian : MonoBehaviour {
     Movimiento movimiento;
     public Transform objetivo;
     PlayerController player;
+    GameManager gameManager;
 
     public RuntimeAnimatorController guardianUp;
     public RuntimeAnimatorController guardianDown;
@@ -22,6 +23,7 @@ public class Guardian : MonoBehaviour {
     void Start() {
         movimiento = GetComponent<Movimiento>();
         player = GetComponent<PlayerController>();
+        gameManager = GameManager.getGameManager();
         //animator = GetComponent<Animator>();
 
 
@@ -65,40 +67,25 @@ public class Guardian : MonoBehaviour {
         switch (elegido) {
             case 0:
                 direccionElegida = Vector2.up;
-                /*animator.SetBool("Down", false);
-                animator.SetBool("Right", false);
-                animator.SetBool("Left", false);
-                animator.SetBool("Up", true);*/
                 break;
             case 1:
                 direccionElegida = Vector2.down;
-                /*animator.SetBool("Up", false);
-                animator.SetBool("Right", false);
-                animator.SetBool("Left", false);
-                animator.SetBool("Down", true);*/
                 break;
             case 2:
                 direccionElegida = Vector2.right;
-                /*animator.SetBool("Down", false);
-                animator.SetBool("Up", false);
-                animator.SetBool("Left", false);
-                animator.SetBool("Right", true);*/
                 break;
             case 3:
                 direccionElegida = Vector2.left;
-                /*animator.SetBool("Down", false);
-                animator.SetBool("Up", false);
-                animator.SetBool("Right", false);
-                animator.SetBool("Left", true);*/
                 break;
         }
     }
 
-    void OnTriggeredEnter(Collider2D colisionador)
+    void OnTriggerEnter2D(Collider2D colisionador)
     {
         if(colisionador.tag == "Player")
         {
-            colisionador.GetComponent<PlayerController>().RecibirDaño(100);
+            Debug.Log(colisionador.gameObject.name);
+            gameManager.DisminuirNumeroVida(1);
         }
     }
 

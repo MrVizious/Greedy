@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour {
 	int duracionDefensa;
 	AudioSource audioPlayer;
 	public AudioClip mover, comer, perderVida, ganarVida;
-	public Marcador marcador;
 
 	public void Start() {
 		//posicionObjetivo = transform.position;
@@ -114,7 +113,6 @@ public class PlayerController : MonoBehaviour {
 			colisionador.gameObject.GetComponent<Fruta>().Desaparecer();
 			ActivarSonidoComer();
 
-			marcador.sumarPuntuacion(100);
 			//frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
 		}
 	}
