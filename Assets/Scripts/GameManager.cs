@@ -57,4 +57,11 @@ public class GameManager : MonoBehaviour {
 		this.numeroVidas = numeroVidas;
 	}
 
+	public void AumentarNumeroVida(int cantidad) {
+		this.numeroVidas += cantidad;
+	}
+	public void DisminuirNumeroVida(int cantidad) {
+		this.numeroVidas -= cantidad;
+	}
+
 }
