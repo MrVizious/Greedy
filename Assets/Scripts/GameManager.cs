@@ -8,9 +8,12 @@ public class GameManager : MonoBehaviour {
 	private int level = 1;
 	[SerializeField]
 	private int numeroVidas = 3;
+    private AudioSource controladorSonido;
+    [SerializeField]
+    private AudioClip sonidoPerderVida;
 
 
-	public static GameManager getGameManager() {
+    public static GameManager getGameManager() {
 		return instance;
 	}
 
@@ -32,6 +35,11 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 
 	}
+
+    void Start()
+    {
+        controladorSonido = GetComponent<AudioSource>();
+    }
 
 	/// <summary>
 	/// Recibe el nombre de la escena que se quiere cargar y la carga si puede
@@ -61,6 +69,8 @@ public class GameManager : MonoBehaviour {
 		this.numeroVidas += cantidad;
 	}
 	public void DisminuirNumeroVida(int cantidad) {
+        controladorSonido.clip = sonidoPerderVida;
+        controladorSonido.Play();
 		this.numeroVidas -= cantidad;
 	}
 
