@@ -110,7 +110,7 @@ namespace Tests
             PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
 
             objetoTest.Start();
-            objetoTest.CambiarAEstadoInvulnerable();
+            //objetoTest.CambiarAEstadoInvulnerable();
             Assert.IsTrue(objetoTest.estado = objetoTest.GetComponent<AccionesInvulnerable>());
         }
 

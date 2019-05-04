@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour {
 	public int caloriasParaReducir = 100;
 	public int reduccionPorCalorias = 10;
 	private Fruta frutaQueCome;
-	//bool comer;
 	public bool arriba, abajo, derecha, izquierda;
 	private Movimiento movimiento;
 	public Acciones estado;
@@ -30,8 +29,6 @@ public class PlayerController : MonoBehaviour {
 		audioPlayer = GetComponent<AudioSource>();
 	}
 
-
-	// Update is called once per frame
 	void Update() {
 		if (arriba) {
 			movimiento.direccion = Vector2.up;
@@ -50,21 +47,14 @@ public class PlayerController : MonoBehaviour {
 			movimiento.SetRumbo(movimiento.direccion);
 			ActivarSonidoMover();
 		}
-		/*if (frutaQueCome != null) {
-            //ComerFruta();
-		}*/
-		//TODO: Quitar, esto es solo para debug
-		if (Input.GetKeyDown(KeyCode.E)) {
-			if (estado.GetType() == typeof(AccionesInvulnerable)) CambiarAEstadoNormal();
-			else CambiarAEstadoInvulnerable();
-		}
+
 
 		arriba = false;
 		abajo = false;
 		derecha = false;
 		izquierda = false;
 
-		//comer = false;
+
 
 	}
 
@@ -86,28 +76,20 @@ public class PlayerController : MonoBehaviour {
 		audioPlayer.clip = ganarVida;
 		audioPlayer.Play();
 	}
-	/*private void ComerFruta()
-    {
-        if (comer)
-        {
-            frutaQueCome.Desaparecer();
-        }
-    }*/
 
 	private void CambiarAEstadoNormal() {
-		estado.PrepararParaCambiarEstado();
 		Destroy(estado);
 		estado = gameObject.AddComponent<AccionesNormal>();
 	}
 
-	public void CambiarAEstadoInvulnerable() {
+	/*public void CambiarAEstadoInvulnerable() {
 		CancelInvoke("CambiarAEstadoNormal");
 		estado.PrepararParaCambiarEstado();
 		//Destroy(estado);
 		Destroy(estado); //Necesario para el test, Destroy() no deja.
 		estado = gameObject.AddComponent<AccionesInvulnerable>();
 		Invoke("CambiarAEstadoNormal", 7);
-	}
+	}*/
 
 	private void OnTriggerStay2D(Collider2D colisionador) {
 		if (colisionador.tag == "fruta" && Input.GetKeyDown(KeyCode.Space)) {
@@ -119,8 +101,12 @@ public class PlayerController : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D colisionador) {
 		if (colisionador.tag == "defensa") {
 			ActivarSonidoGanarVida();
+            Destroy(estado);
+            estado = colisionador.gameObject.GetComponent<AccionesInvulnerable>();
 			Destroy(colisionador.gameObject);
-		} else
+            CambiarEstado();
+            Invoke("CambiarAEstadoNormal", 7);
+        } else
 		if (colisionador.tag == "capsula") {
 			ActivarSonidoGanarVida();
 			RestablecerACero();
@@ -154,6 +140,10 @@ public class PlayerController : MonoBehaviour {
 		estado.Morir(this);
 	}
 
+    public void CambiarEstado()
+    {
+        estado.CambiarEstado(this);
+    }
 
 	public void SetIzquierdaTrue() {
 		izquierda = true;

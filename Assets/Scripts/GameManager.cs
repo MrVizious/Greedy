@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private AudioClip sonidoPerderVida;
     [SerializeField]
+    int minVidas = 0;
+    [SerializeField]
     int maxVidas = 3;
 
 
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         controladorSonido = GetComponent<AudioSource>();
+        Mathf.Clamp(numeroVidas, 0, 3);
     }
 
 	/// <summary>
