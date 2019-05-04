@@ -18,10 +18,11 @@ public class PlayerController : MonoBehaviour {
 	int duracionDefensa;
 	AudioSource audioPlayer;
 	public AudioClip mover, comer, perderVida, ganarVida;
+    private GameManager gameManager;
 
 	public void Start() {
-		//posicionObjetivo = transform.position;
-		movimiento = GetComponent<Movimiento>();
+        gameManager = GameManager.getGameManager();
+        movimiento = GetComponent<Movimiento>();
 		dañoAcumulado = 0;
 		caloriasAcumuladas = 0;
 		arriba = abajo = derecha = izquierda = false;
@@ -112,8 +113,6 @@ public class PlayerController : MonoBehaviour {
 		if (colisionador.tag == "fruta" && Input.GetKeyDown(KeyCode.Space)) {
 			colisionador.gameObject.GetComponent<Fruta>().Desaparecer();
 			ActivarSonidoComer();
-
-			//frutaQueCome = colisionador.gameObject.GetComponent<Fruta>();
 		}
 	}
 
@@ -128,7 +127,7 @@ public class PlayerController : MonoBehaviour {
 			Destroy(colisionador.gameObject);
 		} else
 		if (colisionador.tag == "corazon") {
-			//PlayerStats.SumarVida();
+            gameManager.AumentarNumeroVida(1);
 			ActivarSonidoGanarVida();
 			Destroy(colisionador.gameObject);
 		}

@@ -11,6 +11,7 @@ TagManager:
   - limite
   - defensa
   - guardian
+  - imagenCorazon
   layers:
   - Default
   - TransparentFX

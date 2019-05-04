@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
     private AudioSource controladorSonido;
     [SerializeField]
     private AudioClip sonidoPerderVida;
+    [SerializeField]
+    int maxVidas = 3;
 
 
     public static GameManager getGameManager() {
@@ -67,11 +69,13 @@ public class GameManager : MonoBehaviour {
 
 	public void AumentarNumeroVida(int cantidad) {
 		this.numeroVidas += cantidad;
+        if (numeroVidas > maxVidas) numeroVidas = maxVidas;
 	}
 	public void DisminuirNumeroVida(int cantidad) {
         controladorSonido.clip = sonidoPerderVida;
         controladorSonido.Play();
 		this.numeroVidas -= cantidad;
-	}
+        if (numeroVidas < 0) numeroVidas = 0;
+    }
 
 }
