@@ -5,18 +5,17 @@ using UnityEngine;
 public class TrampaCepo : MonoBehaviour
 {
     [SerializeField]
-    int dañoTrampa;
+    int dañoTrampa = 30;
     [SerializeField]
-    float segundosRetardo;
-    bool activada;
+    float segundosRetardo= 0.5f;
+
     PlayerController player;
-    // Start is called before the first frame update
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

@@ -6,23 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
-    SpawnerElementos spawner;
     // Start is called before the first frame update
     [SerializeField]
     int numeroFrutas;
     [SerializeField]
+    GameObject prefabFruta;
+    [SerializeField]
     int numeroTrampas;
     [SerializeField]
+    GameObject prefabTrampa;
+    [SerializeField]
     int numeroGuardianes;
+    [SerializeField]
+    GameObject prefabGuardian;
+
     public GameObject[] frutas;
     public GameObject GameController;
+    SpawnerElementos spawner;
 
     public void Start()
     {
         spawner = GameObject.Find("SpawnerElementos").GetComponent<SpawnerElementos>();
-        spawner.GenerarGuardianes(numeroGuardianes);
-        spawner.GenerarFrutas(numeroFrutas);
-        spawner.GenerarTrampas(numeroTrampas);
+        //Hay que ver que no se generen cerca de player
+        //spawner.SpawnearElementos(numeroGuardianes, prefabGuardian);
+        spawner.GenerarGuardianes(numeroGuardianes, prefabGuardian);
+        spawner.SpawnearElementos(numeroFrutas, prefabFruta);
+        spawner.SpawnearElementos(numeroTrampas, prefabTrampa);
     }
 
     // Update is called once per frame
@@ -30,15 +39,13 @@ public class LevelController : MonoBehaviour
     {
         frutas = GameObject.FindGameObjectsWithTag("fruta");
         numeroFrutas = frutas.Length;
-        NivelCompletado();
+        if(numeroFrutas==0) NivelCompletado();
     }
 
     public void NivelCompletado()
     {
-        if(numeroFrutas == 0)
-        {   //TODO: cambiar de nivel, de momento se reinicia la escena
-            //GameController.CambiarEscena();
-            SceneManager.LoadScene("NivelPrueba");
-        }
+        //TODO: cambiar de nivel, de momento se reinicia la escena
+        //GameController.CambiarEscena();
+        SceneManager.LoadScene("NivelPrueba");
     }
 }

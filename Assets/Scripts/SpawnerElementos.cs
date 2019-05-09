@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class SpawnerElementos : MonoBehaviour {
 
-	public float radioBusqueda;
-	public int numeroIntentos;
-	int finalMask;
-
 	[SerializeField]
 	private int minX;
 	[SerializeField]
@@ -22,14 +18,11 @@ public class SpawnerElementos : MonoBehaviour {
 	[SerializeField]
 	private GameObject prefabCapsula;
 	[SerializeField]
-	private GameObject prefabGuardian;
-	[SerializeField]
 	private GameObject prefabDefensa;
     [SerializeField]
-    private GameObject prefabFruta;
-    [SerializeField]
-    private GameObject prefabTrampa;
+    public float radioBusqueda;
 
+    int finalMask;
 
     void Awake()
     {
@@ -40,13 +33,10 @@ public class SpawnerElementos : MonoBehaviour {
 		if (radioBusqueda == 0f) {
 			radioBusqueda = 0.8f;
 		}
-		if (prefabCapsula == null) {
-			prefabCapsula = (GameObject) Resources.Load("capsula");
-		}
 
-        Invoke("SpawnearCorazon", Random.Range(0, 60));
-        Invoke("SpawnearCapsula", Random.Range(0, 60));
-        Invoke("SpawnearDefensa", Random.Range(0, 60));
+        StartCoroutine(SpawnearElemento(prefabCorazon));
+        StartCoroutine(SpawnearElemento(prefabCapsula));
+        StartCoroutine(SpawnearElemento(prefabDefensa));
     }
 
     private void Update() {
@@ -75,6 +65,14 @@ public class SpawnerElementos : MonoBehaviour {
         return posicion;
     }
 
+    IEnumerator SpawnearElemento(GameObject prefab)
+    {
+        yield return new WaitForSeconds(Random.Range(0, 60));
+        Vector2 posicion = EncontrarSitioVacio();
+        Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+    }
+
+    //Estos métodos serán elimindaos, de momento están para testeo
 	public void SpawnearCorazon() {
         Vector2 posicion = EncontrarSitioVacio();
 		Instantiate(prefabCorazon, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
@@ -89,26 +87,18 @@ public class SpawnerElementos : MonoBehaviour {
 		Vector2 posicion = EncontrarSitioVacio();
         Instantiate(prefabCapsula, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
 	}
-
-    public void GenerarFrutas(int numeroFrutas)
+    //Hay que ver que los guardianes no se generen cerca de player
+    public void SpawnearElementos(int numeroElementos, GameObject prefab)
     {
-        for(int i=0; i<numeroFrutas; i++)
+        for (int i = 0; i < numeroElementos; i++)
         {
             Vector2 posicion = EncontrarSitioVacio();
-            Instantiate(prefabFruta, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+            Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
         }
     }
 
-    public void GenerarTrampas(int numeroTrampas)
-    {
-        for (int i = 0; i < numeroTrampas; i++)
-        {
-            Vector2 posicion = EncontrarSitioVacio();
-            Instantiate(prefabTrampa, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
-        }
-    }
-
-    public void GenerarGuardianes(int numeroGuardianes)
+    //Hay que ver que no se generen cerca de player
+    public void GenerarGuardianes(int numeroGuardianes, GameObject prefabGuardian)
     {
         for(int i=0; i<numeroGuardianes; i++)
         {
@@ -117,7 +107,7 @@ public class SpawnerElementos : MonoBehaviour {
             do
             {
                 posicion = EncontrarSitioVacio();
-                if (Physics2D.OverlapCircle(posicion, 8f, 1 << LayerMask.NameToLayer("Player")) == null)
+                if (Physics2D.OverlapCircle(posicion, 100f, 1 << LayerMask.NameToLayer("Player")) == null)
                 {
                     posicionEncontrada = true;
                 }
