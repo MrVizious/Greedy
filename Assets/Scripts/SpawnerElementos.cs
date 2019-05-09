@@ -93,8 +93,11 @@ public class SpawnerElementos : MonoBehaviour {
 
     public void GenerarTrampas(int numeroTrampas)
     {
-        Vector2 posicion = EncontrarSitioVacio();
-        Instantiate(prefabTrampa, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+        for (int i = 0; i < numeroTrampas; i++)
+        {
+            Vector2 posicion = EncontrarSitioVacio();
+            Instantiate(prefabTrampa, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+        }
     }
 
     public void GenerarGuardianes(int numeroGuardianes)

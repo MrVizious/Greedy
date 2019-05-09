@@ -12,6 +12,7 @@ TagManager:
   - defensa
   - guardian
   - imagenCorazon
+  - trampa
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - player
   - fruta
   - pickup
-  - 
+  - trampa
   - 
   - 
   - 
