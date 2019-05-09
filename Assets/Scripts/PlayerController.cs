@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 
 	public int dañoAcumulado;
 	public int caloriasAcumuladas;
+    public int caloriasTotal;
 	public int caloriasParaReducir = 100;
 	public int reduccionPorCalorias = 10;
 	private Fruta frutaQueCome;

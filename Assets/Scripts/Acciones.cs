@@ -27,15 +27,14 @@ public abstract class Acciones : MonoBehaviour {
     public virtual void AumentarCalorias(int calorias, PlayerController player)
     {
         player.caloriasAcumuladas += calorias;
+        player.caloriasTotal += calorias;
+        if (player.caloriasAcumuladas >= player.caloriasParaReducir) ReducirDaño(player);
     }
 	public virtual void ReducirDaño(PlayerController player)
     {
-        if (player.caloriasAcumuladas >= player.caloriasParaReducir)
-        {
             player.dañoAcumulado -= player.reduccionPorCalorias;
             if (player.dañoAcumulado < 0) player.dañoAcumulado = 0;
             player.caloriasAcumuladas -= player.caloriasParaReducir;
-        }
     }
 	public virtual void RestablecerACero(PlayerController player)
     {

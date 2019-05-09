@@ -12,8 +12,6 @@ public class Guardian : MonoBehaviour {
     Vector2 direccionElegida;
     Movimiento movimiento;
     public Transform objetivo;
-    PlayerController player;
-    GameManager gameManager;
 
     public RuntimeAnimatorController guardianUp;
     public RuntimeAnimatorController guardianDown;
@@ -22,8 +20,6 @@ public class Guardian : MonoBehaviour {
 
     void Start() {
         movimiento = GetComponent<Movimiento>();
-        player = GetComponent<PlayerController>();
-        gameManager = GameManager.getGameManager();
         //animator = GetComponent<Animator>();
 
 

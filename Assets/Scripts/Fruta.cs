@@ -10,7 +10,7 @@ public class Fruta : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        caloriasFruta = 15;
+        caloriasFruta = 40;
         if(jugador == null)
         {
             jugador = GameObject.Find("Player").GetComponent<PlayerController>();

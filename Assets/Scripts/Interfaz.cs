@@ -31,7 +31,7 @@ public class Interfaz : MonoBehaviour {
     void Update()
     {
         //TODO: mostrar las vidas
-        textoCalorias.text = "Calorías: " + statsPlayer.caloriasAcumuladas;
+        textoCalorias.text = "Calorías: " + statsPlayer.caloriasTotal;
         textoDanyo.text = "Daño: " + statsPlayer.dañoAcumulado;
 
         numeroVidas = gameManager.getNumeroVidas();
