@@ -361,11 +361,9 @@ MonoBehaviour:
   gameController: {fileID: 0}
   calorias: 
   danyo: 
-  vidas: 
   defensa: 
   textoCalorias: {fileID: 0}
   textoDanyo: {fileID: 0}
-  textoVidas: {fileID: 0}
   textoDefensa: {fileID: 0}
 --- !u!114 &4461808115709302185
 MonoBehaviour:
@@ -384,11 +382,9 @@ MonoBehaviour:
   gameController: {fileID: 0}
   calorias: 
   danyo: 
-  vidas: 
   defensa: 
   textoCalorias: {fileID: 0}
   textoDanyo: {fileID: 0}
-  textoVidas: {fileID: 0}
   textoDefensa: {fileID: 0}
 --- !u!1 &5302646208111190899
 GameObject:
@@ -403,7 +399,7 @@ GameObject:
   - component: {fileID: 9135278917367560044}
   m_Layer: 5
   m_Name: corazon2
-  m_TagString: Untagged
+  m_TagString: imagenCorazon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -424,8 +420,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 184.5}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchoredPosition: {x: 0, y: 146}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5935567752292724719
 CanvasRenderer:
@@ -477,7 +473,7 @@ GameObject:
   - component: {fileID: 4281619785771671858}
   m_Layer: 5
   m_Name: corazon3
-  m_TagString: Untagged
+  m_TagString: imagenCorazon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -498,8 +494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 184.5}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchoredPosition: {x: 50, y: 145}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &221309674589653335
 CanvasRenderer:
@@ -551,7 +547,7 @@ GameObject:
   - component: {fileID: 6420434335643279244}
   m_Layer: 5
   m_Name: corazon1
-  m_TagString: Untagged
+  m_TagString: imagenCorazon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -572,8 +568,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: 184.5}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchoredPosition: {x: -50, y: 145}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &393341576954153971
 CanvasRenderer:
@@ -687,7 +683,7 @@ PrefabInstance:
     - target: {fileID: 7893425382311710860, guid: f7a5a506ad019c4459360d1979bc9000,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 7893425382311710860, guid: f7a5a506ad019c4459360d1979bc9000,
         type: 3}

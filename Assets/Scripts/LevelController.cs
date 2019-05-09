@@ -6,15 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
+    SpawnerElementos spawner;
     // Start is called before the first frame update
-    public int numeroFrutas;
+    [SerializeField]
+    int numeroFrutas;
+    [SerializeField]
+    int numeroTrampas;
+    [SerializeField]
+    int numeroGuardianes;
     public GameObject[] frutas;
     public GameObject GameController;
 
     public void Start()
     {
-        frutas = GameObject.FindGameObjectsWithTag("fruta");
-        numeroFrutas = frutas.Length;
+        spawner = GameObject.Find("SpawnerElementos").GetComponent<SpawnerElementos>();
+        spawner.GenerarGuardianes(numeroGuardianes);
+        spawner.GenerarFrutas(numeroFrutas);
+        spawner.GenerarTrampas(numeroTrampas);
     }
 
     // Update is called once per frame

@@ -25,8 +25,12 @@ public class SpawnerElementos : MonoBehaviour {
 	private GameObject prefabGuardian;
 	[SerializeField]
 	private GameObject prefabDefensa;
+    [SerializeField]
+    private GameObject prefabFruta;
+    [SerializeField]
+    private GameObject prefabTrampa;
 
-	private void Start() {
+    private void Start() {
 		if (radioBusqueda == 0f) {
 			radioBusqueda = 0.8f;
 		}
@@ -34,121 +38,83 @@ public class SpawnerElementos : MonoBehaviour {
 			prefabCapsula = (GameObject) Resources.Load("capsula");
 		}
 		finalMask = 1 << LayerMask.NameToLayer("obstaculo") | 1 << LayerMask.NameToLayer("player") | 1 << LayerMask.NameToLayer("fruta") | 1 << LayerMask.NameToLayer("pickup");
-	}
 
-	private void Update() {
-		// Esto está por testeo, así que...
-		// TODO: Eliminar este update
-		if (Input.GetKeyDown(KeyCode.H)) {
-			SpawnearCorazon();
-		}
-		if (Input.GetKeyDown(KeyCode.G)) {
-			SpawnearDefensa();
-		}
-		if (Input.GetKeyDown(KeyCode.C)) {
-			SpawnearCapsula();
-		}
+        Invoke("SpawnearCorazon", Random.Range(0, 60));
+        Invoke("SpawnearCapsula", Random.Range(0, 60));
+        Invoke("SpawnearDefensa", Random.Range(0, 60));
+    }
 
-
-	}
+    private void Update() {
+        
+    }
 
 	/// <summary>
 	/// Busca un sitio vacío en el mapa, donde no haga colisión con nada. Hace el número de intentos indicado en el script.
 	/// </summary>
 	/// <returns>Vector2 con la posición, Vector2.negativeInfinity si no encuentra ninguno.</returns>
 	public Vector2 EncontrarSitioVacio() {
-		for (int i = 0; i < numeroIntentos; i++) {
-			Vector2 returnVector = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-			if (Physics2D.OverlapCircle(returnVector, radioBusqueda) == null) {
-				Debug.Log("Posicion encontrada: " + returnVector);
-				return returnVector;
-			}
-		}
-		Debug.Log("Posición NO encontrada");
-		return Vector2.negativeInfinity;
-	}
-
-	/// <summary>
-	/// Hace aparecer un corazón en alguna posición libre del mapa
-	/// </summary>
-	/// <returns>True o false según si lo consigue instanciar o no.</returns>
-	/*public bool SpawnearCorazon() {
-		Vector2 posicion = EncontrarSitioVacio();
-		if (posicion != Vector2.negativeInfinity) {
-
-			Instantiate(prefabCorazon, (Vector3) posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
-			return true;
-		}
-		return false;
-	}*/
+        bool posicionEncontrada = false;
+        Vector2 posicion;
+        do
+        {
+            posicion = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+            if (Physics2D.OverlapCircle(posicion, radioBusqueda, finalMask) == null)
+            {
+                posicionEncontrada = true;
+            }
+        }
+        while (!posicionEncontrada);
+        return posicion;
+    }
 
 	public void SpawnearCorazon() {
-		bool posicionEncontrada = false;
-		Vector2 posicion;
-		do {
-			posicion = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-			if (Physics2D.OverlapCircle(posicion, radioBusqueda, finalMask) == null) {
-				posicionEncontrada = true;
-			}
-		}
-		while (!posicionEncontrada);
+        Vector2 posicion = EncontrarSitioVacio();
 		Instantiate(prefabCorazon, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
 	}
 
 	public void SpawnearDefensa() {
-		bool posicionEncontrada = false;
-		Vector2 posicion;
-		do {
-			posicion = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-			if (Physics2D.OverlapCircle(posicion, radioBusqueda, finalMask) == null) {
-				posicionEncontrada = true;
-			}
-		}
-		while (!posicionEncontrada);
-		Instantiate(prefabDefensa, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+		Vector2 posicion = EncontrarSitioVacio();
+        Instantiate(prefabDefensa, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
 	}
-
-	/// <summary>
-	/// Hace aparecer un guardián en alguna posición libre del mapa
-	/// </summary>
-	/// <returns>True o false según si lo consigue instanciar o no.</returns>
-	/*public bool SpawnearGuardian() {
-		Vector2 posicion = EncontrarSitioVacio();
-		if (posicion != Vector2.negativeInfinity) {
-
-			Instantiate(prefabGuardian, (Vector3) posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
-			return true;
-		}
-		return false;
-	}*/
-
-	/// <summary>
-	/// Hace aparecer una cápsula en alguna posición libre del mapa
-	/// </summary>
-	/// <returns>True o false según si la consigue instanciar o no.</returns>
-	/*public bool SpawnearCapsula() {
-		Vector2 posicion = EncontrarSitioVacio();
-		if (posicion != Vector2.negativeInfinity) {
-
-			Instantiate(prefabCapsula, (Vector3) posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
-			return true;
-		}
-		return false;
-	}*/
 
 	public void SpawnearCapsula() {
-		bool posicionEncontrada = false;
-		Vector2 posicion;
-		do {
-			posicion = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-			if (Physics2D.OverlapCircle(posicion, radioBusqueda, finalMask) == null) {
-				posicionEncontrada = true;
-			}
-		}
-		while (!posicionEncontrada);
-		Instantiate(prefabCapsula, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+		Vector2 posicion = EncontrarSitioVacio();
+        Instantiate(prefabCapsula, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
 	}
 
+    public void GenerarFrutas(int numeroFrutas)
+    {
+        for(int i=0; i<numeroFrutas; i++)
+        {
+            Vector2 posicion = EncontrarSitioVacio();
+            Instantiate(prefabFruta, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+        }
+    }
+
+    public void GenerarTrampas(int numeroTrampas)
+    {
+        Vector2 posicion = EncontrarSitioVacio();
+        Instantiate(prefabTrampa, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+    }
+
+    public void GenerarGuardianes(int numeroGuardianes)
+    {
+        for(int i=0; i<numeroGuardianes; i++)
+        {
+            bool posicionEncontrada = false;
+            Vector2 posicion;
+            do
+            {
+                posicion = EncontrarSitioVacio();
+                if (Physics2D.OverlapCircle(posicion, 8f, 1 << LayerMask.NameToLayer("Player")) == null)
+                {
+                    posicionEncontrada = true;
+                }
+            }
+            while (!posicionEncontrada);
+            Instantiate(prefabGuardian, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+        }
+    }
 
 	public int getMinX() {
 		return this.minX;

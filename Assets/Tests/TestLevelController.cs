@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 
 namespace Tests
 {
-    public class TestLevelController
+    /*public class TestLevelController
     {
         public GameObject prefabLevelController;
         [Test]
@@ -24,5 +24,5 @@ namespace Tests
 
             
         }
-    }
+    }*/
 }
