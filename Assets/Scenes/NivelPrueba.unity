@@ -5580,6 +5580,24 @@ PrefabInstance:
       propertyPath: numeroTrampas
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 920344476239195374, guid: 161ae6bd47750cd4fbfc1e21860ae8cb,
+        type: 3}
+      propertyPath: prefabFruta
+      value: 
+      objectReference: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+        type: 3}
+    - target: {fileID: 920344476239195374, guid: 161ae6bd47750cd4fbfc1e21860ae8cb,
+        type: 3}
+      propertyPath: prefabTrampa
+      value: 
+      objectReference: {fileID: 908465592031903634, guid: 3c5e202b56b370a41a5c89222e2d32dc,
+        type: 3}
+    - target: {fileID: 920344476239195374, guid: 161ae6bd47750cd4fbfc1e21860ae8cb,
+        type: 3}
+      propertyPath: prefabGuardian
+      value: 
+      objectReference: {fileID: 4812231922255313443, guid: 2ebf78acb1199e248b7d1a44d4bd64aa,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 161ae6bd47750cd4fbfc1e21860ae8cb, type: 3}
 --- !u!1001 &1734746695
