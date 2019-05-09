@@ -80,12 +80,11 @@ public class Guardian : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D colisionador)
+    void OnTriggerEnter2D(Collider2D colisionado)
     {
-        if(colisionador.tag == "Player")
+        if(colisionado.tag == "Player")
         {
-            Debug.Log(colisionador.gameObject.name);
-            gameManager.DisminuirNumeroVida(1);
+            colisionado.gameObject.GetComponent<PlayerController>().RecibirDaño(100);
         }
     }
 

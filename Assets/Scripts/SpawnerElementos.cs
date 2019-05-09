@@ -30,6 +30,12 @@ public class SpawnerElementos : MonoBehaviour {
     [SerializeField]
     private GameObject prefabTrampa;
 
+
+    void Awake()
+    {
+        finalMask = 1 << LayerMask.NameToLayer("obstaculo") | 1 << LayerMask.NameToLayer("player") | 1 << LayerMask.NameToLayer("fruta") | 1 << LayerMask.NameToLayer("pickup");
+
+    }
     private void Start() {
 		if (radioBusqueda == 0f) {
 			radioBusqueda = 0.8f;
@@ -37,7 +43,6 @@ public class SpawnerElementos : MonoBehaviour {
 		if (prefabCapsula == null) {
 			prefabCapsula = (GameObject) Resources.Load("capsula");
 		}
-		finalMask = 1 << LayerMask.NameToLayer("obstaculo") | 1 << LayerMask.NameToLayer("player") | 1 << LayerMask.NameToLayer("fruta") | 1 << LayerMask.NameToLayer("pickup");
 
         Invoke("SpawnearCorazon", Random.Range(0, 60));
         Invoke("SpawnearCapsula", Random.Range(0, 60));
@@ -45,7 +50,10 @@ public class SpawnerElementos : MonoBehaviour {
     }
 
     private void Update() {
-        
+        //Para testeo
+        if (Input.GetKeyDown(KeyCode.H)) SpawnearCorazon();
+        if (Input.GetKeyDown(KeyCode.C)) SpawnearCapsula();
+        if (Input.GetKeyDown(KeyCode.G)) SpawnearDefensa();
     }
 
 	/// <summary>

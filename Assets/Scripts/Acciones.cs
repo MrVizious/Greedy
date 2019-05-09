@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public abstract class Acciones : MonoBehaviour {
-	// Start is called before the first frame update
-	void Start() {
 
-	}
+    GameManager gameManager;
+    // Start is called before the first frame update
+    void Start() {
+        gameManager = GameManager.getGameManager();
+    }
 
 	// Update is called once per frame
 	void Update() {
@@ -15,10 +17,11 @@ public abstract class Acciones : MonoBehaviour {
 	}
 	public virtual void RecibirDaño(int daño, PlayerController player)
     {
-        player.dañoAcumulado = +daño;
+        player.dañoAcumulado += daño;
         if (player.dañoAcumulado >= 100)
         {
             player.dañoAcumulado = 0;
+            gameManager.DisminuirNumeroVida(1);
         }
     }
     public virtual void AumentarCalorias(int calorias, PlayerController player)
