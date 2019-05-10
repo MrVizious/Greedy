@@ -53,3 +53,6 @@ TagManager:
   - name: Background
     uniqueID: 2654562115
     locked: 0
+  - name: Barra
+    uniqueID: 234816223
+    locked: 0
