@@ -23,6 +23,7 @@ public class LevelController : MonoBehaviour
     public GameObject[] frutas;
     public GameObject GameController;
     SpawnerElementos spawner;
+    string[] consumibles = { "fresa", "uva", "pimiento", "zanahoria" };
 
     public void Start()
     {
@@ -30,7 +31,11 @@ public class LevelController : MonoBehaviour
         //Hay que ver que no se generen cerca de player
         //spawner.SpawnearElementos(numeroGuardianes, prefabGuardian);
         spawner.GenerarGuardianes(numeroGuardianes, prefabGuardian);
-        spawner.SpawnearElementos(numeroFrutas, prefabFruta);
+        foreach (string cons in consumibles)
+        {
+            spawner.SpawnearElementos(numeroFrutas / 4, cons);
+        }
+        //spawner.SpawnearElementos(numeroFrutas, prefabFruta);
         spawner.SpawnearElementos(numeroTrampas, prefabTrampa);
     }
 

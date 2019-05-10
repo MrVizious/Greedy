@@ -22,13 +22,13 @@ public class FabricaConsumibles : MonoBehaviour
 
     public IConsumible GetConsumible(string nombreConsumible) {
         switch (nombreConsumible) {
-            case "Fresa":
+            case "fresa":
                 return prefabFresa;
-            case "Uva":
+            case "uva":
                 return prefabUva;
-            case "Pimiento":
+            case "pimiento":
                 return prefabPimiento;
-            case "Zanahoria":
+            case "zanahoria":
                 return prefabZanahoria;
             default:
                 return null;
