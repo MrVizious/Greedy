@@ -14,6 +14,9 @@ public class Interfaz : MonoBehaviour {
 
     public string calorias, danyo, defensa;
     public Text textoCalorias, textoDanyo, textoDefensa;
+    public Image danyoImage;
+    float danyoBarra, maxDanyo = 100f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,7 @@ public class Interfaz : MonoBehaviour {
         textoCalorias = this.transform.Find("Calorias").GetComponent<Text>();
         textoDanyo = this.transform.Find("Danyo").GetComponent<Text>();
         textoDefensa = this.transform.Find("Defensa").GetComponent<Text>();
+        danyoBarra = 0f;
     }
 
     // Update is called once per frame
@@ -56,6 +60,12 @@ public class Interfaz : MonoBehaviour {
         {
             vidas[i].SetActive(false);
         }
+    }
+
+    public void RecibirDaño(float cantidad)
+    {
+        danyoBarra = Mathf.Clamp(danyoBarra - cantidad, 0f, maxDanyo);
+        danyoImage.transform.localScale = new Vector2(danyoBarra / maxDanyo, 1);
     }
 
 
