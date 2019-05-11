@@ -19,6 +19,8 @@ public class LevelController : MonoBehaviour
     int numeroGuardianes;
     [SerializeField]
     GameObject prefabGuardian;
+    [SerializeField]
+    GameObject prefabGuardianRapido;
 
     public GameObject[] frutas;
     public GameObject GameController;
@@ -30,7 +32,8 @@ public class LevelController : MonoBehaviour
         spawner = GameObject.Find("SpawnerElementos").GetComponent<SpawnerElementos>();
         //Hay que ver que no se generen cerca de player
         //spawner.SpawnearElementos(numeroGuardianes, prefabGuardian);
-        spawner.GenerarGuardianes(numeroGuardianes, prefabGuardian);
+        spawner.GenerarGuardianes(numeroGuardianes/2, prefabGuardian);
+        spawner.GenerarGuardianes(numeroGuardianes/2, prefabGuardianRapido);
         foreach (string cons in consumibles)
         {
             spawner.SpawnearElementos(numeroFrutas / 4, cons);

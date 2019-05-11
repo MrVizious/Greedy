@@ -103,8 +103,8 @@ public class SpawnerElementos : MonoBehaviour {
         for (int i = 0; i < numeroElementos; i++)
         {
             Vector2 posicion = EncontrarSitioVacio();
-            GameObject prefab = fabrica.GetConsumible(consumible);
-            Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+            //GameObject prefab = fabrica.GetConsumible(consumible);
+            //Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
         }
     }
 
