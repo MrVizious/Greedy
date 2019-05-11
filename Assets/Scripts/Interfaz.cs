@@ -62,9 +62,9 @@ public class Interfaz : MonoBehaviour {
         }
     }
 
-    public void RecibirDaño(float cantidad)
+    public void RecibirDañoBarra(float cantidad)
     {
-        danyoBarra = Mathf.Clamp(danyoBarra - cantidad, 0f, maxDanyo);
+        danyoBarra = Mathf.Clamp(danyoBarra + cantidad, 0f, maxDanyo);
         danyoImage.transform.localScale = new Vector2(danyoBarra / maxDanyo, 1);
     }
 
