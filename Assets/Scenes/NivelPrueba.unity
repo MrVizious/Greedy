@@ -4910,7 +4910,7 @@ PrefabInstance:
     - target: {fileID: 7121545737925946867, guid: 9907709c62f3cbb4f9c98996f70b3653,
         type: 3}
       propertyPath: m_Name
-      value: Audio Source
+      value: AudioNivel
       objectReference: {fileID: 0}
     - target: {fileID: 7121545737925946865, guid: 9907709c62f3cbb4f9c98996f70b3653,
         type: 3}
@@ -6388,6 +6388,7 @@ MonoBehaviour:
   textoCalorias: {fileID: 0}
   textoDanyo: {fileID: 0}
   textoDefensa: {fileID: 0}
+  danyoImage: {fileID: 0}
 --- !u!1 &2145812531
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,7 +46,9 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+        numeroVidas = 3;
         controladorSonido = GetComponent<AudioSource>();
+        //audioNivel = GameObject.Find("audioNivel");
         Mathf.Clamp(numeroVidas, 0, 3);
         player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
