@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 	AudioSource audioPlayer;
 	public AudioClip mover, comer, perderVida, ganarVida;
     private GameManager gameManager;
+    private GameObject barraDeDaño;
 
 	public void Start() {
         gameManager = GameManager.getGameManager();
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 		arriba = abajo = derecha = izquierda = false;
 		estado = gameObject.AddComponent<AccionesNormal>();
 		audioPlayer = GetComponent<AudioSource>();
+        barraDeDaño = GameObject.Find("BarraDeDaño");
 	}
 
 	void Update() {
@@ -122,6 +124,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	public void RecibirDaño(int daño) {
+        barraDeDaño.SendMessage("RecibirDaño", 30);
 		estado.RecibirDaño(daño, this);
 	}
 
