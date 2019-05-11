@@ -54,6 +54,5 @@ public class LevelController : MonoBehaviour
     {
         //TODO: cambiar de nivel, de momento se reinicia la escena
         //GameController.CambiarEscena();
-        SceneManager.LoadScene("NivelPrueba");
     }
 }

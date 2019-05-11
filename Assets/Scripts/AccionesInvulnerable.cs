@@ -10,7 +10,6 @@ public class AccionesInvulnerable : Acciones {
 	public GameObject soundEffect;
     private bool activo = false;
 
-	public override void Morir(PlayerController player) { }
 
 	public override void RecibirDaño(int daño, PlayerController player) { }
 

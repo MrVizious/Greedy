@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	public void RecibirDaño(int daño) {
-        barraDeDaño.SendMessage("RecibirDaño", 30);
+        //barraDeDaño.SendMessage("RecibirDaño", 30);
 		estado.RecibirDaño(daño, this);
 	}
 
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Morir() {
-		estado.Morir(this);
+        estado.Morir(this);
 	}
 
     public void CambiarEstado()

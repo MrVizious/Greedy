@@ -15,7 +15,11 @@ public class GameManager : MonoBehaviour {
     int minVidas = 0;
     [SerializeField]
     int maxVidas = 3;
-
+    PlayerController player;
+    [SerializeField]
+    AudioSource audioNivel;
+    [SerializeField]
+    AudioClip sonidoGameOver;
 
     public static GameManager getGameManager() {
 		return instance;
@@ -44,6 +48,7 @@ public class GameManager : MonoBehaviour {
     {
         controladorSonido = GetComponent<AudioSource>();
         Mathf.Clamp(numeroVidas, 0, 3);
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
 	/// <summary>
@@ -52,7 +57,8 @@ public class GameManager : MonoBehaviour {
 	/// <param name="name"></param>
 	public void ChangeToScene(string name) {
 		SceneManager.LoadScene(name, LoadSceneMode.Single);
-	}
+
+    }
 
 	/// <summary>
 	/// Recibe el número de la escena que se quiere cargar y la carga si puede
@@ -75,10 +81,24 @@ public class GameManager : MonoBehaviour {
         if (numeroVidas > maxVidas) numeroVidas = maxVidas;
 	}
 	public void DisminuirNumeroVida(int cantidad) {
-        controladorSonido.clip = sonidoPerderVida;
-        controladorSonido.Play();
-		this.numeroVidas -= cantidad;
-        if (numeroVidas < 0) numeroVidas = 0;
+        if (numeroVidas > 0)
+        {
+            controladorSonido.clip = sonidoPerderVida;
+            controladorSonido.Play();
+            this.numeroVidas -= cantidad;
+        }
+        if(numeroVidas == 0)
+        {
+            StartCoroutine(GameOver());
+        }
     }
-
+    
+    IEnumerator GameOver()
+    {
+        audioNivel.clip = sonidoGameOver;
+        audioNivel.Play();
+        player.Morir();
+        yield return new WaitForSeconds(1.7f);
+        ChangeToScene("GameOver");
+    }
 }

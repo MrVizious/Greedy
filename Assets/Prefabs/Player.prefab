@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6193650306131679358}
   - component: {fileID: 6193650306131679352}
   - component: {fileID: 7957664491222967498}
+  - component: {fileID: 5128652920787170546}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -149,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "da\xF1oAcumulado": 0
   caloriasAcumuladas: 0
+  caloriasTotal: 0
   caloriasParaReducir: 100
   reduccionPorCalorias: 10
   arriba: 0
@@ -273,3 +275,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &5128652920787170546
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193650306131679329}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
