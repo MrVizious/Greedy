@@ -409,6 +409,16 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2163799954286660221, guid: ff8f20295515e2441b741a288e8738f1,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2163799954286660221, guid: ff8f20295515e2441b741a288e8738f1,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1588867687}
     - target: {fileID: 2163799954976744542, guid: ff8f20295515e2441b741a288e8738f1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -421,11 +431,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 794989041, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -385
+      value: -365
       objectReference: {fileID: 0}
     - target: {fileID: 794989041, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -128
+      value: -119
       objectReference: {fileID: 0}
     - target: {fileID: 1203433940, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2182,6 +2192,12 @@ TilemapCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+--- !u!20 &1588867687 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5458321575429720055, guid: ad2a5998bfae5e34d8866715630dbeb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 5539041567540250368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1725462183
 PrefabInstance:
   m_ObjectHideFlags: 0
