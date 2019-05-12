@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
     public RuntimeAnimatorController GreedyLeft;
     public RuntimeAnimatorController GreedyRight;
     //public RuntimeAnimatorController GreedyIddleUp;
-    public RuntimeAnimatorController GreedyIddleDown;
+    //public RuntimeAnimatorController GreedyIddleDown;
     /*public RuntimeAnimatorController GreedyIddleLeft;
     public RuntimeAnimatorController GreedyIddleRight;*/
 
@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour {
             transform.GetComponent<Animator>().runtimeAnimatorController = GreedyUp;
             movimiento.SetRumbo(movimiento.direccion);
             //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleUp;
-            transform.GetComponent<Animator>().runtimeAnimatorController = null;
             ActivarSonidoMover();
 		} else if (abajo) {
 			movimiento.direccion = Vector2.down;
