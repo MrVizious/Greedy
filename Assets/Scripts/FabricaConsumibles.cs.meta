@@ -16,6 +16,12 @@ MonoImporter:
       type: 3}
   - prefabGuardianRapido: {fileID: 7000637877471322845, guid: 2d47a9be072d2c2418bd0f9be1be8be7,
       type: 3}
+  - prefabCorazon: {fileID: 4727772470586239409, guid: af0327a4d0b2a4a4e9b5ac262f844709,
+      type: 3}
+  - prefabCapsula: {fileID: 4841924695688783900, guid: 21b7e7e7d74b49e44b1b118d983ca1e0,
+      type: 3}
+  - prefabDefensa: {fileID: 1842204732566135649, guid: 3bb63349a69b8434aade60db4974d6c9,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

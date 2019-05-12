@@ -16,6 +16,12 @@ public class FabricaConsumibles : MonoBehaviour
     private GameObject prefabGuardian;
     [SerializeField]
     private GameObject prefabGuardianRapido;
+    [SerializeField]
+    private GameObject prefabCorazon;
+    [SerializeField]
+    private GameObject prefabCapsula;
+    [SerializeField]
+    private GameObject prefabDefensa;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +44,12 @@ public class FabricaConsumibles : MonoBehaviour
                 return prefabGuardian;
             case "guardianRapido":
                 return prefabGuardianRapido;
+            case "corazon":
+                return prefabCorazon;
+            case "capsula":
+                return prefabCapsula;
+            case "defensa":
+                return prefabDefensa;
             default:
                 return null;
 
