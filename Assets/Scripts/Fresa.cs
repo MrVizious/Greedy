@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fresa : MonoBehaviour, IConsumible
+public class Fresa : MonoBehaviour
 {
     private int caloriasFruta;
     public PlayerController jugador;

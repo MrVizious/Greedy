@@ -3,7 +3,19 @@ guid: 08475b6462af3f24db6e3e9ff9bfa459
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabFresa: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+      type: 3}
+  - prefabUva: {fileID: 2201460578284024354, guid: 81ca8755b8cdbf042a2f55c1f4b29157,
+      type: 3}
+  - prefabPimiento: {fileID: 4085933328356311326, guid: a90e5e4e89e41dc48b8ce4a645b18de2,
+      type: 3}
+  - prefabZanahoria: {fileID: 1118497993574660315, guid: 98876666df0ebe04883db615f5619461,
+      type: 3}
+  - prefabGuardian: {fileID: 4812231922255313443, guid: 2ebf78acb1199e248b7d1a44d4bd64aa,
+      type: 3}
+  - prefabGuardianRapido: {fileID: 7000637877471322845, guid: 2d47a9be072d2c2418bd0f9be1be8be7,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

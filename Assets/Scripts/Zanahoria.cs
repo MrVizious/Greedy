@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zanahoria : MonoBehaviour, IConsumible 
+public class Zanahoria : MonoBehaviour
 {
     private int caloriasFruta;
     public PlayerController jugador;

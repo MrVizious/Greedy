@@ -2,25 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(IConsumible))]
 public class FabricaConsumibles : MonoBehaviour
 {
-    public IConsumible prefabFresa;
-    public IConsumible prefabUva;
-    public IConsumible prefabPimiento;
-    public IConsumible prefabZanahoria;
+    [SerializeField]
+    private GameObject prefabFresa;
+    [SerializeField]
+    private GameObject prefabUva;
+    [SerializeField]
+    private GameObject prefabPimiento;
+    [SerializeField]
+    private GameObject prefabZanahoria;
+    [SerializeField]
+    private GameObject prefabGuardian;
+    [SerializeField]
+    private GameObject prefabGuardianRapido;
     // Start is called before the first frame update
     void Start()
     {
-        prefabFresa = GetComponent<Fresa>();
-        prefabFresa = GetComponent<Uva>();
-        prefabFresa = GetComponent<Pimiento>();
-        prefabFresa = GetComponent<Zanahoria>();
+       
     }
 
     // Update is called once per frame
 
-    public IConsumible GetConsumible(string nombreConsumible) {
+    public GameObject GetConsumible(string nombreConsumible) {
         switch (nombreConsumible) {
             case "fresa":
                 return prefabFresa;
@@ -30,6 +34,10 @@ public class FabricaConsumibles : MonoBehaviour
                 return prefabPimiento;
             case "zanahoria":
                 return prefabZanahoria;
+            case "guardian":
+                return prefabGuardian;
+            case "guardianRapido":
+                return prefabGuardianRapido;
             default:
                 return null;
 
