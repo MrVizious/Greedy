@@ -43,8 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a940aae0c1f00ff40aff7fcc417f9d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radioBusqueda: 0.5
-  numeroIntentos: 30
   minX: -22
   minY: -7
   maxX: 21
@@ -53,5 +51,5 @@ MonoBehaviour:
     type: 3}
   prefabCapsula: {fileID: 4841924695688783900, guid: 21b7e7e7d74b49e44b1b118d983ca1e0,
     type: 3}
-  prefabGuardian: {fileID: 4812231922255313443, guid: 2ebf78acb1199e248b7d1a44d4bd64aa,
-    type: 3}
+  prefabDefensa: {fileID: 0}
+  radioBusqueda: 0.3

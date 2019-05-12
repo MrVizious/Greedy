@@ -31,10 +31,8 @@ public class Interfaz : MonoBehaviour {
         danyoBarra = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //TODO: mostrar las vidas
         textoCalorias.text = "Calorías: " + statsPlayer.caloriasTotal;
         textoDanyo.text = "Daño: " + statsPlayer.dañoAcumulado;
 
@@ -46,7 +44,6 @@ public class Interfaz : MonoBehaviour {
             textoDefensa.text = "Defensa: invulnerable";
         }
         else { textoDefensa.text = "Defensa: ninguna"; }
-        //textoVidas = "Vidas" + gameController.GetComponent<GameController>().vidas;
     }
 
     void MostrarVidas(int vidasNumero)
