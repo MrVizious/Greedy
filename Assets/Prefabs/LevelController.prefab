@@ -55,4 +55,5 @@ MonoBehaviour:
   prefabGuardianRapido: {fileID: 7000637877471322845, guid: 2d47a9be072d2c2418bd0f9be1be8be7,
     type: 3}
   frutas: []
-  GameController: {fileID: 0}
+  gameController: {fileID: 6582569017930139968, guid: 8871ca97a88a38545a0c6117d7f56717,
+    type: 3}

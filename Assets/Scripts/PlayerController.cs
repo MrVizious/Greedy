@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	public void RecibirDaño(int daño) {
-        barraObjeto.SendMessage("RecibirDañoBarra", 30);
+        //barraObjeto.SendMessage("RecibirDañoBarra", 30);
 		estado.RecibirDaño(daño, this);
 	}
 

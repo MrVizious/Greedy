@@ -23,7 +23,7 @@ public class LevelController : MonoBehaviour
     GameObject prefabGuardianRapido;
 
     public GameObject[] frutas;
-    public GameObject GameController;
+    public GameObject gameController;
     SpawnerElementos spawner;
     string[] consumibles = { "fresa", "uva", "pimiento", "zanahoria" };
 
