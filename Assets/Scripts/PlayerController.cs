@@ -21,7 +21,18 @@ public class PlayerController : MonoBehaviour {
     private GameManager gameManager;
     private GameObject barraObjeto;
 
-	public void Start() {
+
+    public RuntimeAnimatorController GreedyUp;
+    public RuntimeAnimatorController GreedyDown;
+    public RuntimeAnimatorController GreedyLeft;
+    public RuntimeAnimatorController GreedyRight;
+    //public RuntimeAnimatorController GreedyIddleUp;
+    public RuntimeAnimatorController GreedyIddleDown;
+    /*public RuntimeAnimatorController GreedyIddleLeft;
+    public RuntimeAnimatorController GreedyIddleRight;*/
+
+
+    public void Start() {
         gameManager = GameManager.getGameManager();
         movimiento = GetComponent<Movimiento>();
 		dañoAcumulado = 0;
@@ -35,33 +46,41 @@ public class PlayerController : MonoBehaviour {
 	void Update() {
 		if (arriba) {
 			movimiento.direccion = Vector2.up;
-			movimiento.SetRumbo(movimiento.direccion);
-			ActivarSonidoMover();
+            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyUp;
+            movimiento.SetRumbo(movimiento.direccion);
+            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleUp;
+            transform.GetComponent<Animator>().runtimeAnimatorController = null;
+            ActivarSonidoMover();
 		} else if (abajo) {
 			movimiento.direccion = Vector2.down;
-			movimiento.SetRumbo(movimiento.direccion);
-			ActivarSonidoMover();
+            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyDown;
+            movimiento.SetRumbo(movimiento.direccion);
+            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
+            ActivarSonidoMover();
 		} else if (derecha) {
 			movimiento.direccion = Vector2.right;
-			movimiento.SetRumbo(movimiento.direccion);
-			ActivarSonidoMover();
+            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyRight;
+            movimiento.SetRumbo(movimiento.direccion);
+            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleRight;
+            ActivarSonidoMover();
 		} else if (izquierda) {
 			movimiento.direccion = Vector2.left;
-			movimiento.SetRumbo(movimiento.direccion);
-			ActivarSonidoMover();
+            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyLeft;
+            movimiento.SetRumbo(movimiento.direccion);
+            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleLeft;
+            ActivarSonidoMover();
 		}
-
 
 		arriba = false;
 		abajo = false;
 		derecha = false;
 		izquierda = false;
+        //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
+    }
 
 
 
-	}
-
-	void ActivarSonidoMover() {
+    void ActivarSonidoMover() {
 		audioPlayer.clip = mover;
 		audioPlayer.Play();
 	}
