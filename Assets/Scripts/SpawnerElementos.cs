@@ -12,13 +12,6 @@ public class SpawnerElementos : MonoBehaviour {
 	private int maxX;
 	[SerializeField]
 	private int maxY;
-
-	[SerializeField]
-	private GameObject prefabCorazon;
-	[SerializeField]
-	private GameObject prefabCapsula;
-	[SerializeField]
-	private GameObject prefabDefensa;
     [SerializeField]
     public float radioBusqueda;
 
@@ -29,15 +22,16 @@ public class SpawnerElementos : MonoBehaviour {
     {
         finalMask = 1 << LayerMask.NameToLayer("obstaculo") | 1 << LayerMask.NameToLayer("player") | 1 << LayerMask.NameToLayer("fruta") | 1 << LayerMask.NameToLayer("pickup");
 
+        fabrica = GetComponent<FabricaConsumibles>();
     }
     private void Start() {
 		if (radioBusqueda == 0f) {
-			radioBusqueda = 0.8f;
+			radioBusqueda = 0.3f;
 		}
 
-        StartCoroutine(SpawnearElemento(prefabCorazon));
-        StartCoroutine(SpawnearElemento(prefabCapsula));
-        StartCoroutine(SpawnearElemento(prefabDefensa));
+        StartCoroutine(SpawnearElemento("corazon"));
+        StartCoroutine(SpawnearElemento("capsula"));
+        StartCoroutine(SpawnearElemento("defensa"));
     }
 
     private void Update() {
@@ -66,27 +60,31 @@ public class SpawnerElementos : MonoBehaviour {
         return posicion;
     }
 
-    IEnumerator SpawnearElemento(GameObject prefab)
+    IEnumerator SpawnearElemento(string nombre)
     {
         yield return new WaitForSeconds(Random.Range(0, 60));
         Vector2 posicion = EncontrarSitioVacio();
+        GameObject prefab = fabrica.GetConsumible(nombre);
         Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
     }
 
     //Estos métodos serán elimindaos, de momento están para testeo
 	public void SpawnearCorazon() {
         Vector2 posicion = EncontrarSitioVacio();
-		Instantiate(prefabCorazon, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+        GameObject prefab = fabrica.GetConsumible("corazon");
+        Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
 	}
 
 	public void SpawnearDefensa() {
 		Vector2 posicion = EncontrarSitioVacio();
-        Instantiate(prefabDefensa, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+        GameObject prefab = fabrica.GetConsumible("defensa");
+        Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
 	}
 
 	public void SpawnearCapsula() {
 		Vector2 posicion = EncontrarSitioVacio();
-        Instantiate(prefabCapsula, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+        GameObject prefab = fabrica.GetConsumible("capsula");
+        Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
 	}
     //Hay que ver que los guardianes no se generen cerca de player
     public void SpawnearElementos(int numeroElementos, GameObject prefab)
@@ -98,13 +96,13 @@ public class SpawnerElementos : MonoBehaviour {
         }
     }
 
-    public void SpawnearElementos(int numeroElementos, string consumible)
+    public void SpawnearElementos(int numeroElementos, string nombre)
     {
         for (int i = 0; i < numeroElementos; i++)
         {
             Vector2 posicion = EncontrarSitioVacio();
-            //GameObject prefab = fabrica.GetConsumible(consumible);
-            //Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+            GameObject prefab = fabrica.GetConsumible(nombre);
+            Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
         }
     }
 

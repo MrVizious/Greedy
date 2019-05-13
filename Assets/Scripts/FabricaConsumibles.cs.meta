@@ -22,6 +22,8 @@ MonoImporter:
       type: 3}
   - prefabDefensa: {fileID: 1842204732566135649, guid: 3bb63349a69b8434aade60db4974d6c9,
       type: 3}
+  - prefabTrampa: {fileID: 908465592031903634, guid: 3c5e202b56b370a41a5c89222e2d32dc,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5618266671276740631}
   - component: {fileID: 5618266671276740630}
+  - component: {fileID: 8603601478804123214}
   m_Layer: 0
   m_Name: SpawnerElementos
   m_TagString: Untagged
@@ -43,13 +44,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a940aae0c1f00ff40aff7fcc417f9d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -22
+  minX: -9
   minY: -7
-  maxX: 21
+  maxX: 9
   maxY: 7
+  radioBusqueda: 0.3
+--- !u!114 &8603601478804123214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08475b6462af3f24db6e3e9ff9bfa459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabFresa: {fileID: 1831813662134635898, guid: 816b851d7d5d1b34e9b47738797a5735,
+    type: 3}
+  prefabUva: {fileID: 2201460578284024354, guid: 81ca8755b8cdbf042a2f55c1f4b29157,
+    type: 3}
+  prefabPimiento: {fileID: 4085933328356311326, guid: a90e5e4e89e41dc48b8ce4a645b18de2,
+    type: 3}
+  prefabZanahoria: {fileID: 1118497993574660315, guid: 98876666df0ebe04883db615f5619461,
+    type: 3}
+  prefabGuardian: {fileID: 4812231922255313443, guid: 2ebf78acb1199e248b7d1a44d4bd64aa,
+    type: 3}
+  prefabGuardianRapido: {fileID: 7000637877471322845, guid: 2d47a9be072d2c2418bd0f9be1be8be7,
+    type: 3}
   prefabCorazon: {fileID: 4727772470586239409, guid: af0327a4d0b2a4a4e9b5ac262f844709,
     type: 3}
   prefabCapsula: {fileID: 4841924695688783900, guid: 21b7e7e7d74b49e44b1b118d983ca1e0,
     type: 3}
-  prefabDefensa: {fileID: 0}
-  radioBusqueda: 0.3
+  prefabDefensa: {fileID: 1842204732566135649, guid: 3bb63349a69b8434aade60db4974d6c9,
+    type: 3}
+  prefabTrampa: {fileID: 908465592031903634, guid: 3c5e202b56b370a41a5c89222e2d32dc,
+    type: 3}

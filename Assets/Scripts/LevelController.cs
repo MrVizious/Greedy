@@ -10,19 +10,11 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     int numeroFrutas;
     [SerializeField]
-    GameObject prefabFruta;
-    [SerializeField]
     int numeroTrampas;
-    [SerializeField]
-    GameObject prefabTrampa;
     [SerializeField]
     int numeroGuardianes;
     [SerializeField]
-    GameObject prefabGuardian;
-    [SerializeField]
     int numeroGuardianesRapidos;
-    [SerializeField]
-    GameObject prefabGuardianRapido;
 
     public GameObject[] frutas;
     public GameObject gameController;
@@ -33,15 +25,16 @@ public class LevelController : MonoBehaviour
     {
         spawner = GameObject.Find("SpawnerElementos").GetComponent<SpawnerElementos>();
         //Hay que ver que no se generen cerca de player
-        //spawner.SpawnearElementos(numeroGuardianes, prefabGuardian);
-        spawner.GenerarGuardianes(numeroGuardianes, prefabGuardian);
-        spawner.GenerarGuardianes(numeroGuardianesRapidos, prefabGuardianRapido);
+        spawner.SpawnearElementos(numeroGuardianes, "guardian");
+        spawner.SpawnearElementos(numeroGuardianesRapidos, "guardianRapido");
+        //spawner.GenerarGuardianes(numeroGuardianes, prefabGuardian);
+        //spawner.GenerarGuardianes(numeroGuardianesRapidos, prefabGuardianRapido);
         foreach (string cons in consumibles)
         {
             spawner.SpawnearElementos(numeroFrutas / 4, cons);
         }
         //spawner.SpawnearElementos(numeroFrutas, prefabFruta);
-        spawner.SpawnearElementos(numeroTrampas, prefabTrampa);
+        spawner.SpawnearElementos(numeroTrampas, "trampa");
     }
 
     // Update is called once per frame
