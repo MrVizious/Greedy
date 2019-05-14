@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour {
 	Acciones defensa;
 	int duracionDefensa;
 	AudioSource audioPlayer;
-<<<<<<< HEAD
 	public AudioClip mover, comer, perderVida, ganarVida;
     private GameManager gameManager;
     private GameObject barraObjeto;
@@ -36,30 +35,11 @@ public class PlayerController : MonoBehaviour {
     public RuntimeAnimatorController GreedyIddleRight;
 
 
-    public void Start() {
-        move = true;
-        gameManager = GameManager.getGameManager();
-        movimiento = GetComponent<Movimiento>();
-=======
-	public AudioClip mover, comer, perderVida, ganarVida, sonidoChocar;
-	private GameManager gameManager;
-	private GameObject barraObjeto;
-
-
-	public RuntimeAnimatorController GreedyUp;
-	public RuntimeAnimatorController GreedyDown;
-	public RuntimeAnimatorController GreedyLeft;
-	public RuntimeAnimatorController GreedyRight;
-	//public RuntimeAnimatorController GreedyIddleUp;
-	//public RuntimeAnimatorController GreedyIddleDown;
-	/*public RuntimeAnimatorController GreedyIddleLeft;
-    public RuntimeAnimatorController GreedyIddleRight;*/
 
 
 	public void Start() {
 		gameManager = GameManager.getGameManager();
 		movimiento = GetComponent<Movimiento>();
->>>>>>> master
 		dañoAcumulado = 0;
 		caloriasAcumuladas = 0;
 		arriba = abajo = derecha = izquierda = false;
@@ -70,7 +50,6 @@ public class PlayerController : MonoBehaviour {
 
 	void Update() {
 		if (arriba) {
-<<<<<<< HEAD
             movimiento.direccion = Vector2.up;
             transform.GetComponent<Animator>().runtimeAnimatorController = GreedyUp;
             movimiento.SetRumbo(movimiento.direccion);
@@ -94,54 +73,8 @@ public class PlayerController : MonoBehaviour {
         if (transform.position == movimiento.posicionObjetivo) {
             transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
         }
-
-        arriba = false;
-=======
-			movimiento.direccion = Vector2.up;
-			transform.GetComponent<Animator>().runtimeAnimatorController = GreedyUp;
-			movimiento.SetRumbo(movimiento.direccion);
-			//transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleUp;
-			if (!movimiento.PuedeAvanzar(movimiento.direccion)) {
-				Debug.Log("You shall not pass"); ;
-				audioPlayer.clip = sonidoChocar;
-				audioPlayer.Play();
-			} else ActivarSonidoMover();
-		} else if (abajo) {
-			movimiento.direccion = Vector2.down;
-			transform.GetComponent<Animator>().runtimeAnimatorController = GreedyDown;
-			movimiento.SetRumbo(movimiento.direccion);
-			//transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
-			if (!movimiento.PuedeAvanzar(movimiento.direccion)) {
-				Debug.Log("You shall not pass"); ;
-				audioPlayer.clip = sonidoChocar;
-				audioPlayer.Play();
-			} else ActivarSonidoMover();
-		} else if (derecha) {
-			movimiento.direccion = Vector2.right;
-			transform.GetComponent<Animator>().runtimeAnimatorController = GreedyRight;
-			movimiento.SetRumbo(movimiento.direccion);
-			//transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleRight;
-			if (!movimiento.PuedeAvanzar(movimiento.direccion)) {
-				Debug.Log("You shall not pass"); ;
-				audioPlayer.clip = sonidoChocar;
-				audioPlayer.Play();
-			} else ActivarSonidoMover();
-		} else if (izquierda) {
-			movimiento.direccion = Vector2.left;
-			transform.GetComponent<Animator>().runtimeAnimatorController = GreedyLeft;
-			movimiento.SetRumbo(movimiento.direccion);
-			//transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleLeft;
-			if (!movimiento.PuedeAvanzar(movimiento.direccion)) {
-				Debug.Log("You shall not pass"); ;
-				audioPlayer.clip = sonidoChocar;
-				audioPlayer.Play();
-			} else ActivarSonidoMover();
-		}
-
-
-
+        
 		arriba = false;
->>>>>>> master
 		abajo = false;
 		derecha = false;
 		izquierda = false;
@@ -230,13 +163,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Morir() {
-<<<<<<< HEAD
+
         estado.Morir(this);
     }
-=======
-		estado.Morir(this);
-	}
->>>>>>> master
+	
 
 	public void CambiarEstado() {
 		estado.CambiarEstado(this);
