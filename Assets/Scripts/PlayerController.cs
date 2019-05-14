@@ -70,15 +70,14 @@ public class PlayerController : MonoBehaviour {
             movimiento.SetRumbo(movimiento.direccion);
             ActivarSonidoMover();
         }
-        if (transform.position == movimiento.posicionObjetivo) {
+        /*if (transform.position == movimiento.posicionObjetivo) {
             transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
-        }
+        }*/
         
 		arriba = false;
 		abajo = false;
 		derecha = false;
 		izquierda = false;
-		//transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
 	}
 
 
