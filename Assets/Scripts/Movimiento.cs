@@ -48,9 +48,13 @@ public class Movimiento : MonoBehaviour {
 		RaycastHit2D hit3 = Physics2D.Raycast(transform.position, new Vector2(direccion.x == 0 ? anguloRaycast : direccion.x, direccion.y == 0 ? anguloRaycast : direccion.y), 1.2f, capasDeColision);
 		Debug.DrawRay(transform.position, new Vector2(direccion.x == 0 ? anguloRaycast : direccion.x, direccion.y == 0 ? anguloRaycast : direccion.y), Color.green, 1.2f);
 
-		if (hit1.collider != null && hit1.collider.tag.Equals("obstaculo")) return false;
-		if (hit2.collider != null && hit2.collider.tag.Equals("obstaculo")) return false;
-		if (hit3.collider != null && hit3.collider.tag.Equals("obstaculo")) return false;
+		if ((hit1.collider != null && hit1.collider.tag.Equals("obstaculo")) ||
+			(hit2.collider != null && hit2.collider.tag.Equals("obstaculo")) ||
+			(hit3.collider != null && hit3.collider.tag.Equals("obstaculo"))) {
+
+
+			return false;
+		}
 		return true;
 
 	}

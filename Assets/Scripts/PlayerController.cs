@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 
 	public int dañoAcumulado;
 	public int caloriasAcumuladas;
-    public int caloriasTotal;
+	public int caloriasTotal;
 	public int caloriasParaReducir = 100;
 	public int reduccionPorCalorias = 10;
 	private Fruta frutaQueCome;
@@ -17,69 +17,87 @@ public class PlayerController : MonoBehaviour {
 	Acciones defensa;
 	int duracionDefensa;
 	AudioSource audioPlayer;
-	public AudioClip mover, comer, perderVida, ganarVida;
-    private GameManager gameManager;
-    private GameObject barraObjeto;
+	public AudioClip mover, comer, perderVida, ganarVida, sonidoChocar;
+	private GameManager gameManager;
+	private GameObject barraObjeto;
 
 
-    public RuntimeAnimatorController GreedyUp;
-    public RuntimeAnimatorController GreedyDown;
-    public RuntimeAnimatorController GreedyLeft;
-    public RuntimeAnimatorController GreedyRight;
-    //public RuntimeAnimatorController GreedyIddleUp;
-    //public RuntimeAnimatorController GreedyIddleDown;
-    /*public RuntimeAnimatorController GreedyIddleLeft;
+	public RuntimeAnimatorController GreedyUp;
+	public RuntimeAnimatorController GreedyDown;
+	public RuntimeAnimatorController GreedyLeft;
+	public RuntimeAnimatorController GreedyRight;
+	//public RuntimeAnimatorController GreedyIddleUp;
+	//public RuntimeAnimatorController GreedyIddleDown;
+	/*public RuntimeAnimatorController GreedyIddleLeft;
     public RuntimeAnimatorController GreedyIddleRight;*/
 
 
-    public void Start() {
-        gameManager = GameManager.getGameManager();
-        movimiento = GetComponent<Movimiento>();
+	public void Start() {
+		gameManager = GameManager.getGameManager();
+		movimiento = GetComponent<Movimiento>();
 		dañoAcumulado = 0;
 		caloriasAcumuladas = 0;
 		arriba = abajo = derecha = izquierda = false;
 		estado = gameObject.AddComponent<AccionesNormal>();
 		audioPlayer = GetComponent<AudioSource>();
-        barraObjeto = GameObject.Find("BarraDeDanyo");
+		barraObjeto = GameObject.Find("BarraDeDanyo");
 	}
 
 	void Update() {
 		if (arriba) {
 			movimiento.direccion = Vector2.up;
-            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyUp;
-            movimiento.SetRumbo(movimiento.direccion);
-            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleUp;
-            ActivarSonidoMover();
+			transform.GetComponent<Animator>().runtimeAnimatorController = GreedyUp;
+			movimiento.SetRumbo(movimiento.direccion);
+			//transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleUp;
+			if (!movimiento.PuedeAvanzar(movimiento.direccion)) {
+				Debug.Log("You shall not pass"); ;
+				audioPlayer.clip = sonidoChocar;
+				audioPlayer.Play();
+			} else ActivarSonidoMover();
 		} else if (abajo) {
 			movimiento.direccion = Vector2.down;
-            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyDown;
-            movimiento.SetRumbo(movimiento.direccion);
-            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
-            ActivarSonidoMover();
+			transform.GetComponent<Animator>().runtimeAnimatorController = GreedyDown;
+			movimiento.SetRumbo(movimiento.direccion);
+			//transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
+			if (!movimiento.PuedeAvanzar(movimiento.direccion)) {
+				Debug.Log("You shall not pass"); ;
+				audioPlayer.clip = sonidoChocar;
+				audioPlayer.Play();
+			} else ActivarSonidoMover();
 		} else if (derecha) {
 			movimiento.direccion = Vector2.right;
-            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyRight;
-            movimiento.SetRumbo(movimiento.direccion);
-            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleRight;
-            ActivarSonidoMover();
+			transform.GetComponent<Animator>().runtimeAnimatorController = GreedyRight;
+			movimiento.SetRumbo(movimiento.direccion);
+			//transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleRight;
+			if (!movimiento.PuedeAvanzar(movimiento.direccion)) {
+				Debug.Log("You shall not pass"); ;
+				audioPlayer.clip = sonidoChocar;
+				audioPlayer.Play();
+			} else ActivarSonidoMover();
 		} else if (izquierda) {
 			movimiento.direccion = Vector2.left;
-            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyLeft;
-            movimiento.SetRumbo(movimiento.direccion);
-            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleLeft;
-            ActivarSonidoMover();
+			transform.GetComponent<Animator>().runtimeAnimatorController = GreedyLeft;
+			movimiento.SetRumbo(movimiento.direccion);
+			//transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleLeft;
+			if (!movimiento.PuedeAvanzar(movimiento.direccion)) {
+				Debug.Log("You shall not pass"); ;
+				audioPlayer.clip = sonidoChocar;
+				audioPlayer.Play();
+			} else ActivarSonidoMover();
 		}
+
+
 
 		arriba = false;
 		abajo = false;
 		derecha = false;
 		izquierda = false;
-        //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
-    }
+		//transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
+	}
 
 
 
-    void ActivarSonidoMover() {
+	void ActivarSonidoMover() {
 		audioPlayer.clip = mover;
 		audioPlayer.Play();
 	}
@@ -122,19 +140,19 @@ public class PlayerController : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D colisionador) {
 		if (colisionador.tag == "defensa") {
 			ActivarSonidoGanarVida();
-            Destroy(estado);
-            estado = colisionador.gameObject.GetComponent<AccionesInvulnerable>();
+			Destroy(estado);
+			estado = colisionador.gameObject.GetComponent<AccionesInvulnerable>();
 			Destroy(colisionador.gameObject);
-            CambiarEstado();
-            Invoke("CambiarAEstadoNormal", 7);
-        } else
+			CambiarEstado();
+			Invoke("CambiarAEstadoNormal", 7);
+		} else
 		if (colisionador.tag == "capsula") {
 			ActivarSonidoGanarVida();
 			RestablecerACero();
 			Destroy(colisionador.gameObject);
 		} else
 		if (colisionador.tag == "corazon") {
-            gameManager.AumentarNumeroVida(1);
+			gameManager.AumentarNumeroVida(1);
 			ActivarSonidoGanarVida();
 			Destroy(colisionador.gameObject);
 		}
@@ -142,7 +160,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	public void RecibirDaño(int daño) {
-        //barraObjeto.SendMessage("RecibirDañoBarra", 30);
+		//barraObjeto.SendMessage("RecibirDañoBarra", 30);
 		estado.RecibirDaño(daño, this);
 	}
 
@@ -159,13 +177,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Morir() {
-        estado.Morir(this);
+		estado.Morir(this);
 	}
 
-    public void CambiarEstado()
-    {
-        estado.CambiarEstado(this);
-    }
+	public void CambiarEstado() {
+		estado.CambiarEstado(this);
+	}
 
 	public void SetIzquierdaTrue() {
 		izquierda = true;

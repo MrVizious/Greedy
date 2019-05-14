@@ -4909,7 +4909,7 @@ PrefabInstance:
     - target: {fileID: 2201460578284024355, guid: 81ca8755b8cdbf042a2f55c1f4b29157,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2201460578284024355, guid: 81ca8755b8cdbf042a2f55c1f4b29157,
         type: 3}
@@ -5603,6 +5603,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6193650306131679358, guid: 63f6643cb560aa647a8d182e3896b33d,
+        type: 3}
+      propertyPath: sonidoChocar
+      value: 
+      objectReference: {fileID: 8300000, guid: 11562176ea6e99247b3aee6f830afbc5, type: 3}
+    - target: {fileID: 6193650306131679352, guid: 63f6643cb560aa647a8d182e3896b33d,
+        type: 3}
+      propertyPath: sonidoChocar
+      value: 
+      objectReference: {fileID: 8300000, guid: c22bb46b81b37614382dd2c0418fddb4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f6643cb560aa647a8d182e3896b33d, type: 3}
 --- !u!1 &1535429553 stripped
