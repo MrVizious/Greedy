@@ -5,6 +5,9 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - sonidoPerderVida: {instanceID: 0}
+  - audioNivel: {instanceID: 0}
+  - sonidoGameOver: {instanceID: 0}
+  - morir: {fileID: 9100000, guid: f60e11f952db8e04bb4e737c2abe1b6b, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

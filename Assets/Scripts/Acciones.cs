@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public abstract class Acciones : MonoBehaviour {
 
-    Animator animador;
+    //Animator animador;
     GameManager gameManager;
+
     // Start is called before the first frame update
     void Start() {
         gameManager = GameManager.getGameManager();
-        animador = this.transform.GetComponent<Animator>();
+        //animador = this.transform.GetComponent<Animator>();
     }
 
 	// Update is called once per frame
@@ -44,10 +45,10 @@ public abstract class Acciones : MonoBehaviour {
     }
 	public virtual void Morir(PlayerController player)
     {
+
         Destroy(this.GetComponent<InputController>());
         Destroy(this.GetComponent<Collider2D>());
-        animador.Play("morir");
     }
-	public abstract void CambiarEstado(PlayerController player);
+    public abstract void CambiarEstado(PlayerController player);
 
 }

@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public int caloriasParaReducir = 100;
 	public int reduccionPorCalorias = 10;
 	private Fruta frutaQueCome;
-	public bool arriba, abajo, derecha, izquierda;
+	public bool arriba, abajo, derecha, izquierda, move;
 	private Movimiento movimiento;
 	public Acciones estado;
 	Acciones defensa;
@@ -26,13 +26,17 @@ public class PlayerController : MonoBehaviour {
     public RuntimeAnimatorController GreedyDown;
     public RuntimeAnimatorController GreedyLeft;
     public RuntimeAnimatorController GreedyRight;
-    //public RuntimeAnimatorController GreedyIddleUp;
-    //public RuntimeAnimatorController GreedyIddleDown;
-    /*public RuntimeAnimatorController GreedyIddleLeft;
-    public RuntimeAnimatorController GreedyIddleRight;*/
+
+    public RuntimeAnimatorController GreedyMorir;
+
+    public RuntimeAnimatorController GreedyIddleUp;
+    public RuntimeAnimatorController GreedyIddleDown;
+    public RuntimeAnimatorController GreedyIddleLeft;
+    public RuntimeAnimatorController GreedyIddleRight;
 
 
     public void Start() {
+        move = true;
         gameManager = GameManager.getGameManager();
         movimiento = GetComponent<Movimiento>();
 		dañoAcumulado = 0;
@@ -45,32 +49,31 @@ public class PlayerController : MonoBehaviour {
 
 	void Update() {
 		if (arriba) {
-			movimiento.direccion = Vector2.up;
+            movimiento.direccion = Vector2.up;
             transform.GetComponent<Animator>().runtimeAnimatorController = GreedyUp;
             movimiento.SetRumbo(movimiento.direccion);
-            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleUp;
             ActivarSonidoMover();
 		} else if (abajo) {
-			movimiento.direccion = Vector2.down;
+            movimiento.direccion = Vector2.down;
             transform.GetComponent<Animator>().runtimeAnimatorController = GreedyDown;
             movimiento.SetRumbo(movimiento.direccion);
-            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
             ActivarSonidoMover();
-		} else if (derecha) {
-			movimiento.direccion = Vector2.right;
+        } else if (derecha) {
+            movimiento.direccion = Vector2.right;
             transform.GetComponent<Animator>().runtimeAnimatorController = GreedyRight;
             movimiento.SetRumbo(movimiento.direccion);
-            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleRight;
             ActivarSonidoMover();
-		} else if (izquierda) {
-			movimiento.direccion = Vector2.left;
+        } else if (izquierda) {
+            movimiento.direccion = Vector2.left;
             transform.GetComponent<Animator>().runtimeAnimatorController = GreedyLeft;
             movimiento.SetRumbo(movimiento.direccion);
-            //transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleLeft;
             ActivarSonidoMover();
-		}
+        }
+        if (transform.position == movimiento.posicionObjetivo) {
+            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
+        }
 
-		arriba = false;
+        arriba = false;
 		abajo = false;
 		derecha = false;
 		izquierda = false;
@@ -160,7 +163,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void Morir() {
         estado.Morir(this);
-	}
+    }
 
     public void CambiarEstado()
     {

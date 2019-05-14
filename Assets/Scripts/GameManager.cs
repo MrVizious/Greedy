@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     AudioClip sonidoGameOver;
 
+
+
     public static GameManager getGameManager() {
 		return instance;
 	}
@@ -99,6 +101,7 @@ public class GameManager : MonoBehaviour {
     {
         audioNivel.clip = sonidoGameOver;
         audioNivel.Play();
+        player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyMorir;
         player.Morir();
         yield return new WaitForSeconds(1.7f);
         ChangeToScene("GameOver");

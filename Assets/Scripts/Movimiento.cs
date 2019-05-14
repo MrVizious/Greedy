@@ -12,8 +12,12 @@ public class Movimiento : MonoBehaviour {
 	public Vector3 direccion;
 	public int capasDeColision;
 
+    //public PlayerController player;
 
 	public void Start() {
+
+        //player = GetComponent<PlayerController>();
+
 		capasDeColision = 1 << LayerMask.NameToLayer("obstaculo");
 		posicionObjetivo = transform.position;
 
@@ -28,7 +32,6 @@ public class Movimiento : MonoBehaviour {
 
 	public void Move() {
 		transform.position = Vector3.MoveTowards(transform.position, posicionObjetivo, Time.deltaTime * runSpeed);
-
 	}
 
 
