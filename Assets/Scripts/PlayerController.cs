@@ -92,12 +92,6 @@ public class PlayerController : MonoBehaviour {
             {
                 animacionActual.runtimeAnimatorController = GreedyIddleLeft;           
             }
-<<<<<<< Updated upstream
-=======
-            /*else {
-                animacionActual.runtimeAnimatorController = GreedyIddleLeft;
-            }*/
->>>>>>> Stashed changes
         }
 
 		arriba = false;

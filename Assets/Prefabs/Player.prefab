@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 6193650306131679329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,9 +99,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: 0}
+  m_Offset: {x: -0.03, y: 0}
   serializedVersion: 2
-  m_Radius: 0.76719487
+  m_Radius: 0.3902275
 --- !u!50 &6193650306131679354
 Rigidbody2D:
   serializedVersion: 4
@@ -172,6 +172,7 @@ MonoBehaviour:
   GreedyIddleDown: {fileID: 9100000, guid: fb15e1c992163ad418a3ad101e145716, type: 2}
   GreedyIddleLeft: {fileID: 9100000, guid: e95203651b700e04689e99d7721142c0, type: 2}
   GreedyIddleRight: {fileID: 9100000, guid: 6f1b3830a09a34045b5851d91fd9f24c, type: 2}
+  animacionActual: {fileID: 0}
 --- !u!114 &6193650306131679352
 MonoBehaviour:
   m_ObjectHideFlags: 0

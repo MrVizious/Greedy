@@ -13,7 +13,6 @@ public class Movimiento : MonoBehaviour {
 	public int capasDeColision;
 
     public PlayerController player;
-    public Guardian guardian;
 
 	public void Start() {
 
