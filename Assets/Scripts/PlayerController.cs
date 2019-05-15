@@ -34,10 +34,14 @@ public class PlayerController : MonoBehaviour {
     public RuntimeAnimatorController GreedyIddleLeft;
     public RuntimeAnimatorController GreedyIddleRight;
 
+    public Animator animacionActual;
+
 
 
 
 	public void Start() {
+        animacionActual = GetComponent<Animator>();
+
 		gameManager = GameManager.getGameManager();
 		movimiento = GetComponent<Movimiento>();
 		dañoAcumulado = 0;
@@ -51,29 +55,45 @@ public class PlayerController : MonoBehaviour {
 	void Update() {
 		if (arriba) {
             movimiento.direccion = Vector2.up;
-            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyUp;
+            animacionActual.runtimeAnimatorController = GreedyUp;
             movimiento.SetRumbo(movimiento.direccion);
             ActivarSonidoMover();
 		} else if (abajo) {
             movimiento.direccion = Vector2.down;
-            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyDown;
+            animacionActual.runtimeAnimatorController = GreedyDown;
             movimiento.SetRumbo(movimiento.direccion);
             ActivarSonidoMover();
         } else if (derecha) {
             movimiento.direccion = Vector2.right;
-            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyRight;
+            animacionActual.runtimeAnimatorController = GreedyRight;
             movimiento.SetRumbo(movimiento.direccion);
             ActivarSonidoMover();
         } else if (izquierda) {
             movimiento.direccion = Vector2.left;
-            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyLeft;
+            animacionActual.runtimeAnimatorController = GreedyLeft;
             movimiento.SetRumbo(movimiento.direccion);
             ActivarSonidoMover();
         }
-        /*if (transform.position == movimiento.posicionObjetivo) {
-            transform.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
-        }*/
-        
+
+        if (movimiento.EstaEnObjetivo()) {
+            if (animacionActual.runtimeAnimatorController == GreedyUp)
+            {
+                animacionActual.runtimeAnimatorController = GreedyIddleUp;
+            }
+            else if (animacionActual.runtimeAnimatorController == GreedyDown)
+            {
+                animacionActual.runtimeAnimatorController = GreedyIddleDown;
+            }
+            else if (animacionActual.runtimeAnimatorController == GreedyRight)
+            {
+                animacionActual.runtimeAnimatorController = GreedyIddleRight;
+            }
+            else if (animacionActual.runtimeAnimatorController == GreedyLeft)
+            {
+                animacionActual.runtimeAnimatorController = GreedyIddleLeft;           
+            }
+        }
+
 		arriba = false;
 		abajo = false;
 		derecha = false;
