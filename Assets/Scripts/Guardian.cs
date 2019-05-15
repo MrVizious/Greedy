@@ -20,7 +20,6 @@ public class Guardian : MonoBehaviour {
 
     void Start() {
         movimiento = GetComponent<Movimiento>();
-        //animator = GetComponent<Animator>();
 
 
         CalculaDirRandom();
@@ -83,9 +82,4 @@ public class Guardian : MonoBehaviour {
             colisionado.gameObject.GetComponent<PlayerController>().RecibirDaño(100);
         }
     }
-
-    /*public void SeguirObjetivo()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, objetivo.position, Time.deltaTime * movimiento.runSpeed);
-    }*/
 }

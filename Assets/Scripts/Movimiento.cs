@@ -12,13 +12,13 @@ public class Movimiento : MonoBehaviour {
 	public Vector3 direccion;
 	public int capasDeColision;
 
-    //public PlayerController player;
+    public PlayerController player;
+    public Guardian guardian;
 
 	public void Start() {
 
-        //player = GetComponent<PlayerController>();
-
-		capasDeColision = 1 << LayerMask.NameToLayer("obstaculo");
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        capasDeColision = 1 << LayerMask.NameToLayer("obstaculo");
 		posicionObjetivo = transform.position;
 
 		if (runSpeed == 0f) runSpeed = 5f;
@@ -28,14 +28,34 @@ public class Movimiento : MonoBehaviour {
 	// Update is called once per frame
 	public void FixedUpdate() {
 		Move();
-	}
+        
+    }
 
-	public void Move() {
+    public void Move() {
 		transform.position = Vector3.MoveTowards(transform.position, posicionObjetivo, Time.deltaTime * runSpeed);
-	}
+        Debug.Log(player.transform.position);
+        Debug.Log(posicionObjetivo);
+
+    }
 
 
-
+    void IddleAnimation() {
+        if (player.arriba)
+        {
+            player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyIddleUp;
+        }
+        if (player.abajo) {
+            player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyIddleDown;
+        }
+        else if (player.derecha)
+        {
+            player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyIddleRight;
+        }
+        else if (player.izquierda)
+        {
+            player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyIddleLeft;
+        }
+    }
 
 
 	/// <summary>
@@ -71,6 +91,10 @@ public class Movimiento : MonoBehaviour {
 			//TODO: Comprobar que está a poca distancia de su goal para poder meter otro input
 			posicionObjetivo = new Vector2(Mathf.Round(transform.position.x + direccion.x),
 				Mathf.Round(transform.position.y + direccion.y));
-		}
+		} 
 	}
+
+    public bool EstaEnObjetivo() {
+        return Vector2.Distance(transform.position, posicionObjetivo) <= 0.05f;
+    }
 }
