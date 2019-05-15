@@ -3957,7 +3957,7 @@ GameObject:
   - component: {fileID: 311576866}
   - component: {fileID: 311576865}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BarraDeDanyo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5876,6 +5876,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 794989041, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 794989041, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 193
+      objectReference: {fileID: 0}
     - target: {fileID: 1203433940, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5899,6 +5907,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2095822306, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
+      propertyPath: danyoImage
+      value: 
+      objectReference: {fileID: 378506361}
     - target: {fileID: 2163799954976744543, guid: ff8f20295515e2441b741a288e8738f1,
         type: 3}
       propertyPath: m_Name
