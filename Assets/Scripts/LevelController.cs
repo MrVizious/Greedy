@@ -4,6 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//[RequireComponent(typeof(GameManager))]
 public class LevelController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -18,11 +19,14 @@ public class LevelController : MonoBehaviour
 
     public GameObject[] frutas;
     public GameObject gameController;
+    public GameManager gameManager;
     SpawnerElementos spawner;
     string[] consumibles = { "fresa", "uva", "pimiento", "zanahoria" };
 
     public void Start()
     {
+        gameManager = GameManager.getGameManager();
+
         spawner = GameObject.Find("SpawnerElementos").GetComponent<SpawnerElementos>();
         //Hay que ver que no se generen cerca de player
         spawner.SpawnearElementos(numeroGuardianes, "guardian");
@@ -48,6 +52,6 @@ public class LevelController : MonoBehaviour
     public void NivelCompletado()
     {
         //TODO: cambiar de nivel, de momento se reinicia la escena
-        //GameController.CambiarEscena();
+        gameManager.SiguienteEscena();
     }
 }
