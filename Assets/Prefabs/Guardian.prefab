@@ -117,11 +117,11 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.09, y: 0.060000002}
   serializedVersion: 2
-  m_Radius: 0.4979918
+  m_Radius: 0.4
 --- !u!114 &4812231922255313445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +156,7 @@ MonoBehaviour:
   posicionObjetivo: {x: 0, y: 0, z: 0}
   direccion: {x: 0, y: 0, z: 0}
   capasDeColision: 0
+  player: {fileID: 0}
 --- !u!95 &8585242190797481812
 Animator:
   serializedVersion: 3
