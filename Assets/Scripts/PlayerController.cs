@@ -17,30 +17,30 @@ public class PlayerController : MonoBehaviour {
 	Acciones defensa;
 	int duracionDefensa;
 	AudioSource audioPlayer;
-	public AudioClip mover, comer, perderVida, ganarVida;
-    private GameManager gameManager;
-    private GameObject barraObjeto;
+	public AudioClip mover, comer, perderVida, ganarVida, limite;
+	private GameManager gameManager;
+	private GameObject barraObjeto;
 
 
-    public RuntimeAnimatorController GreedyUp;
-    public RuntimeAnimatorController GreedyDown;
-    public RuntimeAnimatorController GreedyLeft;
-    public RuntimeAnimatorController GreedyRight;
+	public RuntimeAnimatorController GreedyUp;
+	public RuntimeAnimatorController GreedyDown;
+	public RuntimeAnimatorController GreedyLeft;
+	public RuntimeAnimatorController GreedyRight;
 
-    public RuntimeAnimatorController GreedyMorir;
+	public RuntimeAnimatorController GreedyMorir;
 
-    public RuntimeAnimatorController GreedyIddleUp;
-    public RuntimeAnimatorController GreedyIddleDown;
-    public RuntimeAnimatorController GreedyIddleLeft;
-    public RuntimeAnimatorController GreedyIddleRight;
+	public RuntimeAnimatorController GreedyIddleUp;
+	public RuntimeAnimatorController GreedyIddleDown;
+	public RuntimeAnimatorController GreedyIddleLeft;
+	public RuntimeAnimatorController GreedyIddleRight;
 
-    public Animator animacionActual;
+	public Animator animacionActual;
 
 
 
 
 	public void Start() {
-        animacionActual = GetComponent<Animator>();
+		animacionActual = GetComponent<Animator>();
 
 		gameManager = GameManager.getGameManager();
 		movimiento = GetComponent<Movimiento>();
@@ -54,45 +54,51 @@ public class PlayerController : MonoBehaviour {
 
 	void Update() {
 		if (arriba) {
-            movimiento.direccion = Vector2.up;
-            animacionActual.runtimeAnimatorController = GreedyUp;
-            movimiento.SetRumbo(movimiento.direccion);
-            ActivarSonidoMover();
+			movimiento.direccion = Vector2.up;
+			animacionActual.runtimeAnimatorController = GreedyUp;
+			movimiento.SetRumbo(movimiento.direccion);
+			if (movimiento.ChocaConLimite(movimiento.direccion)) {
+				audioPlayer.clip = limite;
+				audioPlayer.Play();
+			} else ActivarSonidoMover();
 		} else if (abajo) {
-            movimiento.direccion = Vector2.down;
-            animacionActual.runtimeAnimatorController = GreedyDown;
-            movimiento.SetRumbo(movimiento.direccion);
-            ActivarSonidoMover();
-        } else if (derecha) {
-            movimiento.direccion = Vector2.right;
-            animacionActual.runtimeAnimatorController = GreedyRight;
-            movimiento.SetRumbo(movimiento.direccion);
-            ActivarSonidoMover();
-        } else if (izquierda) {
-            movimiento.direccion = Vector2.left;
-            animacionActual.runtimeAnimatorController = GreedyLeft;
-            movimiento.SetRumbo(movimiento.direccion);
-            ActivarSonidoMover();
-        }
+			movimiento.direccion = Vector2.down;
+			animacionActual.runtimeAnimatorController = GreedyDown;
+			movimiento.SetRumbo(movimiento.direccion);
+			if (movimiento.ChocaConLimite(movimiento.direccion)) {
+				audioPlayer.clip = limite;
+				audioPlayer.Play();
+			} else ActivarSonidoMover();
+		} else if (derecha) {
+			movimiento.direccion = Vector2.right;
+			animacionActual.runtimeAnimatorController = GreedyRight;
+			movimiento.SetRumbo(movimiento.direccion);
+			if (movimiento.ChocaConLimite(movimiento.direccion)) {
+				audioPlayer.clip = limite;
+				audioPlayer.Play();
+			} else ActivarSonidoMover();
+		} else if (izquierda) {
+			movimiento.direccion = Vector2.left;
+			animacionActual.runtimeAnimatorController = GreedyLeft;
+			movimiento.SetRumbo(movimiento.direccion);
+			if (movimiento.ChocaConLimite(movimiento.direccion)) {
+				audioPlayer.clip = limite;
+				audioPlayer.Play();
+			} else ActivarSonidoMover();
+		}
 
-        if (movimiento.EstaEnObjetivo()) {
-            if (animacionActual.runtimeAnimatorController == GreedyUp)
-            {
-                animacionActual.runtimeAnimatorController = GreedyIddleUp;
-            }
-            else if (animacionActual.runtimeAnimatorController == GreedyDown)
-            {
-                animacionActual.runtimeAnimatorController = GreedyIddleDown;
-            }
-            else if (animacionActual.runtimeAnimatorController == GreedyRight)
-            {
-                animacionActual.runtimeAnimatorController = GreedyIddleRight;
-            }
-            else if (animacionActual.runtimeAnimatorController == GreedyLeft)
-            {
-                animacionActual.runtimeAnimatorController = GreedyIddleLeft;           
-            }
-        }
+
+		if (movimiento.EstaEnObjetivo()) {
+			if (animacionActual.runtimeAnimatorController == GreedyUp) {
+				animacionActual.runtimeAnimatorController = GreedyIddleUp;
+			} else if (animacionActual.runtimeAnimatorController == GreedyDown) {
+				animacionActual.runtimeAnimatorController = GreedyIddleDown;
+			} else if (animacionActual.runtimeAnimatorController == GreedyRight) {
+				animacionActual.runtimeAnimatorController = GreedyIddleRight;
+			} else if (animacionActual.runtimeAnimatorController == GreedyLeft) {
+				animacionActual.runtimeAnimatorController = GreedyIddleLeft;
+			}
+		}
 
 		arriba = false;
 		abajo = false;
@@ -183,9 +189,9 @@ public class PlayerController : MonoBehaviour {
 
 	public void Morir() {
 
-        estado.Morir(this);
-    }
-	
+		estado.Morir(this);
+	}
+
 
 	public void CambiarEstado() {
 		estado.CambiarEstado(this);
