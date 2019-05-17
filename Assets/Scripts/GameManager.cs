@@ -89,9 +89,9 @@ public class GameManager : MonoBehaviour {
             case 3:
                 siguienteEscena = "Nivel4";
                 break;
-            case 4:
-                siguienteEscena = "EscenaGanar";
-                break;
+            //case 4:
+                //siguienteEscena = "EscenaGanar";
+                //break;
         }
         SceneManager.LoadScene(siguienteEscena, LoadSceneMode.Single);
     }

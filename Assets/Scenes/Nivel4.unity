@@ -256,7 +256,7 @@ PrefabInstance:
     - target: {fileID: 7305931380073816256, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f,
         type: 3}
       propertyPath: numeroGuardianesRapidos
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7305931380073816256, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f,
         type: 3}
@@ -2381,7 +2381,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 9f0c3249e69185448ad61259b32c77f5, type: 3}
+      objectReference: {fileID: 8300000, guid: df4b2a7ba4b0479419dac745090576ee, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e84de3f69ba4c42bfd67cf52ef0d72, type: 3}
 --- !u!1 &1482190403
@@ -13048,6 +13048,11 @@ PrefabInstance:
       propertyPath: morir
       value: 
       objectReference: {fileID: 9100000, guid: 80cc431efaa9c3746bd5145ba1449bb0, type: 2}
+    - target: {fileID: 6193650306131679358, guid: 63f6643cb560aa647a8d182e3896b33d,
+        type: 3}
+      propertyPath: ganarVida
+      value: 
+      objectReference: {fileID: 8300000, guid: b881372823d7fe44c99c371611ca47a3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f6643cb560aa647a8d182e3896b33d, type: 3}
 --- !u!1001 &2005565279

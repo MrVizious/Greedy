@@ -24,7 +24,7 @@ public class AccionesInvulnerable : Acciones {
 
 	public override void CambiarEstado(PlayerController player) {
 		Color colorActual = gameObject.GetComponent<SpriteRenderer>().color;
-        //AcabarEfectoDeSonido();
+        AcabarEfectoDeSonido();
         ComenzarEfectoDeSonido();
 		GetComponent<SpriteRenderer>().color = new Color(colorActual.r, colorActual.g, colorActual.b, 1f);
         activo = true;

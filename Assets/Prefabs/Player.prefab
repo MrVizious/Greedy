@@ -159,10 +159,10 @@ MonoBehaviour:
   izquierda: 0
   move: 0
   estado: {fileID: 0}
-  mover: {fileID: 8300000, guid: a00a43ef6a67b0a408d79d817de51dae, type: 3}
-  comer: {fileID: 8300000, guid: 488a4c275a7f2314aa27673d9792b010, type: 3}
-  perderVida: {fileID: 8300000, guid: 717075b6b123389459ede67e4699659a, type: 3}
-  ganarVida: {fileID: 8300000, guid: f4b7922c1517840499daf762be21ca91, type: 3}
+  mover: {fileID: 8300000, guid: da79ae259e08fbe458c26688d3fe2484, type: 3}
+  comer: {fileID: 8300000, guid: 1ccaa983fc0047947aceb58eb3f52e6f, type: 3}
+  perderVida: {fileID: 8300000, guid: 4ee02aa5d89ea394c895de0cb7b975d5, type: 3}
+  ganarVida: {fileID: 8300000, guid: b881372823d7fe44c99c371611ca47a3, type: 3}
   limite: {fileID: 8300000, guid: 11562176ea6e99247b3aee6f830afbc5, type: 3}
   GreedyUp: {fileID: 9100000, guid: a8dff10bc0885ab4ca1f5ffdaa7d48bb, type: 2}
   GreedyDown: {fileID: 9100000, guid: 0948d5c1d88b74c498ed0930c6577330, type: 2}
