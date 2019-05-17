@@ -32,8 +32,6 @@ public class Movimiento : MonoBehaviour {
 
 	public void Move() {
 		transform.position = Vector3.MoveTowards(transform.position, posicionObjetivo, Time.deltaTime * runSpeed);
-		Debug.Log(player.transform.position);
-		Debug.Log(posicionObjetivo);
 
 	}
 
