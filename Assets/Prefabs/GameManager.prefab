@@ -48,8 +48,7 @@ MonoBehaviour:
   sonidoPerderVida: {fileID: 8300000, guid: 4ee02aa5d89ea394c895de0cb7b975d5, type: 3}
   minVidas: 0
   maxVidas: 3
-  audioNivel: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
-    type: 3}
+  audioNivel: {fileID: 0}
   sonidoGameOver: {fileID: 8300000, guid: fc32cabd3acb15a4db0e2be3d5cd0dbd, type: 3}
 --- !u!82 &6582569017930139971
 AudioSource:

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Movimiento))]
 public class PlayerController : MonoBehaviour {
@@ -36,12 +37,12 @@ public class PlayerController : MonoBehaviour {
 
 	public Animator animacionActual;
 
-
+    private bool powerUp;
 
 
 	public void Start() {
 		animacionActual = GetComponent<Animator>();
-
+        powerUp = false;
 		gameManager = GameManager.getGameManager();
 		movimiento = GetComponent<Movimiento>();
 		dañoAcumulado = 0;
@@ -128,18 +129,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void CambiarAEstadoNormal() {
+        FinalizarEstado();
 		Destroy(estado);
 		estado = gameObject.AddComponent<AccionesNormal>();
 	}
-
-	/*public void CambiarAEstadoInvulnerable() {
-		CancelInvoke("CambiarAEstadoNormal");
-		estado.PrepararParaCambiarEstado();
-		//Destroy(estado);
-		Destroy(estado); //Necesario para el test, Destroy() no deja.
-		estado = gameObject.AddComponent<AccionesInvulnerable>();
-		Invoke("CambiarAEstadoNormal", 7);
-	}*/
 
 	private void OnTriggerStay2D(Collider2D colisionador) {
 		if (colisionador.tag == "fruta" && Input.GetKeyDown(KeyCode.Space)) {
@@ -152,10 +145,8 @@ public class PlayerController : MonoBehaviour {
 		if (colisionador.tag == "defensa") {
 			ActivarSonidoGanarVida();
 			Destroy(estado);
-			estado = colisionador.gameObject.GetComponent<AccionesInvulnerable>();
+            powerUp = true;
 			Destroy(colisionador.gameObject);
-			CambiarEstado();
-			Invoke("CambiarAEstadoNormal", 7);
 		} else
 		if (colisionador.tag == "capsula") {
 			ActivarSonidoGanarVida();
@@ -171,7 +162,6 @@ public class PlayerController : MonoBehaviour {
 
 
 	public void RecibirDaño(int daño) {
-		//barraObjeto.SendMessage("RecibirDañoBarra", 30);
 		estado.RecibirDaño(daño, this);
 	}
 
@@ -192,9 +182,19 @@ public class PlayerController : MonoBehaviour {
 		estado.Morir(this);
 	}
 
+    public void ActivarDefensa()
+    {
+        if (!powerUp) return;
+        powerUp = false;
+        CancelInvoke("CambiarAEstadoNormal");
+        Destroy(estado);
+        estado = gameObject.AddComponent<AccionesInvulnerable>();
+        Invoke("CambiarAEstadoNormal", 7);
+    }
 
-	public void CambiarEstado() {
-		estado.CambiarEstado(this);
+
+	public void FinalizarEstado() {
+		estado.FinalizarEstado(this);
 	}
 
 	public void SetIzquierdaTrue() {

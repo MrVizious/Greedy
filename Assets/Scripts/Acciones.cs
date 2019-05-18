@@ -49,6 +49,6 @@ public abstract class Acciones : MonoBehaviour {
         Destroy(this.GetComponent<InputController>());
         Destroy(this.GetComponent<Collider2D>());
     }
-    public abstract void CambiarEstado(PlayerController player);
+    public abstract void FinalizarEstado(PlayerController player);
 
 }

@@ -5,7 +5,5 @@ using UnityEngine.SceneManagement;
 
 public class AccionesNormal : Acciones {
 
-	public override void CambiarEstado(PlayerController player) {
-        Debug.Log("juju");
-	}
+	public override void FinalizarEstado(PlayerController player) {}
 }

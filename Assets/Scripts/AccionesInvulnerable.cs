@@ -8,7 +8,6 @@ public class AccionesInvulnerable : Acciones {
 	[Range(0f, 1000f)]
 	public float velocidadDeParpadeo = 400f;
 	public GameObject soundEffect;
-    private bool activo = false;
 
 
 	public override void RecibirDaño(int daño, PlayerController player) { }
@@ -22,17 +21,14 @@ public class AccionesInvulnerable : Acciones {
         gameObject.GetComponent<SpriteRenderer>().color = new Color(colorActual.r, colorActual.g, colorActual.b, ((Time.time * velocidad) % 255) / 255);
 	}
 
-	public override void CambiarEstado(PlayerController player) {
+	public override void FinalizarEstado(PlayerController player) {
 		Color colorActual = gameObject.GetComponent<SpriteRenderer>().color;
         AcabarEfectoDeSonido();
-        ComenzarEfectoDeSonido();
 		GetComponent<SpriteRenderer>().color = new Color(colorActual.r, colorActual.g, colorActual.b, 1f);
-        activo = true;
 	}
 
 	private void ComenzarEfectoDeSonido() {
 		soundEffect = Instantiate(Resources.Load<GameObject>("SoundEffectInvincible"));
-        Invoke("AcabarEfectoDeSonido", 6);
 	}
 
 	private void AcabarEfectoDeSonido() {
@@ -41,14 +37,14 @@ public class AccionesInvulnerable : Acciones {
 
 	// Update is called once per frame
 	void Update() {
-		if(activo) ParpadeoVisual(velocidadDeParpadeo);
+		ParpadeoVisual(velocidadDeParpadeo);
 	}
 
-    /*private void Start()
+    private void Start()
     {
 
         ComenzarEfectoDeSonido();
-    }*/
+    }
 
 	public float getVelocidadDeParpadeo() {
 		return this.velocidadDeParpadeo;
