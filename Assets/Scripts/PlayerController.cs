@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour {
         CancelInvoke("CambiarAEstadoNormal");
         Destroy(estado);
         estado = gameObject.AddComponent<AccionesInvulnerable>();
-        Invoke("CambiarAEstadoNormal", 7);
+        Invoke("CambiarAEstadoNormal", duracionDefensa);
     }
 
 
