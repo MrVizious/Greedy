@@ -4,29 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Interfaz : MonoBehaviour {
-    public GameObject player;
     public PlayerController statsPlayer;
     public GameObject gameController;
     private GameManager gameManager;
 
     private int numeroVidas, maxVidas = 3;
     private GameObject[] vidas = new GameObject[3];
-
-    public string calorias, danyo, defensa;
-    public Text textoCalorias, textoDanyo, textoDefensa;
+    private GameObject imagenDefensa;
+    public string calorias, danyo;
+    public Text textoCalorias, textoDefensa;
     public Image danyoImage;
     float danyoBarra, maxDanyo = 100f;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         vidas = GameObject.FindGameObjectsWithTag("imagenCorazon");
+        imagenDefensa = GameObject.Find("Defensa");
         gameManager = GameManager.getGameManager();
-        player = GameObject.FindGameObjectWithTag("Player");
-        statsPlayer = player.GetComponent<PlayerController>();
+        statsPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         gameController = GameObject.Find("GameController");
         textoCalorias = this.transform.Find("Calorias").GetComponent<Text>();
-        textoDanyo = this.transform.Find("Danyo").GetComponent<Text>();
         textoDefensa = this.transform.Find("Defensa").GetComponent<Text>();
         danyoBarra = 0f;
     }
@@ -34,17 +32,11 @@ public class Interfaz : MonoBehaviour {
     void Update()
     {
         textoCalorias.text = "Calorías: " + statsPlayer.caloriasTotal;
-        textoDanyo.text = "Daño: " + statsPlayer.dañoAcumulado;
-        RecibirDañoBarra(statsPlayer.dañoAcumulado);
+        ActualizarBarra(statsPlayer.dañoAcumulado);
 
-        numeroVidas = gameManager.getNumeroVidas();
-        MostrarVidas(numeroVidas);
+        MostrarVidas(gameManager.getNumeroVidas());
 
-        if (player.GetComponent<AccionesNormal>() == null)
-        {
-            textoDefensa.text = "Defensa: invulnerable";
-        }
-        else { textoDefensa.text = "Defensa: ninguna"; }
+        ActualizarDefensa();
     }
 
     void MostrarVidas(int vidasNumero)
@@ -60,11 +52,20 @@ public class Interfaz : MonoBehaviour {
         }
     }
 
-    public void RecibirDañoBarra(float cantidad)
+    public void ActualizarBarra(float cantidad)
     {
-        //danyoBarra = Mathf.Clamp(danyoBarra + cantidad, 0f, maxDanyo);
         danyoImage.transform.localScale = new Vector2(cantidad / maxDanyo, 1);
     }
 
-
+    private void ActualizarDefensa()
+    {
+        if (statsPlayer.GetPowerUp())
+        {
+            imagenDefensa.SetActive(true);
+        }
+        else
+        {
+            imagenDefensa.SetActive(false);
+        }
+    }
 }

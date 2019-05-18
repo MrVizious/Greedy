@@ -183,4 +183,9 @@ public class PlayerController : MonoBehaviour {
 	public void SetAbajoTrue() {
 		abajo = true;
 	}
+
+    public bool GetPowerUp()
+    {
+        return powerUp;
+    }
 }
