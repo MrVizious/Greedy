@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class ControladorDeEscenas : MonoBehaviour
+public class MenuControler : MonoBehaviour
 {
     public void CambiarEscena(string nombre)
     {

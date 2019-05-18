@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerMenu : MonoBehaviour
+public class AnimacionMenu : MonoBehaviour
 {
     public float velocidad = 2f;
 
