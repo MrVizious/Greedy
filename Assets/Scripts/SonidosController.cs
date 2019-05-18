@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SonidosController : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField]
     AudioClip mover, comer, perderVida, ganarVida, limite;
     AudioSource audioSonidos;
