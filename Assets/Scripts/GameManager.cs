@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour {
 	private int level = 1;
 	[SerializeField]
 	private int numeroVidas = 3;
-    private AudioSource controladorSonido;
     [SerializeField]
     private AudioClip sonidoPerderVida;
     [SerializeField]
@@ -16,12 +15,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     int maxVidas = 3;
     PlayerController player;
-    [SerializeField]
-    AudioSource audioNivel;
-    [SerializeField]
-    AudioClip sonidoGameOver;
 
-
+    private SonidosController controladorSonido;
+    private MusicaController controladorMusica;
 
     public static GameManager getGameManager() {
 		return instance;
@@ -48,11 +44,11 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
-        numeroVidas = 3;
-        controladorSonido = GetComponent<AudioSource>();
         //audioNivel = GameObject.Find("audioNivel");
         Mathf.Clamp(numeroVidas, 0, 3);
         player = GameObject.Find("Player").GetComponent<PlayerController>();
+        controladorSonido = GameObject.Find("AudioSonidos").GetComponent<SonidosController>();
+        controladorMusica = GameObject.Find("AudioNivel").GetComponent<MusicaController>();
     }
 
 	/// <summary>
@@ -111,8 +107,7 @@ public class GameManager : MonoBehaviour {
 	public void DisminuirNumeroVida(int cantidad) {
         if (numeroVidas > 0)
         {
-            controladorSonido.clip = sonidoPerderVida;
-            controladorSonido.Play();
+            controladorSonido.ActivarSonidoSufrirDanyo();
             this.numeroVidas -= cantidad;
         }
         if(numeroVidas == 0)
@@ -123,8 +118,7 @@ public class GameManager : MonoBehaviour {
     
     IEnumerator GameOver()
     {
-        audioNivel.clip = sonidoGameOver;
-        audioNivel.Play();
+        controladorMusica.ActivarSonidoGameOver();
         player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyMorir;
         player.Morir();
         yield return new WaitForSeconds(1.7f);

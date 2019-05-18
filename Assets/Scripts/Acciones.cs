@@ -5,16 +5,12 @@ using UnityEngine.SceneManagement;
 
 public abstract class Acciones : MonoBehaviour {
 
-    //Animator animador;
     GameManager gameManager;
 
-    // Start is called before the first frame update
     void Start() {
         gameManager = GameManager.getGameManager();
-        //animador = this.transform.GetComponent<Animator>();
     }
 
-	// Update is called once per frame
 	void Update() {
 
 	}
