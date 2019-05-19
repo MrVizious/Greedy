@@ -59,13 +59,6 @@ public class Interfaz : MonoBehaviour {
 
     private void ActualizarDefensa()
     {
-        if (statsPlayer.GetPowerUp())
-        {
-            imagenDefensa.SetActive(true);
-        }
-        else
-        {
-            imagenDefensa.SetActive(false);
-        }
+        imagenDefensa.SetActive(statsPlayer.GetPowerUp());
     }
 }

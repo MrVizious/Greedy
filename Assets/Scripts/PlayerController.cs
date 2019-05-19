@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour {
 	private Movimiento movimiento;
 	public Acciones estado;
 	Acciones defensa;
-	int duracionDefensa;
+    [SerializeField]
+	int duracionDefensa = 7;
 	private GameManager gameManager;
 	private GameObject barraObjeto;
 
@@ -118,7 +119,6 @@ public class PlayerController : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D colisionador) {
 		if (colisionador.tag == "defensa") {
             controladorSonido.ActivarSonidoGanarVida();
-			Destroy(estado);
             powerUp = true;
 			Destroy(colisionador.gameObject);
 		} else
@@ -159,6 +159,7 @@ public class PlayerController : MonoBehaviour {
     public void ActivarDefensa()
     {
         if (!powerUp) return;
+        FinalizarEstado();
         powerUp = false;
         CancelInvoke("CambiarAEstadoNormal");
         Destroy(estado);
