@@ -14,11 +14,9 @@ public class PlayerController : MonoBehaviour {
 	public bool arriba, abajo, derecha, izquierda, move;
 	private Movimiento movimiento;
 	public Acciones estado;
-	Acciones defensa;
     [SerializeField]
 	int duracionDefensa = 7;
 	private GameManager gameManager;
-	private GameObject barraObjeto;
 
     private SonidosController controladorSonido;
 
@@ -48,7 +46,6 @@ public class PlayerController : MonoBehaviour {
 		caloriasAcumuladas = 0;
 		arriba = abajo = derecha = izquierda = false;
 		estado = gameObject.AddComponent<AccionesNormal>();
-		barraObjeto = GameObject.Find("BarraDeDanyo");
         controladorSonido = GameObject.Find("AudioSonidos").GetComponent<SonidosController>();
     }
 
