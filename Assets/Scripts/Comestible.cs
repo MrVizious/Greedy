@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fresa : MonoBehaviour
+public class Comestible : MonoBehaviour
 {
+    [SerializeField]
     private int caloriasFruta;
     public PlayerController jugador;
 
     // Start is called before the first frame update
     void Start()
     {
-        caloriasFruta = 10;
         if (jugador == null)
         {
             jugador = GameObject.Find("Player").GetComponent<PlayerController>();

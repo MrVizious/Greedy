@@ -25,7 +25,7 @@ namespace Tests
 
             prefabFruta = (GameObject)Resources.Load("Tests/Fruta");
             GameObject frutaInicializada = Object.Instantiate(prefabFruta, new Vector2(0, 0), Quaternion.identity);
-            Fruta frutaTest = frutaInicializada.GetComponent<Fruta>();
+            Comestible frutaTest = frutaInicializada.GetComponent<Comestible>();
 
             objetoTest.Start();
             //frutaTest.Start();  ¿¿Por que no funciona?

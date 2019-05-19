@@ -93,5 +93,10 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.91427374
       objectReference: {fileID: 0}
+    - target: {fileID: 3835923607643786301, guid: a90e5e4e89e41dc48b8ce4a645b18de2,
+        type: 3}
+      propertyPath: caloriasFruta
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a90e5e4e89e41dc48b8ce4a645b18de2, type: 3}

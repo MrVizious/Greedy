@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour {
 	public int caloriasTotal;
 	public int caloriasParaReducir = 100;
 	public int reduccionPorCalorias = 10;
-	private Fruta frutaQueCome;
 	public bool arriba, abajo, derecha, izquierda, move;
 	private Movimiento movimiento;
 	public Acciones estado;
@@ -111,7 +110,7 @@ public class PlayerController : MonoBehaviour {
 
 	private void OnTriggerStay2D(Collider2D colisionador) {
 		if (colisionador.tag == "fruta" && Input.GetKeyDown(KeyCode.Space)) {
-			colisionador.gameObject.GetComponent<Fruta>().Desaparecer();
+			colisionador.gameObject.GetComponent<Comestible>().Desaparecer();
             controladorSonido.ActivarSonidoComer();
         }
 	}
