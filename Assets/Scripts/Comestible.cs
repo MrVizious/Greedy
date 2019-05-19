@@ -6,22 +6,9 @@ public class Comestible : MonoBehaviour
 {
     [SerializeField]
     private int caloriasFruta;
-    public PlayerController jugador;
 
-    // Start is called before the first frame update
-    void Start()
+    public int Comer()
     {
-        if (jugador == null)
-        {
-            jugador = GameObject.Find("Player").GetComponent<PlayerController>();
-        }
-    }
-
-    public void Desaparecer()
-    {
-        //LevelController.RestarFruta();
-        jugador.AumentarCalorias(caloriasFruta);
-        Destroy(this.gameObject);
-
+        return caloriasFruta;
     }
 }

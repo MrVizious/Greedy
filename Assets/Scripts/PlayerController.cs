@@ -110,7 +110,9 @@ public class PlayerController : MonoBehaviour {
 
 	private void OnTriggerStay2D(Collider2D colisionador) {
 		if (colisionador.tag == "fruta" && Input.GetKeyDown(KeyCode.Space)) {
-			colisionador.gameObject.GetComponent<Comestible>().Desaparecer();
+			int caloriasConsumidas = colisionador.gameObject.GetComponent<Comestible>().Comer();
+            AumentarCalorias(caloriasConsumidas);
+            Destroy(colisionador.gameObject);
             controladorSonido.ActivarSonidoComer();
         }
 	}
