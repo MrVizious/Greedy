@@ -2197,6 +2197,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4131800273008862349, guid: d1c513b7cb9e20943958ef638989e813,
+        type: 3}
+      propertyPath: m_TagString
+      value: limite
+      objectReference: {fileID: 0}
     - target: {fileID: 5494451421148966565, guid: d1c513b7cb9e20943958ef638989e813,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11819,11 +11824,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tiles.Array.data[399].second.m_TileSpriteIndex
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4131800273008862349, guid: d1c513b7cb9e20943958ef638989e813,
-        type: 3}
-      propertyPath: m_TagString
-      value: limite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1c513b7cb9e20943958ef638989e813, type: 3}
