@@ -170,6 +170,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1936543022353043308, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
+        type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1455510396}
     - target: {fileID: 6033549033249583845, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
         type: 3}
       propertyPath: m_Name
@@ -295,6 +300,11 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 878479360681355035, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
+        type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1477892991}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5, type: 3}
 --- !u!1001 &307315243
@@ -4920,6 +4930,12 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!82 &1455510396 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
+    type: 3}
+  m_PrefabInstance: {fileID: 1873828792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1461048402
 PrefabInstance:
   m_ObjectHideFlags: 0

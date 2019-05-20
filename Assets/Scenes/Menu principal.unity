@@ -551,11 +551,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioNivel
       objectReference: {fileID: 0}
-    - target: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9a4b3b07e48b1f04e9edb088210d093a, type: 3}
     - target: {fileID: 2457952483258578163, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -611,6 +606,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a4b3b07e48b1f04e9edb088210d093a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e84de3f69ba4c42bfd67cf52ef0d72, type: 3}
 --- !u!1 &890041619

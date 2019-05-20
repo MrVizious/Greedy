@@ -2,46 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrampaCepo : MonoBehaviour
-{
-    [SerializeField]
-    int dañoTrampa = 30;
-    [SerializeField]
-    float segundosRetardo= 0.5f;
+public class TrampaCepo : MonoBehaviour {
+	[SerializeField]
+	int dañoTrampa = 30;
+	[SerializeField]
+	float segundosRetardo = 0.5f;
+	[SerializeField]
+	private Sprite spriteActivado;
 
-    PlayerController player;
-    
-    void Start()
-    {
-        
-    }
+	PlayerController player;
 
-    void Update()
-    {
-        
-    }
 
-    void OnTriggerEnter2D(Collider2D colisionado)
-    {
-        if(colisionado.tag == "Player")
-        {
-            StartCoroutine(Activacion());
-            player = colisionado.gameObject.GetComponent<PlayerController>();
-        }
-    }
+	void OnTriggerEnter2D(Collider2D colisionado) {
+		if (colisionado.tag == "Player") {
+			StartCoroutine(Activacion());
+			player = colisionado.gameObject.GetComponent<PlayerController>();
+		}
+	}
 
-    void OnTriggerExit2D(Collider2D colisionado)
-    {
-        if (colisionado.tag == "Player")
-        {
-            player = null;
-        }
-    }
+	void OnTriggerExit2D(Collider2D colisionado) {
+		if (colisionado.tag == "Player") {
+			player = null;
+		}
+	}
 
-    IEnumerator Activacion()
-    {
-        yield return new WaitForSeconds(segundosRetardo);
-        if(player!=null) player.RecibirDaño(dañoTrampa);
-        Destroy(this.gameObject);
-    }
+	IEnumerator Activacion() {
+		yield return new WaitForSeconds(segundosRetardo);
+		if (player != null) player.RecibirDaño(dañoTrampa);
+		gameObject.GetComponent<SpriteRenderer>().sprite = spriteActivado;
+		yield return new WaitForSeconds(segundosRetardo);
+		Destroy(this.gameObject);
+	}
 }
