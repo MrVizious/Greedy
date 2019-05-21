@@ -27,6 +27,7 @@ public class LevelController : MonoBehaviour {
 
 	public void Start() {
 		gameManager = GameManager.getGameManager();
+		gameManager.ObtainElementsOfScene();
 
 		controladorMusica = GameObject.Find("AudioNivel").GetComponent<MusicaController>();
 		player = GameObject.Find("Player").GetComponent<PlayerController>();
