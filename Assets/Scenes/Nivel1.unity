@@ -2066,11 +2066,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioNivel
       objectReference: {fileID: 0}
-    - target: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 3dd123609c6d7774598613c73c9e116f, type: 3}
     - target: {fileID: 2457952483258578163, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2126,6 +2121,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3dd123609c6d7774598613c73c9e116f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e84de3f69ba4c42bfd67cf52ef0d72, type: 3}
 --- !u!82 &1084046765 stripped
@@ -2314,6 +2314,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -287
       objectReference: {fileID: 0}
+    - target: {fileID: 1203433941, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e577b234a56d396448e84faa1386b006,
+        type: 3}
+    - target: {fileID: 2163799954976744540, guid: ff8f20295515e2441b741a288e8738f1,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e577b234a56d396448e84faa1386b006,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
 --- !u!1001 &1725462183
