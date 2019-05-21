@@ -31,6 +31,9 @@ public class InputController : MonoBehaviour {
 			playerController.ActivarDefensa();
 		}
 
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			playerController.Comer();
+		}
 
 	}
 }

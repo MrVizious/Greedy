@@ -14,42 +14,44 @@ public class PlayerController : MonoBehaviour {
 	public bool arriba, abajo, derecha, izquierda, move;
 	private Movimiento movimiento;
 	public Acciones estado;
-    [SerializeField]
+	[SerializeField]
 	int duracionDefensa = 7;
 	private GameManager gameManager;
 
-    private SonidosController controladorSonido;
+	private SonidosController controladorSonido;
 
-    public RuntimeAnimatorController GreedyUp;
+	public RuntimeAnimatorController GreedyUp;
 	public RuntimeAnimatorController GreedyDown;
 	public RuntimeAnimatorController GreedyLeft;
 	public RuntimeAnimatorController GreedyRight;
 
 	public RuntimeAnimatorController GreedyMorir;
-    public RuntimeAnimatorController GreedyGanar;
+	public RuntimeAnimatorController GreedyGanar;
 
 
-    public RuntimeAnimatorController GreedyIddleUp;
+	public RuntimeAnimatorController GreedyIddleUp;
 	public RuntimeAnimatorController GreedyIddleDown;
 	public RuntimeAnimatorController GreedyIddleLeft;
 	public RuntimeAnimatorController GreedyIddleRight;
 
 	public Animator animacionActual;
 
-    private bool powerUp;
+	private Collider2D frutaCollider = null;
+
+	private bool powerUp;
 
 
 	public void Start() {
 		animacionActual = GetComponent<Animator>();
-        powerUp = false;
+		powerUp = false;
 		gameManager = GameManager.getGameManager();
 		movimiento = GetComponent<Movimiento>();
 		dañoAcumulado = 0;
 		caloriasAcumuladas = 0;
 		arriba = abajo = derecha = izquierda = false;
 		estado = gameObject.AddComponent<AccionesNormal>();
-        controladorSonido = GameObject.Find("AudioSonidos").GetComponent<SonidosController>();
-    }
+		controladorSonido = GameObject.Find("AudioSonidos").GetComponent<SonidosController>();
+	}
 
 	void Update() {
 		if (arriba) {
@@ -57,29 +59,29 @@ public class PlayerController : MonoBehaviour {
 			animacionActual.runtimeAnimatorController = GreedyUp;
 			movimiento.SetRumbo(movimiento.direccion);
 			if (movimiento.ChocaConLimite(movimiento.direccion)) {
-                controladorSonido.ActivarSonidoLimites();
+				controladorSonido.ActivarSonidoLimites();
 			} else controladorSonido.ActivarSonidoMover();
 		} else if (abajo) {
 			movimiento.direccion = Vector2.down;
 			animacionActual.runtimeAnimatorController = GreedyDown;
 			movimiento.SetRumbo(movimiento.direccion);
 			if (movimiento.ChocaConLimite(movimiento.direccion)) {
-                controladorSonido.ActivarSonidoLimites();
-            } else controladorSonido.ActivarSonidoMover();
+				controladorSonido.ActivarSonidoLimites();
+			} else controladorSonido.ActivarSonidoMover();
 		} else if (derecha) {
 			movimiento.direccion = Vector2.right;
 			animacionActual.runtimeAnimatorController = GreedyRight;
 			movimiento.SetRumbo(movimiento.direccion);
 			if (movimiento.ChocaConLimite(movimiento.direccion)) {
-                controladorSonido.ActivarSonidoLimites();
-            } else controladorSonido.ActivarSonidoMover();
+				controladorSonido.ActivarSonidoLimites();
+			} else controladorSonido.ActivarSonidoMover();
 		} else if (izquierda) {
 			movimiento.direccion = Vector2.left;
 			animacionActual.runtimeAnimatorController = GreedyLeft;
 			movimiento.SetRumbo(movimiento.direccion);
 			if (movimiento.ChocaConLimite(movimiento.direccion)) {
-                controladorSonido.ActivarSonidoLimites();
-            } else controladorSonido.ActivarSonidoMover();
+				controladorSonido.ActivarSonidoLimites();
+			} else controladorSonido.ActivarSonidoMover();
 		}
 
 
@@ -102,41 +104,53 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void CambiarAEstadoNormal() {
-        FinalizarEstado();
+		FinalizarEstado();
 		Destroy(estado);
 		estado = gameObject.AddComponent<AccionesNormal>();
 	}
 
 	private void OnTriggerStay2D(Collider2D colisionador) {
-		if (colisionador.tag == "fruta" && Input.GetKeyDown(KeyCode.Space)) {
-			int caloriasConsumidas = colisionador.gameObject.GetComponent<Comestible>().Comer();
-            AumentarCalorias(caloriasConsumidas);
-            Destroy(colisionador.gameObject);
-            controladorSonido.ActivarSonidoComer();
-        }
+		if (colisionador.tag == "fruta") {
+			frutaCollider = colisionador;
+		}
+	}
+
+	public void Comer() {
+		Debug.Log("Comiendo... frutaCollider.tag es: " + frutaCollider.tag);
+		if (frutaCollider == null) return;
+		int caloriasConsumidas = frutaCollider.gameObject.GetComponent<Comestible>().Comer();
+		AumentarCalorias(caloriasConsumidas);
+		Destroy(frutaCollider.gameObject);
+		controladorSonido.ActivarSonidoComer();
 	}
 
 	private void OnTriggerEnter2D(Collider2D colisionador) {
 		if (colisionador.tag == "defensa") {
-            controladorSonido.ActivarSonidoGanarVida();
-            powerUp = true;
+			controladorSonido.ActivarSonidoGanarVida();
+			powerUp = true;
 			Destroy(colisionador.gameObject);
 		} else
 		if (colisionador.tag == "capsula") {
-            controladorSonido.ActivarSonidoGanarVida();
+			controladorSonido.ActivarSonidoGanarVida();
 			RestablecerACero();
 			Destroy(colisionador.gameObject);
 		} else
 		if (colisionador.tag == "corazon") {
 			gameManager.AumentarNumeroVida(1);
-            controladorSonido.ActivarSonidoGanarVida();
+			controladorSonido.ActivarSonidoGanarVida();
 			Destroy(colisionador.gameObject);
+		} else
+		if (colisionador.tag == "fruta") {
+			frutaCollider = colisionador;
 		}
+	}
+	private void OnTriggerExit2D(Collider2D other) {
+		if (other == frutaCollider) frutaCollider = null;
 	}
 
 
 	public void RecibirDaño(int daño) {
-        estado.RecibirDaño(daño, this);
+		estado.RecibirDaño(daño, this);
 	}
 
 	public void AumentarCalorias(int calorias) {
@@ -156,16 +170,15 @@ public class PlayerController : MonoBehaviour {
 		estado.Morir(this);
 	}
 
-    public void ActivarDefensa()
-    {
-        if (!powerUp) return;
-        FinalizarEstado();
-        powerUp = false;
-        CancelInvoke("CambiarAEstadoNormal");
-        Destroy(estado);
-        estado = gameObject.AddComponent<AccionesInvulnerable>();
-        Invoke("CambiarAEstadoNormal", duracionDefensa);
-    }
+	public void ActivarDefensa() {
+		if (!powerUp) return;
+		FinalizarEstado();
+		powerUp = false;
+		CancelInvoke("CambiarAEstadoNormal");
+		Destroy(estado);
+		estado = gameObject.AddComponent<AccionesInvulnerable>();
+		Invoke("CambiarAEstadoNormal", duracionDefensa);
+	}
 
 
 	public void FinalizarEstado() {
@@ -185,8 +198,7 @@ public class PlayerController : MonoBehaviour {
 		abajo = true;
 	}
 
-    public bool GetPowerUp()
-    {
-        return powerUp;
-    }
+	public bool GetPowerUp() {
+		return powerUp;
+	}
 }
