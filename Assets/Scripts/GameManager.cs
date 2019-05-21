@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour {
                 siguienteEscena = "Nivel4";
                 break;
             case 4:
-                siguienteEscena = "Menu principal";
+                siguienteEscena = "MenuPrincipal";
                 break;
         }
         SceneManager.LoadScene(siguienteEscena, LoadSceneMode.Single);
