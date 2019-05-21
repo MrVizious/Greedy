@@ -23,9 +23,15 @@ public class LevelController : MonoBehaviour
     SpawnerElementos spawner;
     string[] consumibles = { "fresa", "uva", "pimiento", "zanahoria" };
 
+    private MusicaController controladorMusica;
+    PlayerController player;
+
     public void Start()
     {
         gameManager = GameManager.getGameManager();
+
+        controladorMusica = GameObject.Find("AudioNivel").GetComponent<MusicaController>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
 
         spawner = GameObject.Find("SpawnerElementos").GetComponent<SpawnerElementos>();
         //Hay que ver que no se generen cerca de player
@@ -42,16 +48,24 @@ public class LevelController : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update()
+    void Update()
     {
         frutas = GameObject.FindGameObjectsWithTag("fruta");
         numeroFrutas = frutas.Length;
-        if(numeroFrutas==0) NivelCompletado();
+        if(numeroFrutas==0)
+        {
+            StartCoroutine(SiguienteNivel());
+        }
+            
     }
 
-    public void NivelCompletado()
-    {
-        //TODO: cambiar de nivel, de momento se reinicia la escena
+    IEnumerator SiguienteNivel() {
+        controladorMusica.ActivarSonidoGanar();
+
+        player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyGanar;
+        player.Morir();
+        yield return new WaitForSeconds(4f);
+
         gameManager.SiguienteEscena();
     }
 }

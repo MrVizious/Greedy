@@ -5011,7 +5011,7 @@ PrefabInstance:
     - target: {fileID: 7305931380073816256, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f,
         type: 3}
       propertyPath: numeroFrutas
-      value: 12
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f, type: 3}
@@ -7693,6 +7693,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f0c3249e69185448ad61259b32c77f5, type: 3}
     - target: {fileID: 2457952483258578163, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7748,11 +7753,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
-        type: 3}
-      propertyPath: m_audioClip
+    - target: {fileID: 1045388248, guid: 84e84de3f69ba4c42bfd67cf52ef0d72, type: 3}
+      propertyPath: gameOver
       value: 
-      objectReference: {fileID: 8300000, guid: 9f0c3249e69185448ad61259b32c77f5, type: 3}
+      objectReference: {fileID: 8300000, guid: fc32cabd3acb15a4db0e2be3d5cd0dbd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e84de3f69ba4c42bfd67cf52ef0d72, type: 3}
 --- !u!4 &1914960378 stripped

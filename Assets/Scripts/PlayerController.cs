@@ -26,8 +26,10 @@ public class PlayerController : MonoBehaviour {
 	public RuntimeAnimatorController GreedyRight;
 
 	public RuntimeAnimatorController GreedyMorir;
+    public RuntimeAnimatorController GreedyGanar;
 
-	public RuntimeAnimatorController GreedyIddleUp;
+
+    public RuntimeAnimatorController GreedyIddleUp;
 	public RuntimeAnimatorController GreedyIddleDown;
 	public RuntimeAnimatorController GreedyIddleLeft;
 	public RuntimeAnimatorController GreedyIddleRight;

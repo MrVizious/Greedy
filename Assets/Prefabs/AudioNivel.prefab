@@ -141,3 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 8300000, guid: fc32cabd3acb15a4db0e2be3d5cd0dbd, type: 3}
+  ganar: {fileID: 8300000, guid: b7606f329f4afed469fa96b7961b57fd, type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MusicaController : MonoBehaviour
 {
     [SerializeField]
-    AudioClip gameOver;
+    AudioClip gameOver, ganar;
     AudioSource audioSonidos;
     void Start()
     {
@@ -14,6 +14,12 @@ public class MusicaController : MonoBehaviour
     public void ActivarSonidoGameOver()
     {
         audioSonidos.clip = gameOver;
+        audioSonidos.Play();
+    }
+
+    public void ActivarSonidoGanar() {
+        Debug.Log("Me cago en dios");
+        audioSonidos.clip = ganar;
         audioSonidos.Play();
     }
 }
