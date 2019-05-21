@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TrampaCepo : MonoBehaviour {
 	[SerializeField]
-	int dañoTrampa = 30;
-	[SerializeField]
-	float segundosRetardo = 0.5f;
+	int dañoTrampa;
+    [SerializeField]
+    float segundosRetardo;
 	[SerializeField]
 	private Sprite spriteActivado;
 

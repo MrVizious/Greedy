@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1oTrampa": 30
-  segundosRetardo: 0.5
+  segundosRetardo: 0.35
   spriteActivado: {fileID: 21300028, guid: 779d26d13303dab429d0e7f0e74ae0ee, type: 3}
