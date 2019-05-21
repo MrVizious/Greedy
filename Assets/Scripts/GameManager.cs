@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -73,28 +73,28 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-	public void SiguienteEscena() {
-		string siguienteEscena = "";
-		int numeroEscena = SceneManager.GetActiveScene().buildIndex;
-		switch (numeroEscena) {
-			case 0:
-				siguienteEscena = "Nivel1";
-				break;
-			case 1:
-				siguienteEscena = "Nivel2";
-				break;
-			case 2:
-				siguienteEscena = "Nivel3";
-				break;
-			case 3:
-				siguienteEscena = "Nivel4";
-				break;
-			case 4:
-				siguienteEscena = "Menu principal";
-				break;
-		}
-		SceneManager.LoadScene(siguienteEscena, LoadSceneMode.Single);
-	}
+    public void SiguienteEscena() {
+        string siguienteEscena = "";
+        int numeroEscena = SceneManager.GetActiveScene().buildIndex;
+        switch (numeroEscena) {
+            case 0:
+                siguienteEscena = "Nivel1";
+                break;
+            case 1:
+                siguienteEscena = "Nivel2";
+                break;
+            case 2:
+                siguienteEscena = "Nivel3";
+                break;
+            case 3:
+                siguienteEscena = "Nivel4";
+                break;
+            case 4:
+                siguienteEscena = "Menu principal";
+                break;
+        }
+        SceneManager.LoadScene(siguienteEscena, LoadSceneMode.Single);
+    }
 
 	public int getNumeroVidas() {
 		return this.numeroVidas;
