@@ -2038,12 +2038,12 @@ PrefabInstance:
     - target: {fileID: 7305931380073816256, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f,
         type: 3}
       propertyPath: numeroGuardianes
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7305931380073816256, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f,
         type: 3}
       propertyPath: numeroTrampas
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7305931380073816256, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f,
         type: 3}
@@ -2159,6 +2159,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1936543022353043308, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
+        type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1084046765}
     - target: {fileID: 5073877577798520981, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
         type: 3}
       propertyPath: m_Name
@@ -2174,11 +2179,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeMuted
       objectReference: {fileID: 0}
-    - target: {fileID: 1936543022353043308, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
-        type: 3}
-      propertyPath: audioPlayer
-      value: 
-      objectReference: {fileID: 1084046765}
     m_RemovedComponents:
     - {fileID: 878479360681355035, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5, type: 3}
