@@ -219,6 +219,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 264
       objectReference: {fileID: 0}
+    - target: {fileID: 878479360681355035, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
+        type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 954273450}
+    - target: {fileID: 1936543022353043308, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
+        type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1462937064}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5, type: 3}
 --- !u!1001 &33655250
@@ -1852,25 +1862,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f342edcdb307ca41b959265bf4b0e1e, type: 3}
---- !u!1 &1015457275 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2457952483258578161, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
+--- !u!82 &954273450 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8019766909261056187, guid: 3f342edcdb307ca41b959265bf4b0e1e,
     type: 3}
-  m_PrefabInstance: {fileID: 1462937063}
+  m_PrefabInstance: {fileID: 954273449}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1015457276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015457275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 447c5668db6e7784ca1137cedf93ed40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
 --- !u!1 &1164357706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,6 +2378,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioNivel
       objectReference: {fileID: 0}
+    - target: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: df4b2a7ba4b0479419dac745090576ee, type: 3}
     - target: {fileID: 2457952483258578163, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2436,13 +2438,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: df4b2a7ba4b0479419dac745090576ee, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e84de3f69ba4c42bfd67cf52ef0d72, type: 3}
+--- !u!82 &1462937064 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2457952483258578162, guid: 84e84de3f69ba4c42bfd67cf52ef0d72,
+    type: 3}
+  m_PrefabInstance: {fileID: 1462937063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1482190403
 GameObject:
   m_ObjectHideFlags: 0
@@ -13068,6 +13071,8 @@ MonoBehaviour:
   sonidoPerderVida: {fileID: 0}
   minVidas: 0
   maxVidas: 3
+  soundsActive: 1
+  musicActive: 1
 --- !u!4 &1739315357
 Transform:
   m_ObjectHideFlags: 0

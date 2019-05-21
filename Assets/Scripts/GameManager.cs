@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour {
 
 	private SonidosController controladorSonido;
 	private MusicaController controladorMusica;
+	[SerializeField] private bool soundsActive = true, musicActive = true;
+
 
 	public static GameManager getGameManager() {
 		return instance;
@@ -122,5 +124,26 @@ public class GameManager : MonoBehaviour {
 		player.Morir();
 		yield return new WaitForSeconds(1.7f);
 		ChangeToScene("GameOver");
+	}
+
+	public bool getSoundsActive() {
+		return soundsActive;
+	}
+	public bool getMusicActive() {
+		return musicActive;
+	}
+
+	public void setSoundsActive(bool value) {
+		soundsActive = value;
+	}
+	public void setMusicActive(bool value) {
+		musicActive = value;
+	}
+
+	public void changeSoundsActive() {
+		soundsActive = !soundsActive;
+	}
+	public void changeMusicActive() {
+		musicActive = !musicActive;
 	}
 }

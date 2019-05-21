@@ -493,6 +493,8 @@ MonoBehaviour:
   sonidoPerderVida: {fileID: 0}
   minVidas: 0
   maxVidas: 3
+  soundsActive: 1
+  musicActive: 1
 --- !u!4 &1307823713
 Transform:
   m_ObjectHideFlags: 0
@@ -2177,7 +2179,8 @@ PrefabInstance:
       propertyPath: audioPlayer
       value: 
       objectReference: {fileID: 1084046765}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 878479360681355035, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5, type: 3}
 --- !u!1 &1982276890 stripped
 GameObject:

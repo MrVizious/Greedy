@@ -32,6 +32,9 @@ public class LevelController : MonoBehaviour {
 		controladorMusica = GameObject.Find("AudioNivel").GetComponent<MusicaController>();
 		player = GameObject.Find("Player").GetComponent<PlayerController>();
 
+		if (!gameManager.getMusicActive()) GameObject.Find("AudioNivel").GetComponent<AudioSource>().enabled = false;
+		if (!gameManager.getSoundsActive()) GameObject.Find("AudioSonidos").GetComponent<AudioSource>().enabled = false;
+
 		spawner = GameObject.Find("SpawnerElementos").GetComponent<SpawnerElementos>();
 		//Hay que ver que no se generen cerca de player
 		spawner.SpawnearElementos(numeroGuardianes, "guardian");
