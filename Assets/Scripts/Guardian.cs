@@ -4,14 +4,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(Movimiento))]
 [RequireComponent(typeof(PlayerController))]
-//[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(GameManager))]
 
 
 public class Guardian : MonoBehaviour {
     Vector2 direccionElegida;
     Movimiento movimiento;
-    public Transform objetivo;
 
     public RuntimeAnimatorController guardianUp;
     public RuntimeAnimatorController guardianDown;
@@ -20,18 +18,12 @@ public class Guardian : MonoBehaviour {
 
     void Start() {
         movimiento = GetComponent<Movimiento>();
-
-
         CalculaDirRandom();
         movimiento.SetRumbo(direccionElegida);
-
         UpdateAnimatorController();
     }
 
-    //Si player esta dentro de su rango lo persigue,
-    // si no, sigue su curso hasta que no pueda avanzar
     void Update() {
-        //animator.SetFloat("Speed", movimiento.runSpeed);
         if (movimiento.PuedeAvanzar(direccionElegida))
         {
              movimiento.SetRumbo(direccionElegida);

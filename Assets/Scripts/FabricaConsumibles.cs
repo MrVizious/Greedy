@@ -24,13 +24,6 @@ public class FabricaConsumibles : MonoBehaviour
     private GameObject prefabDefensa;
     [SerializeField]
     private GameObject prefabTrampa;
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
 
     public GameObject GetConsumible(string nombreConsumible) {
         switch (nombreConsumible) {

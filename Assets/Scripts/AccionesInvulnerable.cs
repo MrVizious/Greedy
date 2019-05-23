@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class AccionesInvulnerable : Acciones {
 
 	[Range(0f, 1000f)]
-	public float velocidadDeParpadeo = 400f;
-	public GameObject soundEffect;
+	float velocidadDeParpadeo = 400f;
+	GameObject soundEffect;
 
 
 	public override void RecibirDaño(int daño, PlayerController player) { }
@@ -37,16 +37,7 @@ public class AccionesInvulnerable : Acciones {
 
     private void Start()
     {
-
         ComenzarEfectoDeSonido();
     }
-
-	public float getVelocidadDeParpadeo() {
-		return this.velocidadDeParpadeo;
-	}
-
-	public void setVelocidadDeParpadeo(float velocidadDeParpadeo) {
-		this.velocidadDeParpadeo = velocidadDeParpadeo;
-	}
 
 }

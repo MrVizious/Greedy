@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start() {
-		//audioNivel = GameObject.Find("audioNivel");
 		Mathf.Clamp(numeroVidas, 0, 3);
 		ObtainElementsOfScene();
 	}
@@ -56,18 +55,10 @@ public class GameManager : MonoBehaviour {
 		controladorMusica = GameObject.Find("AudioNivel").GetComponent<MusicaController>();
 	}
 
-	/// <summary>
-	/// Recibe el nombre de la escena que se quiere cargar y la carga si puede
-	/// </summary>
-	/// <param name="name"></param>
 	public void ChangeToScene(string name) {
 		SceneManager.LoadScene(name, LoadSceneMode.Single);
 	}
 
-	/// <summary>
-	/// Recibe el número de la escena que se quiere cargar y la carga si puede
-	/// </summary>
-	/// <param name="name"></param>
 	public void ChangeToScene(int number) {
 		SceneManager.LoadScene(name, LoadSceneMode.Single);
 	}
@@ -98,10 +89,6 @@ public class GameManager : MonoBehaviour {
 
 	public int getNumeroVidas() {
 		return this.numeroVidas;
-	}
-
-	public void setNumeroVidas(int numeroVidas) {
-		this.numeroVidas = numeroVidas;
 	}
 
 	public void AumentarNumeroVida(int cantidad) {
