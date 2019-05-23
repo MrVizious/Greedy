@@ -12,10 +12,6 @@ public class AccionesInvulnerable : Acciones {
 
 	public override void RecibirDaño(int daño, PlayerController player) { }
 
-	/// <summary>
-	/// Esta función hace que el personaje parpadee a una velocidad variable
-	/// </summary>
-	/// <param name="velocidad">Velocidad a la que parpadea entre 0 y 1</param>
 	private void ParpadeoVisual(float velocidad) {
         Color colorActual = gameObject.GetComponent<SpriteRenderer>().color;
         gameObject.GetComponent<SpriteRenderer>().color = new Color(colorActual.r, colorActual.g, colorActual.b, ((Time.time * velocidad) % 255) / 255);
@@ -35,7 +31,6 @@ public class AccionesInvulnerable : Acciones {
 		Destroy(soundEffect);
 	}
 
-	// Update is called once per frame
 	void Update() {
 		ParpadeoVisual(velocidadDeParpadeo);
 	}

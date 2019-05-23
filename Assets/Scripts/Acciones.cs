@@ -11,9 +11,6 @@ public abstract class Acciones : MonoBehaviour {
         gameManager = GameManager.getGameManager();
     }
 
-	void Update() {
-
-	}
 	public virtual void RecibirDaño(int daño, PlayerController player)
     {
         player.dañoAcumulado += daño;

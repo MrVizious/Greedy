@@ -25,9 +25,9 @@ public class MusicaController : MonoBehaviour {
 	public AudioClip getGanar() {
 		return ganar;
 	}
-	public AudioSource getAudioSonidos() {
-		return audioSonidos;
-	}
-
+    public AudioSource getAudioSonidos()
+    {
+        return audioSonidos;
+    }
 
 }
