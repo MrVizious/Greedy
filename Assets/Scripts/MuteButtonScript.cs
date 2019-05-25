@@ -6,8 +6,12 @@ using UnityEngine.UI;
 public class MuteButtonScript : MonoBehaviour {
 	[SerializeField] private Sprite mutedImage;
 	[SerializeField] private Sprite soundImage;
-	[SerializeField] private AudioSource audioPlayer;
+	[SerializeField] private TypeOfSound typeOfSound;
 	private GameManager gameManager;
+	enum TypeOfSound {
+		sounds,
+		music
+	}
 
 	public void Start() {
 		gameManager = GameManager.getGameManager();
@@ -16,21 +20,17 @@ public class MuteButtonScript : MonoBehaviour {
 
 	public void PrepareSounds() {
 		gameManager = GameManager.getGameManager();
-		if (audioPlayer.gameObject.name.Equals("AudioSonidos")) {
+		if (typeOfSound == TypeOfSound.sounds) {
 			if (gameManager.getSoundsActive()) {
 				this.gameObject.GetComponent<Image>().sprite = soundImage;
-				audioPlayer.enabled = true;
 			} else {
 				this.gameObject.GetComponent<Image>().sprite = mutedImage;
-				audioPlayer.enabled = false;
 			}
-		} else if (audioPlayer.gameObject.name.Equals("AudioNivel")) {
+		} else if (typeOfSound == TypeOfSound.music) {
 			if (gameManager.getMusicActive()) {
 				this.gameObject.GetComponent<Image>().sprite = soundImage;
-				audioPlayer.enabled = true;
 			} else {
 				this.gameObject.GetComponent<Image>().sprite = mutedImage;
-				audioPlayer.enabled = false;
 			}
 		}
 	}
@@ -41,9 +41,9 @@ public class MuteButtonScript : MonoBehaviour {
 		} else {
 			this.gameObject.GetComponent<Image>().sprite = mutedImage;
 		}
-		audioPlayer.enabled = !audioPlayer.enabled;
-		if (audioPlayer.gameObject.name.Equals("AudioSonidos")) gameManager.changeSoundsActive();
-		else if (audioPlayer.gameObject.name.Equals("AudioNivel")) gameManager.changeMusicActive();
+
+		if (typeOfSound == TypeOfSound.sounds) gameManager.changeSoundsActive();
+		else if (typeOfSound == TypeOfSound.music) gameManager.changeMusicActive();
 	}
 
 }

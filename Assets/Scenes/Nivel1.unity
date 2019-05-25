@@ -2448,9 +2448,6 @@ MonoBehaviour:
   numeroVidas: 3
   sonidoPerderVida: {fileID: 0}
   minVidas: 0
-  maxVidas: 3
-  soundsActive: 1
-  musicActive: 1
 --- !u!4 &1825171841
 Transform:
   m_ObjectHideFlags: 0

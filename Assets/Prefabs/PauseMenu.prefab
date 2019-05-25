@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mutedImage: {fileID: 21300000, guid: fa578dd690626214ba6581fc2b0a92d4, type: 3}
   soundImage: {fileID: 21300000, guid: 38d2f07d612dedc4eba8f3715db59ab2, type: 3}
-  audioPlayer: {fileID: 0}
+  typeOfSound: 1
 --- !u!1 &5073877577798520981
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mutedImage: {fileID: 21300000, guid: c5f0205a5fa815c4981b64b7d382cda0, type: 3}
   soundImage: {fileID: 21300000, guid: a1454614a974dc240aa0a1c90115e776, type: 3}
-  audioPlayer: {fileID: 0}
+  typeOfSound: 0
 --- !u!1 &6033549031901334638
 GameObject:
   m_ObjectHideFlags: 0

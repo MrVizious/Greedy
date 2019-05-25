@@ -12,14 +12,10 @@ public class GameManager : MonoBehaviour {
 	private AudioClip sonidoPerderVida;
 	[SerializeField]
 	int minVidas = 0;
-	[SerializeField]
+	private AudioSource soundsSource, musicSource;
+	private bool soundsActive = true, musicActive = true;
 	int maxVidas = 3;
 	PlayerController player;
-
-	private SonidosController controladorSonido;
-	private MusicaController controladorMusica;
-	[SerializeField] private bool soundsActive = true, musicActive = true;
-
 
 	public static GameManager getGameManager() {
 		return instance;
@@ -29,13 +25,11 @@ public class GameManager : MonoBehaviour {
 
 		//Check if instance already exists
 		if (instance == null)
-
 			//if not, set instance to this
 			instance = this;
 
 		//If instance already exists and it's not this:
 		else if (instance != this)
-
 			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
 			Destroy(gameObject);
 
@@ -51,8 +45,10 @@ public class GameManager : MonoBehaviour {
 
 	public void ObtainElementsOfScene() {
 		player = GameObject.Find("Player").GetComponent<PlayerController>();
-		controladorSonido = GameObject.Find("AudioSonidos").GetComponent<SonidosController>();
-		controladorMusica = GameObject.Find("AudioNivel").GetComponent<MusicaController>();
+		soundsSource = GameObject.Find("AudioSonidos").GetComponent<AudioSource>();
+		if (!soundsActive) soundsSource.enabled = false;
+		musicSource = GameObject.Find("AudioNivel").GetComponent<AudioSource>();
+		if (!musicActive) musicSource.enabled = false;
 	}
 
 	public void ChangeToScene(string name) {
@@ -60,32 +56,32 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void ChangeToScene(int number) {
-		SceneManager.LoadScene(name, LoadSceneMode.Single);
+		ChangeToScene(SceneManager.GetSceneAt(number).name);
 	}
 
 
-    public void SiguienteEscena() {
-        string siguienteEscena = "";
-        int numeroEscena = SceneManager.GetActiveScene().buildIndex;
-        switch (numeroEscena) {
-            case 0:
-                siguienteEscena = "Nivel1";
-                break;
-            case 1:
-                siguienteEscena = "Nivel2";
-                break;
-            case 2:
-                siguienteEscena = "Nivel3";
-                break;
-            case 3:
-                siguienteEscena = "Nivel4";
-                break;
-            case 4:
-                siguienteEscena = "Final";
-                break;
-        }
-        SceneManager.LoadScene(siguienteEscena, LoadSceneMode.Single);
-    }
+	public void SiguienteEscena() {
+		string siguienteEscena = "";
+		int numeroEscena = SceneManager.GetActiveScene().buildIndex;
+		switch (numeroEscena) {
+			case 0:
+				siguienteEscena = "Nivel1";
+				break;
+			case 1:
+				siguienteEscena = "Nivel2";
+				break;
+			case 2:
+				siguienteEscena = "Nivel3";
+				break;
+			case 3:
+				siguienteEscena = "Nivel4";
+				break;
+			case 4:
+				siguienteEscena = "Final";
+				break;
+		}
+		SceneManager.LoadScene(siguienteEscena, LoadSceneMode.Single);
+	}
 
 	public int getNumeroVidas() {
 		return this.numeroVidas;
@@ -97,7 +93,7 @@ public class GameManager : MonoBehaviour {
 	}
 	public void DisminuirNumeroVida(int cantidad) {
 		if (numeroVidas > 0) {
-			controladorSonido.ActivarSonidoSufrirDanyo();
+			soundsSource.gameObject.GetComponent<SonidosController>().ActivarSonidoSufrirDanyo();
 			this.numeroVidas -= cantidad;
 		}
 		if (numeroVidas == 0) {
@@ -106,31 +102,26 @@ public class GameManager : MonoBehaviour {
 	}
 
 	IEnumerator GameOver() {
-		controladorMusica.ActivarSonidoGameOver();
+		musicSource.gameObject.GetComponent<MusicaController>().ActivarSonidoGameOver();
 		player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyMorir;
 		player.Morir();
 		yield return new WaitForSeconds(1.7f);
 		ChangeToScene("GameOver");
 	}
 
-	public bool getSoundsActive() {
-		return soundsActive;
-	}
-	public bool getMusicActive() {
-		return musicActive;
-	}
-
-	public void setSoundsActive(bool value) {
-		soundsActive = value;
-	}
-	public void setMusicActive(bool value) {
-		musicActive = value;
-	}
-
 	public void changeSoundsActive() {
+		soundsSource.enabled = !soundsSource.enabled;
 		soundsActive = !soundsActive;
 	}
 	public void changeMusicActive() {
+		musicSource.enabled = !musicSource.enabled;
 		musicActive = !musicActive;
+	}
+
+	public bool getMusicActive() {
+		return musicActive;
+	}
+	public bool getSoundsActive() {
+		return soundsActive;
 	}
 }
