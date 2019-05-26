@@ -8,10 +8,6 @@ public class PauseMenuController : MonoBehaviour {
 	public bool isPaused = false;
 	public GameObject PauseMenu;
 
-	private void Start() {
-		//PauseMenu = GetComponentInChildren<Canvas>().gameObject;
-	}
-
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			if (isPaused) {

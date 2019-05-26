@@ -116,7 +116,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Comer() {
-		Debug.Log("Comiendo... frutaCollider.tag es: " + frutaCollider.tag);
 		if (frutaCollider == null) return;
 		int caloriasConsumidas = frutaCollider.gameObject.GetComponent<Comestible>().Comer();
 		AumentarCalorias(caloriasConsumidas);

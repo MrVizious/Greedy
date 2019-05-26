@@ -503,9 +503,6 @@ MonoBehaviour:
   numeroVidas: 3
   sonidoPerderVida: {fileID: 0}
   minVidas: 0
-  maxVidas: 3
-  soundsActive: 1
-  musicActive: 1
 --- !u!4 &1307823713
 Transform:
   m_ObjectHideFlags: 0
@@ -2213,7 +2210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mutedImage: {fileID: 21300000, guid: c5f0205a5fa815c4981b64b7d382cda0, type: 3}
   soundImage: {fileID: 21300000, guid: a1454614a974dc240aa0a1c90115e776, type: 3}
-  audioPlayer: {fileID: 8019766908475136307}
+  typeOfSound: 0
 --- !u!1001 &4131800273827415866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12049,9 +12046,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f342edcdb307ca41b959265bf4b0e1e, type: 3}
---- !u!82 &8019766908475136307 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8019766909261056187, guid: 3f342edcdb307ca41b959265bf4b0e1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 8019766908475136306}
-  m_PrefabAsset: {fileID: 0}

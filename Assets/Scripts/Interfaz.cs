@@ -14,7 +14,7 @@ public class Interfaz : MonoBehaviour {
     public string calorias, danyo;
     public Text textoCalorias, textoDefensa;
     public Image danyoImage;
-    float danyoBarra, maxDanyo = 100f;
+    float maxDanyo = 100f;
 
 
     void Start()
@@ -26,7 +26,6 @@ public class Interfaz : MonoBehaviour {
         gameController = GameObject.Find("GameController");
         textoCalorias = this.transform.Find("Calorias").GetComponent<Text>();
         textoDefensa = this.transform.Find("Defensa").GetComponent<Text>();
-        danyoBarra = 0f;
     }
 
     void Update()

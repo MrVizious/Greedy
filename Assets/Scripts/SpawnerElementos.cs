@@ -34,13 +34,6 @@ public class SpawnerElementos : MonoBehaviour {
         StartCoroutine(SpawnearElemento("defensa"));
     }
 
-    private void Update() {
-        //Para testeo
-        if (Input.GetKeyDown(KeyCode.H)) SpawnearCorazon();
-        if (Input.GetKeyDown(KeyCode.C)) SpawnearCapsula();
-        if (Input.GetKeyDown(KeyCode.G)) SpawnearDefensa();
-    }
-
 	/// <summary>
 	/// Busca un sitio vacío en el mapa, donde no haga colisión con nada. Hace el número de intentos indicado en el script.
 	/// </summary>
@@ -68,34 +61,6 @@ public class SpawnerElementos : MonoBehaviour {
         Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
     }
 
-    //Estos métodos serán elimindaos, de momento están para testeo
-	public void SpawnearCorazon() {
-        Vector2 posicion = EncontrarSitioVacio();
-        GameObject prefab = fabrica.GetConsumible("corazon");
-        Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
-	}
-
-	public void SpawnearDefensa() {
-		Vector2 posicion = EncontrarSitioVacio();
-        GameObject prefab = fabrica.GetConsumible("defensa");
-        Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
-	}
-
-	public void SpawnearCapsula() {
-		Vector2 posicion = EncontrarSitioVacio();
-        GameObject prefab = fabrica.GetConsumible("capsula");
-        Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
-	}
-    //Hay que ver que los guardianes no se generen cerca de player
-    public void SpawnearElementos(int numeroElementos, GameObject prefab)
-    {
-        for (int i = 0; i < numeroElementos; i++)
-        {
-            Vector2 posicion = EncontrarSitioVacio();
-            Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
-        }
-    }
-
     public void SpawnearElementos(int numeroElementos, string nombre)
     {
         for (int i = 0; i < numeroElementos; i++)
@@ -107,54 +72,24 @@ public class SpawnerElementos : MonoBehaviour {
     }
 
     //Hay que ver que no se generen cerca de player
-    public void GenerarGuardianes(int numeroGuardianes, GameObject prefabGuardian)
+    public void GenerarGuardianes(int numeroGuardianes, string nombre)
     {
         for(int i=0; i<numeroGuardianes; i++)
         {
             bool posicionEncontrada = false;
             Vector2 posicion;
+            GameObject prefab = fabrica.GetConsumible(nombre);
             do
             {
                 posicion = EncontrarSitioVacio();
-                if (Physics2D.OverlapCircle(posicion, 100f, 1 << LayerMask.NameToLayer("Player")) == null)
+                if (Physics2D.OverlapCircle(posicion, 5f, 1 << LayerMask.NameToLayer("player")) == null)
                 {
                     posicionEncontrada = true;
                 }
             }
             while (!posicionEncontrada);
-            Instantiate(prefabGuardian, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
+            Instantiate(prefab, posicion, Quaternion.identity, GetComponentInParent<Grid>().gameObject.transform);
         }
     }
 
-	public int getMinX() {
-		return this.minX;
-	}
-
-	public void setMinX(int minX) {
-		this.minX = minX;
-	}
-
-	public int getMinY() {
-		return this.minY;
-	}
-
-	public void setMinY(int minY) {
-		this.minY = minY;
-	}
-
-	public int getMaxX() {
-		return this.maxX;
-	}
-
-	public void setMaxX(int maxX) {
-		this.maxX = maxX;
-	}
-
-	public int getMaxY() {
-		return this.maxY;
-	}
-
-	public void setMaxY(int maxY) {
-		this.maxY = maxY;
-	}
 }

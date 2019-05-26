@@ -51,36 +51,23 @@ public class GameManager : MonoBehaviour {
 		if (!musicActive) musicSource.enabled = false;
 	}
 
-	public void ChangeToScene(string name) {
-		SceneManager.LoadScene(name, LoadSceneMode.Single);
-	}
-
-	public void ChangeToScene(int number) {
-		ChangeToScene(SceneManager.GetSceneAt(number).name);
-	}
-
-
 	public void SiguienteEscena() {
-		string siguienteEscena = "";
 		int numeroEscena = SceneManager.GetActiveScene().buildIndex;
 		switch (numeroEscena) {
-			case 0:
-				siguienteEscena = "Nivel1";
-				break;
 			case 1:
-				siguienteEscena = "Nivel2";
-				break;
+                numeroEscena++;
+                break;
 			case 2:
-				siguienteEscena = "Nivel3";
-				break;
+                numeroEscena++;
+                break;
 			case 3:
-				siguienteEscena = "Nivel4";
-				break;
+                numeroEscena++;
+                break;
 			case 4:
-				siguienteEscena = "Final";
-				break;
+                numeroEscena++;
+                break;
 		}
-		SceneManager.LoadScene(siguienteEscena, LoadSceneMode.Single);
+		SceneManager.LoadScene(numeroEscena, LoadSceneMode.Single);
 	}
 
 	public int getNumeroVidas() {
@@ -106,8 +93,8 @@ public class GameManager : MonoBehaviour {
 		player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyMorir;
 		player.Morir();
 		yield return new WaitForSeconds(1.7f);
-		ChangeToScene("GameOver");
-	}
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+    }
 
 	public void changeSoundsActive() {
 		soundsSource.enabled = !soundsSource.enabled;

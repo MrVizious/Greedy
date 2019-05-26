@@ -24,7 +24,6 @@ public class Movimiento : MonoBehaviour {
 		if (anguloRaycast == 0) anguloRaycast = 0.35f;
 	}
 
-	// Update is called once per frame
 	public void FixedUpdate() {
 		Move();
 
