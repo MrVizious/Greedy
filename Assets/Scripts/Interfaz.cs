@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Interfaz : MonoBehaviour {
-    public PlayerController statsPlayer;
-    public GameObject gameController;
+    private PlayerController statsPlayer;
+    private GameObject gameController;
     private GameManager gameManager;
 
     private int numeroVidas, maxVidas = 3;
     private GameObject[] vidas = new GameObject[3];
     private GameObject imagenDefensa;
-    public string calorias, danyo;
-    public Text textoCalorias, textoDefensa;
+    private string calorias, danyo;
+    private Text textoCalorias, textoDefensa;
     public Image danyoImage;
-    float danyoBarra, maxDanyo = 100f;
+    float maxDanyo = 100f;
 
 
     void Start()
@@ -26,7 +26,6 @@ public class Interfaz : MonoBehaviour {
         gameController = GameObject.Find("GameController");
         textoCalorias = this.transform.Find("Calorias").GetComponent<Text>();
         textoDefensa = this.transform.Find("Defensa").GetComponent<Text>();
-        danyoBarra = 0f;
     }
 
     void Update()

@@ -27,7 +27,7 @@ namespace Tests
             GameObject frutaInicializada = Object.Instantiate(prefabFruta, new Vector2(0, 0), Quaternion.identity);
             Comestible frutaTest = frutaInicializada.GetComponent<Comestible>();
 
-            objetoTest.Start();
+            //objetoTest.Start();
             //frutaTest.Start();  ¿¿Por que no funciona?
             objetoTest.caloriasAcumuladas = 100;
 

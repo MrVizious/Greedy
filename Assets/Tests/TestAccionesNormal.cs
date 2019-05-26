@@ -18,7 +18,7 @@ namespace Tests
             GameObject objetoInicializado = Object.Instantiate(prefabPlayer, new Vector2(0, 0), Quaternion.identity);
             PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
 
-            objetoTest.Start();
+            //objetoTest.Start();
             Assert.AreEqual(0, objetoTest.dañoAcumulado);
             objetoTest.RecibirDaño(30);
             Assert.AreEqual(30, objetoTest.dañoAcumulado);
@@ -30,7 +30,7 @@ namespace Tests
             GameObject objetoInicializado = Object.Instantiate(prefabPlayer, new Vector2(0, 0), Quaternion.identity);
             PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
 
-            objetoTest.Start();
+            //objetoTest.Start();
             Assert.AreEqual(100, objetoTest.caloriasParaReducir);
             Assert.AreEqual(0, objetoTest.caloriasAcumuladas);
             Assert.AreEqual(0, objetoTest.dañoAcumulado);
@@ -57,7 +57,7 @@ namespace Tests
             GameObject objetoInicializado = Object.Instantiate(prefabPlayer, new Vector2(0, 0), Quaternion.identity);
             PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
 
-            objetoTest.Start();
+            //objetoTest.Start();
 
             objetoTest.caloriasAcumuladas = 100;
             Assert.AreEqual(100, objetoTest.caloriasAcumuladas);
@@ -77,8 +77,8 @@ namespace Tests
             PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
             //EditorSceneManager.OpenScene("Assets/Scenes/SampleScene.unity");
 
-            objetoTest.Start();
-            objetoTest.estado = new GameObject().AddComponent<AccionesNormal>();
+           // objetoTest.Start();
+            //objetoTest.estado = new GameObject().AddComponent<AccionesNormal>();
 
             objetoTest.caloriasAcumuladas = 100;
             objetoTest.dañoAcumulado = 60;
@@ -97,7 +97,7 @@ namespace Tests
             GameObject objetoInicializado = Object.Instantiate(prefabPlayer, new Vector2(0, 0), Quaternion.identity);
             PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
 
-            objetoTest.Start();
+            //objetoTest.Start();
             objetoTest.dañoAcumulado = 40;
             objetoTest.RestablecerACero();
             Assert.AreEqual(0, objetoTest.dañoAcumulado);
@@ -109,9 +109,9 @@ namespace Tests
             GameObject objetoInicializado = Object.Instantiate(prefabPlayer, new Vector2(0, 0), Quaternion.identity);
             PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
 
-            objetoTest.Start();
+            //objetoTest.Start();
             //objetoTest.CambiarAEstadoInvulnerable();
-            Assert.IsTrue(objetoTest.estado = objetoTest.GetComponent<AccionesInvulnerable>());
+            //Assert.IsTrue(objetoTest.estado = objetoTest.GetComponent<AccionesInvulnerable>());
         }
 
         
