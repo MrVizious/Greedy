@@ -185,8 +185,133 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5618266671276740630, guid: 1f82ceee458e4144f9b4251944a5c7de,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f82ceee458e4144f9b4251944a5c7de, type: 3}
+--- !u!1 &95815919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5618266671276740628, guid: 1f82ceee458e4144f9b4251944a5c7de,
+    type: 3}
+  m_PrefabInstance: {fileID: 95815918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &95815920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95815919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab49883d8b3c4d4cac1aee9f792b99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 10
+  elemento: trampa
+--- !u!114 &95815921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95815919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f61ed4dfae54e04ca1c1129fc981e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 8
+  elemento: guardian
+--- !u!114 &95815922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95815919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab49883d8b3c4d4cac1aee9f792b99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 3
+  elemento: zanahoria
+--- !u!114 &95815923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95815919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab49883d8b3c4d4cac1aee9f792b99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 3
+  elemento: pimiento
+--- !u!114 &95815924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95815919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab49883d8b3c4d4cac1aee9f792b99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 3
+  elemento: uva
+--- !u!114 &95815925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95815919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab49883d8b3c4d4cac1aee9f792b99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 3
+  elemento: fresa
 --- !u!1001 &218760608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2046,17 +2171,17 @@ PrefabInstance:
     - target: {fileID: 7305931380073816256, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f,
         type: 3}
       propertyPath: numeroGuardianes
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7305931380073816256, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f,
         type: 3}
       propertyPath: numeroTrampas
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7305931380073816256, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f,
         type: 3}
       propertyPath: numeroFrutas
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d5b1c4bcc6cfdc419877393eb0e6d8f, type: 3}

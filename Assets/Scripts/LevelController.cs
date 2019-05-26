@@ -31,7 +31,7 @@ public class LevelController : MonoBehaviour {
 
 		spawner = GameObject.Find("SpawnerElementos").GetComponent<SpawnerElementos>();
 		spawner.GenerarGuardianes(numeroGuardianes, "guardian");
-		spawner.GenerarGuardianes(numeroGuardianesRapidos, "guadianRapido");
+		spawner.GenerarGuardianes(numeroGuardianesRapidos, "guardianRapido");
 		foreach (string cons in consumibles) {
 			spawner.SpawnearElementos(numeroFrutas / 4, cons);
 		}
