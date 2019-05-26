@@ -13,12 +13,12 @@ public class MuteButtonScript : MonoBehaviour {
 		music
 	}
 
-	void Start() {
+	public void Start() {
 		gameManager = GameManager.getGameManager();
 		PrepareSounds();
 	}
 
-	void PrepareSounds() {
+	public void PrepareSounds() {
 		gameManager = GameManager.getGameManager();
 		if (typeOfSound == TypeOfSound.sounds) {
 			if (gameManager.getSoundsActive()) {
@@ -35,7 +35,7 @@ public class MuteButtonScript : MonoBehaviour {
 		}
 	}
 
-	void ChangeMuted() {
+	public void ChangeMuted() {
 		if (this.gameObject.GetComponent<Image>().sprite == mutedImage) {
 			this.gameObject.GetComponent<Image>().sprite = soundImage;
 		} else {

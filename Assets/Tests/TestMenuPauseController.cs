@@ -30,13 +30,13 @@ namespace Tests
             PauseMenuController objetoTest = objetoInicializado.GetComponent<PauseMenuController>();
             objetoTest.PauseGame();
             Assert.AreEqual(0f, Time.timeScale);
-            //Assert.IsTrue(objetoTest.PauseMenu.active);
-            //Assert.IsTrue(objetoTest.isPaused);
+            Assert.IsTrue(objetoTest.PauseMenu.active);
+            Assert.IsTrue(objetoTest.isPaused);
             objetoTest.ResumeGame();
             objetoTest.PauseGame();
             Assert.AreEqual(0f, Time.timeScale);
-           // Assert.IsTrue(objetoTest.PauseMenu.active);
-            //Assert.IsTrue(objetoTest.isPaused);
+            Assert.IsTrue(objetoTest.PauseMenu.active);
+            Assert.IsTrue(objetoTest.isPaused);
         }
 
         [Test]
@@ -47,13 +47,13 @@ namespace Tests
             PauseMenuController objetoTest = objetoInicializado.GetComponent<PauseMenuController>();
             objetoTest.ResumeGame();
             Assert.AreEqual(1f, Time.timeScale);
-           // Assert.IsFalse(objetoTest.PauseMenu.active);
-            //Assert.IsFalse(objetoTest.isPaused);
+            Assert.IsFalse(objetoTest.PauseMenu.active);
+            Assert.IsFalse(objetoTest.isPaused);
             objetoTest.PauseGame();
             objetoTest.ResumeGame();
             Assert.AreEqual(1f, Time.timeScale);
-            //Assert.IsFalse(objetoTest.PauseMenu.active);
-            //Assert.IsFalse(objetoTest.isPaused);
+            Assert.IsFalse(objetoTest.PauseMenu.active);
+            Assert.IsFalse(objetoTest.isPaused);
         }
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use

@@ -13,35 +13,35 @@ public class PlayerController : MonoBehaviour {
 	public int reduccionPorCalorias = 10;
 	public bool arriba, abajo, derecha, izquierda, move;
 	private Movimiento movimiento;
-	private Acciones estado;
+	public Acciones estado;
 	[SerializeField]
 	int duracionDefensa = 7;
 	private GameManager gameManager;
 
 	private SonidosController controladorSonido;
 
-    public RuntimeAnimatorController GreedyUp;
-    public RuntimeAnimatorController GreedyDown;
-    public RuntimeAnimatorController GreedyLeft;
-    public RuntimeAnimatorController GreedyRight;
+	public RuntimeAnimatorController GreedyUp;
+	public RuntimeAnimatorController GreedyDown;
+	public RuntimeAnimatorController GreedyLeft;
+	public RuntimeAnimatorController GreedyRight;
 
-    public RuntimeAnimatorController GreedyMorir;
-    public RuntimeAnimatorController GreedyGanar;
+	public RuntimeAnimatorController GreedyMorir;
+	public RuntimeAnimatorController GreedyGanar;
 
 
-    public RuntimeAnimatorController GreedyIddleUp;
-    public RuntimeAnimatorController GreedyIddleDown;
-    public RuntimeAnimatorController GreedyIddleLeft;
-    public RuntimeAnimatorController GreedyIddleRight;
+	public RuntimeAnimatorController GreedyIddleUp;
+	public RuntimeAnimatorController GreedyIddleDown;
+	public RuntimeAnimatorController GreedyIddleLeft;
+	public RuntimeAnimatorController GreedyIddleRight;
 
-    private Animator animacionActual;
+	public Animator animacionActual;
 
 	private Collider2D frutaCollider = null;
 
 	private bool powerUp;
 
 
-	void Start() {
+	public void Start() {
 		animacionActual = GetComponent<Animator>();
 		powerUp = false;
 		gameManager = GameManager.getGameManager();
@@ -116,6 +116,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Comer() {
+		Debug.Log("Comiendo... frutaCollider.tag es: " + frutaCollider.tag);
 		if (frutaCollider == null) return;
 		int caloriasConsumidas = frutaCollider.gameObject.GetComponent<Comestible>().Comer();
 		AumentarCalorias(caloriasConsumidas);
@@ -200,5 +201,4 @@ public class PlayerController : MonoBehaviour {
 	public bool GetPowerUp() {
 		return powerUp;
 	}
-
 }

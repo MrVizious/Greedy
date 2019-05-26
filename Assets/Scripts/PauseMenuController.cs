@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour {
+	[SerializeField]
+	public bool isPaused = false;
+	public GameObject PauseMenu;
 
-    private bool isPaused = false;
-    private GameObject PauseMenu;
+	private void Start() {
+		//PauseMenu = GetComponentInChildren<Canvas>().gameObject;
+	}
 
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
