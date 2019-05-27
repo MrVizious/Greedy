@@ -18,7 +18,6 @@ namespace Tests
             Timer objetoTest = objetoInicializado.GetComponent<Timer>();
             objetoTest.Start();
             Assert.AreEqual(1, objetoTest.GetComponent<Timer>().escaladaDeTiempoAlIniciar);
-            //Assert.IsInstanceOf(Text, objetoTest.myText);
             Assert.IsNotNull(objetoTest.myText);
             Assert.AreEqual(0, objetoTest.tiempoEnSegundos);
         }
@@ -103,16 +102,6 @@ namespace Tests
             Assert.IsFalse(objetoTest.estaPausado);
             Assert.AreEqual(1, objetoTest.escaladaDeTiempoAlIniciar);
             Assert.AreEqual(0, objetoTest.tiempoEnSegundos);
-        }
-
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
-        [UnityTest]
-        public IEnumerator TestTimerWithEnumeratorPasses()
-        {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-            yield return null;
         }
     }
 }
