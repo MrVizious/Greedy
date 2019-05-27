@@ -9,8 +9,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5618266671276740631}
-  - component: {fileID: 5618266671276740630}
   - component: {fileID: 8603601478804123214}
+  - component: {fileID: 95815920}
+  - component: {fileID: 95815921}
+  - component: {fileID: 6064370928293348180}
+  - component: {fileID: 95815922}
+  - component: {fileID: 95815923}
+  - component: {fileID: 95815924}
+  - component: {fileID: 95815925}
+  - component: {fileID: 95815927}
+  - component: {fileID: 95815930}
+  - component: {fileID: 95815931}
   m_Layer: 0
   m_Name: SpawnerElementos
   m_TagString: Untagged
@@ -32,23 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5618266671276740630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5618266671276740628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a940aae0c1f00ff40aff7fcc417f9d88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minX: -9
-  minY: -7
-  maxX: 9
-  maxY: 7
-  radioBusqueda: 0.3
 --- !u!114 &8603601478804123214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,3 +73,193 @@ MonoBehaviour:
     type: 3}
   prefabTrampa: {fileID: 908465592031903634, guid: 3c5e202b56b370a41a5c89222e2d32dc,
     type: 3}
+--- !u!114 &95815920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab49883d8b3c4d4cac1aee9f792b99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 10
+  elemento: trampa
+--- !u!114 &95815921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f61ed4dfae54e04ca1c1129fc981e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 8
+  elemento: guardian
+--- !u!114 &6064370928293348180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f61ed4dfae54e04ca1c1129fc981e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 0
+  elemento: guardianRapido
+--- !u!114 &95815922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab49883d8b3c4d4cac1aee9f792b99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 3
+  elemento: zanahoria
+--- !u!114 &95815923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab49883d8b3c4d4cac1aee9f792b99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 3
+  elemento: pimiento
+--- !u!114 &95815924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab49883d8b3c4d4cac1aee9f792b99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 3
+  elemento: uva
+--- !u!114 &95815925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab49883d8b3c4d4cac1aee9f792b99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 3
+  elemento: fresa
+--- !u!114 &95815927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9e05a9ada3bd748ae69c9adffaeb61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 1
+  elemento: corazon
+--- !u!114 &95815930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9e05a9ada3bd748ae69c9adffaeb61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 1
+  elemento: defensa
+--- !u!114 &95815931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618266671276740628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9e05a9ada3bd748ae69c9adffaeb61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -9
+  minY: -7
+  maxX: 9
+  maxY: 7
+  radioBusqueda: 0.3
+  numeroElementos: 1
+  elemento: capsula

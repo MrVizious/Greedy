@@ -219,16 +219,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 264
       objectReference: {fileID: 0}
-    - target: {fileID: 878479360681355035, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
-        type: 3}
-      propertyPath: audioPlayer
-      value: 
-      objectReference: {fileID: 954273450}
     - target: {fileID: 1936543022353043308, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
         type: 3}
       propertyPath: audioPlayer
       value: 
       objectReference: {fileID: 1462937064}
+    - target: {fileID: 878479360681355035, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
+        type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 954273450}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5, type: 3}
 --- !u!1001 &33655250
@@ -13081,9 +13081,6 @@ MonoBehaviour:
   numeroVidas: 3
   sonidoPerderVida: {fileID: 0}
   minVidas: 0
-  maxVidas: 3
-  soundsActive: 1
-  musicActive: 1
 --- !u!4 &1739315357
 Transform:
   m_ObjectHideFlags: 0
@@ -13243,6 +13240,19 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 95815920, guid: 1f82ceee458e4144f9b4251944a5c7de, type: 3}
+      propertyPath: numeroElementos
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 95815921, guid: 1f82ceee458e4144f9b4251944a5c7de, type: 3}
+      propertyPath: numeroElementos
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064370928293348180, guid: 1f82ceee458e4144f9b4251944a5c7de,
+        type: 3}
+      propertyPath: numeroElementos
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f82ceee458e4144f9b4251944a5c7de, type: 3}

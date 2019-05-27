@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjetosSpawner : MonoBehaviour
+public class ObjetosSpawner : Spawner
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField]
+    string elemento;
+
+    public override void ObtenerElemento()
     {
-        
+        prefab = fabrica.GetConsumible(elemento);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Start()
     {
-        
+        Invoke("GenerarElementos", Random.Range(0, 60));
     }
 }

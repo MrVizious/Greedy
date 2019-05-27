@@ -6,6 +6,7 @@ public class FijosSpawner : Spawner
 {
     [SerializeField]
     string elemento;
+
     public override void ObtenerElemento()
     {
         prefab = fabrica.GetConsumible(elemento);

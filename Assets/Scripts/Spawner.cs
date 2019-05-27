@@ -29,12 +29,12 @@ public abstract class Spawner : MonoBehaviour
         fabrica = GetComponent<FabricaConsumibles>();
     }
 
-    void Start()
+    public virtual void Start()
     {
-        GenerarElementos(numeroElementos);
+        GenerarElementos();
     }
 
-    void GenerarElementos(int numeroElementos)
+    void GenerarElementos()
     {
         ObtenerPosicionParent();
         ObtenerElemento();

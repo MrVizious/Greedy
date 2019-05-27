@@ -6,6 +6,7 @@ public class GuardianSpawner : Spawner
 {
     [SerializeField]
     string elemento;
+
     public override void ObtenerElemento()
     {
         prefab = fabrica.GetConsumible(elemento);

@@ -1903,6 +1903,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95815920, guid: 1f82ceee458e4144f9b4251944a5c7de, type: 3}
+      propertyPath: numeroElementos
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 95815921, guid: 1f82ceee458e4144f9b4251944a5c7de, type: 3}
+      propertyPath: numeroElementos
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f82ceee458e4144f9b4251944a5c7de, type: 3}
 --- !u!1001 &218760608
@@ -2262,6 +2270,17 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1588867687}
+    - target: {fileID: 1203433941, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e577b234a56d396448e84faa1386b006,
+        type: 3}
+    - target: {fileID: 2163799954976744540, guid: ff8f20295515e2441b741a288e8738f1,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e577b234a56d396448e84faa1386b006,
+        type: 3}
     - target: {fileID: 2163799954976744542, guid: ff8f20295515e2441b741a288e8738f1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2314,17 +2333,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -287
       objectReference: {fileID: 0}
-    - target: {fileID: 1203433941, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: e577b234a56d396448e84faa1386b006,
-        type: 3}
-    - target: {fileID: 2163799954976744540, guid: ff8f20295515e2441b741a288e8738f1,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: e577b234a56d396448e84faa1386b006,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff8f20295515e2441b741a288e8738f1, type: 3}
 --- !u!1001 &1725462183
@@ -2569,11 +2577,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 878479360681355035, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
-        type: 3}
-      propertyPath: audioPlayer
-      value: 
-      objectReference: {fileID: 241262804}
     - target: {fileID: 1936543022353043308, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
         type: 3}
       propertyPath: audioPlayer
@@ -2594,6 +2597,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeMuted
       objectReference: {fileID: 0}
+    - target: {fileID: 878479360681355035, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5,
+        type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 241262804}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94aed0d10fc0cbe4cabd6a103dd6cbf5, type: 3}
 --- !u!114 &1982276890 stripped

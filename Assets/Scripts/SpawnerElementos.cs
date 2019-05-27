@@ -29,9 +29,9 @@ public class SpawnerElementos : MonoBehaviour {
 			radioBusqueda = 0.3f;
 		}
 
-        StartCoroutine(SpawnearElemento("corazon"));
-        StartCoroutine(SpawnearElemento("capsula"));
-        StartCoroutine(SpawnearElemento("defensa"));
+        //StartCoroutine(SpawnearElemento("corazon"));
+        //StartCoroutine(SpawnearElemento("capsula"));
+        //StartCoroutine(SpawnearElemento("defensa"));
     }
 
 	/// <summary>

@@ -1,23 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-//[RequireComponent(typeof(GameManager))]
 public class LevelController : MonoBehaviour {
-	// Start is called before the first frame update
-	[SerializeField]
-	int numeroFrutas;
-	[SerializeField]
-	int numeroTrampas;
-	[SerializeField]
-	int numeroGuardianes;
-	[SerializeField]
-	int numeroGuardianesRapidos;
 
+	int numeroFrutas;
 	public GameObject[] frutas;
-	public GameObject gameController;
 	public GameManager gameManager;
-	SpawnerElementos spawner;
-	string[] consumibles = { "fresa", "uva", "pimiento", "zanahoria" };
 
 	private MusicaController controladorMusica;
 	PlayerController player;
@@ -28,17 +16,8 @@ public class LevelController : MonoBehaviour {
 
 		controladorMusica = GameObject.Find("AudioNivel").GetComponent<MusicaController>();
 		player = GameObject.Find("Player").GetComponent<PlayerController>();
-
-		spawner = GameObject.Find("SpawnerElementos").GetComponent<SpawnerElementos>();
-		spawner.GenerarGuardianes(numeroGuardianes, "guardian");
-		spawner.GenerarGuardianes(numeroGuardianesRapidos, "guardianRapido");
-		foreach (string cons in consumibles) {
-			spawner.SpawnearElementos(numeroFrutas / 4, cons);
-		}
-		spawner.SpawnearElementos(numeroTrampas, "trampa");
 	}
 
-	// Update is called once per frame
 	void Update() {
 		frutas = GameObject.FindGameObjectsWithTag("fruta");
 		numeroFrutas = frutas.Length;
