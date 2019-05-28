@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public abstract class Acciones : MonoBehaviour {
 
-    GameManager gameManager;
+    protected GameManager gameManager;
 
     void Start() {
         gameManager = GameManager.getGameManager();

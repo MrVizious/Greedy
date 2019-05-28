@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Interfaz : MonoBehaviour {
     public PlayerController statsPlayer;
-    public GameObject gameController;
     private GameManager gameManager;
 
     private int numeroVidas, maxVidas = 3;
@@ -23,7 +22,6 @@ public class Interfaz : MonoBehaviour {
         imagenDefensa = GameObject.Find("Defensa");
         gameManager = GameManager.getGameManager();
         statsPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        gameController = GameObject.Find("GameController");
         textoCalorias = this.transform.Find("Calorias").GetComponent<Text>();
         textoDefensa = this.transform.Find("Defensa").GetComponent<Text>();
     }
