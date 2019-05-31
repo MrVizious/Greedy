@@ -6,6 +6,7 @@ public class MusicaController : MonoBehaviour {
 	[SerializeField]
 	AudioClip gameOver, ganar;
 	AudioSource audioSonidos;
+
 	void Start() {
 		audioSonidos = GetComponent<AudioSource>();
 	}

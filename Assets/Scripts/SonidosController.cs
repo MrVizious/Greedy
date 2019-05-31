@@ -7,7 +7,7 @@ public class SonidosController : MonoBehaviour
     [SerializeField]
     AudioClip mover, comer, perderVida, ganarVida, limite;
     AudioSource audioSonidos;
-    void Start()
+    public void Start()
     {
         audioSonidos = GetComponent<AudioSource>();
     }
@@ -38,5 +38,30 @@ public class SonidosController : MonoBehaviour
     {
         audioSonidos.clip = limite;
         audioSonidos.Play();
+    }
+
+    public AudioClip getMover()
+    {
+        return mover;
+    }
+
+    public AudioClip getComer()
+    {
+        return comer;
+    }
+
+    public AudioClip getPerderVida()
+    {
+        return perderVida;
+    }
+
+    public AudioClip getGanarVida()
+    {
+        return ganarVida;
+    }
+
+    public AudioClip getLimite()
+    {
+        return limite;
     }
 }

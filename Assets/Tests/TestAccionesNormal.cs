@@ -19,6 +19,7 @@ namespace Tests
             PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
 
             objetoTest.Start();
+
             Assert.AreEqual(0, objetoTest.dañoAcumulado);
             objetoTest.RecibirDaño(30);
             Assert.AreEqual(30, objetoTest.dañoAcumulado);
@@ -59,36 +60,13 @@ namespace Tests
 
             objetoTest.Start();
 
-            objetoTest.caloriasAcumuladas = 100;
-            Assert.AreEqual(100, objetoTest.caloriasAcumuladas);
+            objetoTest.caloriasTotal = 100;
+            Assert.AreEqual(100, objetoTest.caloriasTotal);
 
             objetoTest.AumentarCalorias(50);
 
-            Assert.AreEqual(150, objetoTest.caloriasAcumuladas);
+            Assert.AreEqual(150, objetoTest.caloriasTotal);
 
-        }
-
-        [Test]
-        public void MorirTest()
-        {
-            EditorSceneManager.OpenScene("Assets/Scenes/SampleScene.unity");
-            prefabPlayer = (GameObject)Resources.Load("Tests/Player");
-            GameObject objetoInicializado = Object.Instantiate(prefabPlayer, new Vector2(0, 0), Quaternion.identity);
-            PlayerController objetoTest = objetoInicializado.GetComponent<PlayerController>();
-            //EditorSceneManager.OpenScene("Assets/Scenes/SampleScene.unity");
-
-            objetoTest.Start();
-            objetoTest.estado = new GameObject().AddComponent<AccionesNormal>();
-
-            objetoTest.caloriasAcumuladas = 100;
-            objetoTest.dañoAcumulado = 60;
-
-            objetoTest.Morir();
-            //objetoTest.Start();
-
-            Assert.IsNull(objetoTest);
-            //Assert.AreEqual(0, objetoTest.caloriasAcumuladas);
-            
         }
 
         [Test]
