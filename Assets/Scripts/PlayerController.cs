@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour {
 	public void Start() {
 		powerUp = false;
 		gameManager = GameManager.getGameManager();
-		movimiento = GetComponent<Movimiento>();
 		dañoAcumulado = 0;
 		caloriasAcumuladas = 0;
 		

@@ -9,7 +9,7 @@ namespace Tests
 {
     public class TestTimer
     {
-        private GameObject prefabTimer;
+     /* private GameObject prefabTimer;
         [Test]
         public void StartTest()
         {
@@ -102,6 +102,6 @@ namespace Tests
             Assert.IsFalse(objetoTest.estaPausado);
             Assert.AreEqual(1, objetoTest.escaladaDeTiempoAlIniciar);
             Assert.AreEqual(0, objetoTest.tiempoEnSegundos);
-        }
-    }
+        }     */
+    }     
 }
