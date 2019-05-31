@@ -11,18 +11,105 @@ public class Movimiento : MonoBehaviour {
 	public Vector3 posicionObjetivo;
 	public Vector3 direccion;
 	public int capasDeColision;
+    public bool arriba, abajo, derecha, izquierda;
+    public PlayerController player;
+    private SonidosController controladorSonido;
+    public Animator animacionActual;
 
-	public PlayerController player;
+    public RuntimeAnimatorController GreedyUp;
+    public RuntimeAnimatorController GreedyDown;
+    public RuntimeAnimatorController GreedyLeft;
+    public RuntimeAnimatorController GreedyRight;
 
-	public void Start() {
+    public RuntimeAnimatorController GreedyIddleUp;
+    public RuntimeAnimatorController GreedyIddleDown;
+    public RuntimeAnimatorController GreedyIddleLeft;
+    public RuntimeAnimatorController GreedyIddleRight;
 
-		player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+    public void Start() {
+        animacionActual = GetComponent<Animator>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
 		capasDeColision = 1 << LayerMask.NameToLayer("obstaculo");
 		posicionObjetivo = transform.position;
-
-		if (runSpeed == 0f) runSpeed = 5f;
+        arriba = abajo = derecha = izquierda = false;
+        if (runSpeed == 0f) runSpeed = 5f;
 		if (anguloRaycast == 0) anguloRaycast = 0.35f;
-	}
+        controladorSonido = GameObject.Find("AudioSonidos").GetComponent<SonidosController>();
+    }
+
+    void Update()
+    {
+        if (arriba)
+        {
+            direccion = Vector2.up;
+            animacionActual.runtimeAnimatorController = GreedyUp;
+            SetRumbo(direccion);
+            if (ChocaConLimite(direccion))
+            {
+                controladorSonido.ActivarSonidoLimites();
+            }
+            else controladorSonido.ActivarSonidoMover();
+        }
+        else if (abajo)
+        {
+            direccion = Vector2.down;
+            animacionActual.runtimeAnimatorController = GreedyDown;
+            SetRumbo(direccion);
+            if (ChocaConLimite(direccion))
+            {
+                controladorSonido.ActivarSonidoLimites();
+            }
+            else controladorSonido.ActivarSonidoMover();
+        }
+        else if (derecha)
+        {
+            direccion = Vector2.right;
+            animacionActual.runtimeAnimatorController = GreedyRight;
+            SetRumbo(direccion);
+            if (ChocaConLimite(direccion))
+            {
+                controladorSonido.ActivarSonidoLimites();
+            }
+            else controladorSonido.ActivarSonidoMover();
+        }
+        else if (izquierda)
+        {
+            direccion = Vector2.left;
+            animacionActual.runtimeAnimatorController = GreedyLeft;
+            SetRumbo(direccion);
+            if (ChocaConLimite(direccion))
+            {
+                controladorSonido.ActivarSonidoLimites();
+            }
+            else controladorSonido.ActivarSonidoMover();
+        }
+
+        if (EstaEnObjetivo())
+        {
+            if (animacionActual.runtimeAnimatorController == GreedyUp)
+            {
+                animacionActual.runtimeAnimatorController = GreedyIddleUp;
+            }
+            else if (animacionActual.runtimeAnimatorController == GreedyDown)
+            {
+                animacionActual.runtimeAnimatorController = GreedyIddleDown;
+            }
+            else if (animacionActual.runtimeAnimatorController == GreedyRight)
+            {
+                animacionActual.runtimeAnimatorController = GreedyIddleRight;
+            }
+            else if (animacionActual.runtimeAnimatorController == GreedyLeft)
+            {
+                animacionActual.runtimeAnimatorController = GreedyIddleLeft;
+            }
+        }
+
+        arriba = false;
+        abajo = false;
+        derecha = false;
+        izquierda = false;
+    }
 
 	public void FixedUpdate() {
 		Move();
@@ -36,15 +123,15 @@ public class Movimiento : MonoBehaviour {
 
 
 	void IddleAnimation() {
-		if (player.arriba) {
-			player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyIddleUp;
+		if (arriba) {
+			player.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleUp;
 		}
-		if (player.abajo) {
-			player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyIddleDown;
-		} else if (player.derecha) {
-			player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyIddleRight;
-		} else if (player.izquierda) {
-			player.GetComponent<Animator>().runtimeAnimatorController = player.GreedyIddleLeft;
+		if (abajo) {
+			player.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
+		} else if (derecha) {
+			player.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleRight;
+		} else if (izquierda) {
+			player.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleLeft;
 		}
 	}
 
@@ -92,7 +179,7 @@ public class Movimiento : MonoBehaviour {
 	/// Comprueba que en la dirección en la que se quiere mover no haya ningún obstáculo, y si es así, cambia el rumbo a esa casilla
 	/// </summary>
 	/// <param name="direccion">Vector2.up, down, right o left</param>
-	public void SetRumbo(Vector2 direccion) {
+	public void SetRumbo(Vector2 direccion){
 		if (Vector2.Distance(transform.position, posicionObjetivo) <= 0.1 && PuedeAvanzar(direccion)) {
 			//TODO: Comprobar que está a poca distancia de su goal para poder meter otro input
 			posicionObjetivo = new Vector2(Mathf.Round(transform.position.x + direccion.x),
@@ -103,4 +190,21 @@ public class Movimiento : MonoBehaviour {
 	public bool EstaEnObjetivo() {
 		return Vector2.Distance(transform.position, posicionObjetivo) <= 0.05f;
 	}
+
+    public void SetIzquierdaTrue()
+    {
+        izquierda = true;
+    }
+    public void SetDerechaTrue()
+    {
+        derecha = true;
+    }
+    public void SetArribaTrue()
+    {
+        arriba = true;
+    }
+    public void SetAbajoTrue()
+    {
+        abajo = true;
+    }
 }

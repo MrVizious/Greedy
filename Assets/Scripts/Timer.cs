@@ -7,14 +7,11 @@ public class Timer : MonoBehaviour
 {
     public int tiempoInicial;
     public float aumentarTiempo = 1f;
-
     public Text myText;
     public float tiempoFrame = 0f;
     public float tiempoEnSegundos = 0f;
-
     public float escaladaDeTiempoAlPausar, escaladaDeTiempoAlIniciar;
     public bool estaPausado = false;
-
     public int minutos, segundos;
     public string textoDelReloj;
     // Start is called before the first frame update
@@ -31,7 +28,6 @@ public class Timer : MonoBehaviour
 
         ActualizarReloj(tiempoInicial);
     }
-
     // Update is called once per frame
     public void Update()
     {
@@ -46,7 +42,6 @@ public class Timer : MonoBehaviour
             ActualizarReloj(tiempoEnSegundos);
         }
     }
-
     public void ActualizarReloj(float tiempoEnSegundos)
     {
         minutos = 0;
@@ -63,7 +58,6 @@ public class Timer : MonoBehaviour
         textoDelReloj = minutos.ToString("00") + ":" + segundos.ToString("00");
         myText.text = textoDelReloj;
     }
-
     public void Pausar()
     {
         if (!estaPausado)
@@ -73,7 +67,6 @@ public class Timer : MonoBehaviour
             aumentarTiempo = 0;
         }
     }
-
     public void Continuar()
     {
         if (estaPausado)
@@ -82,7 +75,6 @@ public class Timer : MonoBehaviour
             aumentarTiempo = escaladaDeTiempoAlPausar;
         }
     }
-
     public void ResetTimer()
     {
         estaPausado = false;

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputController : MonoBehaviour {
-	public PlayerController playerController;
+    [SerializeField]
+	PlayerController playerController;
+    Movimiento movimientoController;
 
 	void Start() {
-
+        movimientoController = GetComponent<Movimiento>();
 	}
 
 	void Update() {
@@ -15,13 +17,13 @@ public class InputController : MonoBehaviour {
 
 	void GetInput() {
 		if (Input.GetKeyDown(KeyCode.A)) {
-			playerController.SetIzquierdaTrue();
+            movimientoController.SetIzquierdaTrue();
 		} else if (Input.GetKeyDown(KeyCode.D)) {
-			playerController.SetDerechaTrue();
+            movimientoController.SetDerechaTrue();
 		} else if (Input.GetKeyDown(KeyCode.W)) {
-			playerController.SetArribaTrue();
+            movimientoController.SetArribaTrue();
 		} else if (Input.GetKeyDown(KeyCode.S)) {
-			playerController.SetAbajoTrue();
+            movimientoController.SetAbajoTrue();
 		}
 
 
