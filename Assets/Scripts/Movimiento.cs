@@ -122,20 +122,6 @@ public class Movimiento : MonoBehaviour {
 	}
 
 
-	void IddleAnimation() {
-		if (arriba) {
-			player.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleUp;
-		}
-		if (abajo) {
-			player.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleDown;
-		} else if (derecha) {
-			player.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleRight;
-		} else if (izquierda) {
-			player.GetComponent<Animator>().runtimeAnimatorController = GreedyIddleLeft;
-		}
-	}
-
-
 	/// <summary>
 	/// Este método se encarga de comprobar con 3 raycasts que se pueda avanzar en una determinada dirección
 	/// </summary>
