@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public abstract class Acciones : MonoBehaviour {
+public abstract class Estado : MonoBehaviour {
 
     protected GameManager gameManager;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AccionesNormal : Acciones {
+public class EstadoNormal : Estado {
 
 	public override void FinalizarEstado(PlayerController player) {}
 }

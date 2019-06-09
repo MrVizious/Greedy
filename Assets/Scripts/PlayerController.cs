@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	public int caloriasParaReducir = 100;
 	public int reduccionPorCalorias = 10;
 	
-	public Acciones estado;
+	public Estado estado;
 	[SerializeField]
 	int duracionDefensa = 7;
 	private GameManager gameManager;
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 		dañoAcumulado = 0;
 		caloriasAcumuladas = 0;
 		
-		estado = gameObject.AddComponent<AccionesNormal>();
+		estado = gameObject.AddComponent<EstadoNormal>();
 		controladorSonido = GameObject.Find("AudioSonidos").GetComponent<SonidosController>();
 	}
 
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 	private void CambiarAEstadoNormal() {
 		FinalizarEstado();
 		Destroy(estado);
-		estado = gameObject.AddComponent<AccionesNormal>();
+		estado = gameObject.AddComponent<EstadoNormal>();
 	}
 
 	private void OnTriggerStay2D(Collider2D colisionador) {
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour {
 		powerUp = false;
 		CancelInvoke("CambiarAEstadoNormal");
 		Destroy(estado);
-		estado = gameObject.AddComponent<AccionesInvulnerable>();
+		estado = gameObject.AddComponent<EstadoInvulnerable>();
 		Invoke("CambiarAEstadoNormal", duracionDefensa);
 	}
 

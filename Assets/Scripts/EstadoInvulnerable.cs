@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AccionesInvulnerable : Acciones {
+public class EstadoInvulnerable : Estado {
 
 	[Range(0f, 1000f)]
 	float velocidadDeParpadeo = 400f;
