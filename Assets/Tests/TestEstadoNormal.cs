@@ -8,7 +8,7 @@ using UnityEngine.TestTools;
 
 namespace Tests
 {
-    public class TestAccionesNormal
+    public class TestEstadoNormal
     {
         private GameObject prefabPlayer;
 
